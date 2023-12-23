@@ -1,5 +1,5 @@
 {
-    "name": "ezsystems/ezfind-ls",
+    "name": "se7enxweb/ezfind-ls",
     "description": "eZ Find is a search extension for eZ Publish legacy, providing more functionality and better results than the default search in eZ Publish.",
     "type": "ezpublish-legacy-extension",
     "license": "GPL-2.0",
