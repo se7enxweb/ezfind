@@ -1,8 +1,8 @@
 {
-    "name": "se7enxweb/ezfind-ls",
+    "name": "se7enxweb/ezfind",
     "description": "eZ Find is a search extension for eZ Publish legacy, providing more functionality and better results than the default search in eZ Publish.",
     "type": "ezpublish-legacy-extension",
-    "license": "GPL-2.0",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "eZ Publish dev-team & eZ Community",
@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "require": {
         "ezsystems/ezpublish-legacy-installer": "*",
-        "ezsystems/ezpublish-legacy": ">=2017.10"
+        "se7enxweb/ezpublish": ">=v6.0.0"
     },
     "extra": {
         "ezpublish-legacy-extension-name": "ezfind"
