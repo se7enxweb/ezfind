@@ -882,7 +882,7 @@ class eZSolr implements ezpSearchEngine
      * @param array $languages (of strings) in which the content will be removed. null will remove all translations
      * @return bool True if the operation succeed.
      */
-    public function removeObjectById( $contentObjectId, $commit = null, $commitWithin = 0, array $languages = null )
+    public function removeObjectById( $contentObjectId, $commit = null, $commitWithin = 0, ?array $languages = null )
     {
         /*
          * @since eZFind 2.2: allow delayed commits if explicitely set as configuration setting and

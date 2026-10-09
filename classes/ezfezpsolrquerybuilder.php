@@ -597,7 +597,7 @@ class ezfeZPSolrQueryBuilder
      *
      * @return array containing the boost expressions for the various request handler boost parameters
      */
-    protected function buildBoostFunctions( $boostFunctions = null, &$handlerParameters )
+    protected function buildBoostFunctions( $boostFunctions, &$handlerParameters )
     {
         if ( $boostFunctions == null )
             return array();
