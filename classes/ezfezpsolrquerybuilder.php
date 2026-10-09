@@ -14,9 +14,20 @@ class ezfeZPSolrQueryBuilder
      * @param Object $searchPluginInstance Search engine instance. Allows the query builder to
      *        communicate with the caller ( eZSolr instance ).
      */
-    function ezfeZPSolrQueryBuilder( $searchPluginInstance )
+    function __construct( $searchPluginInstance )
     {
         $this->searchPluginInstance = $searchPluginInstance;
+    }
+
+    /**
+     * The constructor under its old name, which PHP 8 no longer calls on "new"; kept for code that calls it.
+     *
+     * @deprecated Use the constructor
+     * @param Object $searchPluginInstance
+     */
+    function ezfeZPSolrQueryBuilder( $searchPluginInstance )
+    {
+        $this->__construct( $searchPluginInstance );
     }
 
     /**
@@ -1726,7 +1737,14 @@ class ezfeZPSolrQueryBuilder
                         }
                         else
                         {
-                            eZDebug::writeDebug( $limitationType, __METHOD__ . ' unknown limitation type: ' . $limitationType );
+                            $extensionFilter = $this->extensionLimitationFilterQuery( $limitationType, $limitationValues );
+                            if ( $extensionFilter === null )
+                            {
+                                eZDebug::writeDebug( $limitationType, __METHOD__ . ' unknown limitation type: ' . $limitationType );
+                                continue 2;
+                            }
+                            // ANDed with the other limitations of the policy, as a part of its own
+                            $filterQueryPolicyLimitations[] = $extensionFilter;
                             continue 2;
                         }
                     }
@@ -1780,6 +1798,43 @@ class ezfeZPSolrQueryBuilder
         eZDebugSetting::writeDebug( 'extension-ezfind-query', $filterQuery, __METHOD__ );
 
         return $filterQuery;
+    }
+
+    /**
+     * Returns the filter of a policy limitation that an extension defines (a limitation handler registered in
+     * site.ini [RoleSettings] LimitationHandlers[]), asked of the kernel's ezpContentLimitation::solrFilter().
+     *
+     * The filter is ANDed with the other limitations of the policy. It never widens a search: when the kernel gives
+     * no filter, or something that is not one, the filter matches no document (self::DENY_FILTER), so the policy
+     * gives no access in searches.
+     *
+     * Null when the kernel has no solrFilter() (an Exponential kernel before 6.0.15, or another kernel) and for a
+     * limitation the kernel evaluates itself that eZ Find does not translate: the limitation is then left out of
+     * the policy, as before.
+     *
+     * @param string $limitationType
+     * @param array $limitationValues
+     * @return string|null
+     */
+    protected function extensionLimitationFilterQuery( $limitationType, $limitationValues )
+    {
+        $class = $this->contentLimitationClass;
+        if ( !is_string( $class ) || !class_exists( $class ) || !method_exists( $class, 'solrFilter' ) )
+        {
+            return null;
+        }
+        if ( method_exists( $class, 'isKernelLimitation' ) && call_user_func( array( $class, 'isKernelLimitation' ), $limitationType ) )
+        {
+            return null;
+        }
+
+        $filter = call_user_func( array( $class, 'solrFilter' ), $limitationType, is_array( $limitationValues ) ? $limitationValues : array( $limitationValues ) );
+        if ( !is_string( $filter ) || !preg_match( '/^\(.*\)$/s', trim( $filter ) ) )
+        {
+            eZDebug::writeWarning( "The kernel gave no search filter for the limitation $limitationType; the policy gives no access in searches", __METHOD__ );
+            return self::DENY_FILTER;
+        }
+        return trim( $filter );
     }
 
     /**
@@ -1932,6 +1987,20 @@ class ezfeZPSolrQueryBuilder
      * @see ezfeZPSolrQueryBuilder::ezfeZPSolrQueryBuilder
      */
     protected $searchPluginInstance;
+
+    /**
+     * The kernel class asked for the search filters of the policy limitations extensions define
+     *
+     * @var string
+     * @see ezfeZPSolrQueryBuilder::extensionLimitationFilterQuery()
+     */
+    protected $contentLimitationClass = 'ezpContentLimitation';
+
+    /**
+     * A filter query that matches no document: the filter of a policy limitation that gives no access in searches
+     * (the same as the kernel's ezpContentLimitation::DENY_SOLR)
+     */
+    const DENY_FILTER = '( *:* -*:* )';
 
     /**
      * Storing the default boolean operator used in building the 'fq' parameter
