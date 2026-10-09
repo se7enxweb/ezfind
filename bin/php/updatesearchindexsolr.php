@@ -61,12 +61,25 @@ class ezfUpdateSearchIndexSolr
      * @param eZCLI $cli
      * @param string $executedScript
      */
-    function ezfUpdateSearchIndexSolr( eZScript $script, eZCLI $cli, $executedScript )
+    function __construct( eZScript $script, eZCLI $cli, $executedScript )
     {
         $this->Script = $script;
         $this->CLI = $cli;
         $this->Options = null;
         $this->executedScript = $executedScript;
+    }
+
+    /**
+     * The constructor under its old name, which PHP 8 no longer calls on "new"; kept for code that calls it.
+     *
+     * @deprecated Use the constructor
+     * @param eZScript $script
+     * @param eZCLI $cli
+     * @param string $executedScript
+     */
+    function ezfUpdateSearchIndexSolr( eZScript $script, eZCLI $cli, $executedScript )
+    {
+        $this->__construct( $script, $cli, $executedScript );
     }
 
     /**

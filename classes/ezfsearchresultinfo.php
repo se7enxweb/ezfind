@@ -24,9 +24,20 @@ class ezfSearchResultInfo
      *           'Engine' => 'engine name',
      *           ... )
      */
-    function ezfSearchResultInfo( array $resultArray )
+    function __construct( array $resultArray )
     {
         $this->ResultArray = $resultArray;
+    }
+
+    /**
+     * The constructor under its old name, which PHP 8 no longer calls on "new"; kept for code that calls it.
+     *
+     * @deprecated Use the constructor
+     * @param array $resultArray
+     */
+    function ezfSearchResultInfo( array $resultArray )
+    {
+        $this->__construct( $resultArray );
     }
 
     /**

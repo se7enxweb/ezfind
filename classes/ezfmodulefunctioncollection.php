@@ -14,8 +14,18 @@ class ezfModuleFunctionCollection
     /**
      * Constructor
      */
+    function __construct()
+    {
+    }
+
+    /**
+     * The constructor under its old name, which PHP 8 no longer calls on "new"; kept for code that calls it.
+     *
+     * @deprecated Use the constructor
+     */
     function ezfModuleFunctionCollection()
     {
+        $this->__construct();
     }
 
     /**

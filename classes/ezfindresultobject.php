@@ -10,8 +10,10 @@ class eZFindResultObject extends eZContentObject
     /*!
      \reimp
     */
-    function eZFindResultObject( $rows = array() )
+    function __construct( $rows = array() )
     {
+        // eZContentObject::__construct() is not called, as it never was: a result object has only its local
+        // attributes, and the rows of a search result are no rows of the ezcontentobject table
         $this->LocalAttributeValueList = array();
         $this->LocalAttributeNameList = array( 'published' );
 
@@ -19,6 +21,17 @@ class eZFindResultObject extends eZContentObject
         {
             $this->setAttribute( $name, $value );
         }
+    }
+
+    /**
+     * The constructor under its old name, which PHP 8 no longer calls on "new"; kept for code that calls it.
+     *
+     * @deprecated Use the constructor
+     * @param array $rows
+     */
+    function eZFindResultObject( $rows = array() )
+    {
+        $this->__construct( $rows );
     }
 
     /*!

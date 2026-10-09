@@ -10,7 +10,7 @@ class eZFindResultNode extends eZContentObjectTreeNode
     /*!
      \reimp
     */
-    function eZFindResultNode( $rows = array() )
+    function __construct( $rows = array() )
     {
         parent::__construct( $rows );
         if ( isset( $rows['id'] ) )
@@ -27,6 +27,17 @@ class eZFindResultNode extends eZContentObjectTreeNode
                                                'score_percent',
                                                'elevated'
                 );
+    }
+
+    /**
+     * The constructor under its old name, which PHP 8 no longer calls on "new"; kept for code that calls it.
+     *
+     * @deprecated Use the constructor
+     * @param array $rows
+     */
+    function eZFindResultNode( $rows = array() )
+    {
+        $this->__construct( $rows );
     }
 
     /*!
