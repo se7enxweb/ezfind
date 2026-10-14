@@ -592,6 +592,9 @@ class ezfeZPSolrQueryBuilder
      * Boost Functions support.
      * "Allows one to use the actual value of a numeric field and functions of those fields in a relevancy score."
      *
+     * The fields and functions are passed to Solr as they are given (BoostFunctions, like QueryBoost
+     * RawBoostQueries of ezfind.ini). They must come from code or settings, never from request input.
+     *
      * @see http://wiki.apache.org/solr/FunctionQuery
      * @param array $boostFunctions Example :
      * <code>
@@ -995,6 +998,10 @@ class ezfeZPSolrQueryBuilder
     /**
      * Build filter query from search filter parameter.
      *
+     * The values of Filter are written into the filter query as they are given (field names are mapped, values
+     * are not quoted or checked), so a value may carry any query syntax. They must come from code or settings,
+     * never from request input; a value a visitor chooses has to be checked or escaped by the caller first.
+     *
      * @deprecated api is way too limited now
      * @todo for eZ Find 2.0: rework this for recursive boolean combinations and a few more filter types, the possible combinations are almost infinite for pure Solr syntax
      * @param array Parameter list array.
@@ -1121,6 +1128,9 @@ class ezfeZPSolrQueryBuilder
     /**
      * Build facet parameter list. This function extracts the facet parameter from
      * the ezfeZPSolrQueryBuilder::search( ...,$params parameter.
+     *
+     * A facet's 'query' (facet.query), like its field, prefix and the other facet values, is passed to Solr as it
+     * is given. It must come from code or settings, never from request input.
      *
      * @todo specify dedicated facet fields (may be mapped to sort fields)
      *
