@@ -994,6 +994,7 @@ class ezfeZPSolrQueryBuilder
 
     /**
      * Build filter query from search filter parameter.
+     *
      * @deprecated api is way too limited now
      * @todo for eZ Find 2.0: rework this for recursive boolean combinations and a few more filter types, the possible combinations are almost infinite for pure Solr syntax
      * @param array Parameter list array.
@@ -1501,55 +1502,77 @@ class ezfeZPSolrQueryBuilder
      */
     protected function getContentClassFilterQuery( $contentClassIdent )
     {
-		if ( empty( $contentClassIdent ) )
+        if ( empty( $contentClassIdent ) )
         {
             return null;
         }
 
-        if ( is_array( $contentClassIdent ) )
+        // Ids are written into the filter query: a numeric class id counts only as a positive integer of digits
+        // (not "1e0", "+1" or a list inside the list), anything else is looked up as a class identifier
+        $classQueryParts = array();
+        foreach ( is_array( $contentClassIdent ) ? $contentClassIdent : array( $contentClassIdent ) as $classIdent )
         {
-            $classQueryParts = array();
-            foreach ( $contentClassIdent as $classID )
+            $classID = $this->classIdentToID( $classIdent );
+            if ( $classID === null )
             {
-                $classID = trim( $classID );
-                if ( empty( $classID ) )
-                {
-                    continue;
-                }
-                if ( (int)$classID . '' == $classID . '' )
-                {
-                    $classQueryParts[] = eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $classID;
-                }
-                elseif ( is_string( $classID ) )
-                {
-                    if ( $class = eZContentClass::fetchByIdentifier( $classID ) )
-                    {
-                        $classQueryParts[] = eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $class->attribute( 'id' );
-                    }
-                }
-            	else
-				{
-					eZDebug::writeError( "Unknown class_id filtering parameter: $classID", __METHOD__ );
-				}
+                continue;
             }
+            if ( $classID === false )
+            {
+                eZDebug::writeError( 'Unknown class_id filtering parameter: ' . ( is_scalar( $classIdent ) ? $classIdent : gettype( $classIdent ) ), __METHOD__ );
+                continue;
+            }
+            $classQueryParts[] = eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $classID;
+        }
 
+        if ( $classQueryParts )
+        {
             return implode( ' OR ', $classQueryParts );
-        }
-        elseif ( (int)$contentClassIdent . '' == $contentClassIdent . '' )
-        {
-            return eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $contentClassIdent;
-        }
-        elseif ( is_string( $contentClassIdent ) )
-        {
-            if ( $class = eZContentClass::fetchByIdentifier( $contentClassIdent ) )
-            {
-                return eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $class->attribute( 'id' );
-            }
         }
 
         eZDebug::writeError( 'No valid content class', __METHOD__ );
 
         return null;
+    }
+
+    /**
+     * The id of one entry of a class filter: a positive integer (given as an integer or as digits), or the id of
+     * the class a text names as its identifier.
+     *
+     * @param mixed $classIdent
+     * @return int|false|null the class id; false when it names no class; null for an empty entry
+     */
+    protected function classIdentToID( $classIdent )
+    {
+        if ( is_int( $classIdent ) )
+        {
+            return $classIdent > 0 ? $classIdent : false;
+        }
+        if ( !is_string( $classIdent ) )
+        {
+            return false;
+        }
+        $classIdent = trim( $classIdent );
+        if ( $classIdent === '' )
+        {
+            return null;
+        }
+        if ( ctype_digit( $classIdent ) )
+        {
+            return (int)$classIdent > 0 ? (int)$classIdent : false;
+        }
+        $classID = (int)$this->fetchClassIDByIdentifier( $classIdent );
+        return $classID > 0 ? $classID : false;
+    }
+
+    /**
+     * @param string $identifier
+     * @return int|false
+     */
+    protected function fetchClassIDByIdentifier( $identifier )
+    {
+        $class = eZContentClass::fetchByIdentifier( $identifier );
+        return $class ? (int)$class->attribute( 'id' ) : false;
     }
 
     /**
@@ -1655,20 +1678,8 @@ class ezfeZPSolrQueryBuilder
         $classIDList = array();
         foreach ( is_array( $contentClassIdent ) ? $contentClassIdent : array( $contentClassIdent ) as $classIdent )
         {
-            if ( !is_scalar( $classIdent ) )
-            {
-                continue;
-            }
-            $classIdent = trim( (string)$classIdent );
-            if ( ctype_digit( $classIdent ) )
-            {
-                $classID = (int)$classIdent;
-            }
-            else
-            {
-                $classID = (int)eZContentClass::classIDByIdentifier( $classIdent );
-            }
-            if ( $classID > 0 )
+            $classID = $this->classIdentToID( $classIdent );
+            if ( is_int( $classID ) )
             {
                 $classIDList[] = $classID;
             }

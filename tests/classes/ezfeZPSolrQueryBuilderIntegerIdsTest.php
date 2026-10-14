@@ -15,6 +15,8 @@
  *  ID-03 - Offset and limit are never below 0 and 1, and a period of SearchDate outside 1 to 5 is none
  *  ID-04 - A class attribute must exist and, with a class filter, belong to one of its classes; one that does not
  *          is no attribute filter
+ *  ID-05 - A numeric class id is a positive integer of digits; anything else is looked up as a class identifier,
+ *          and an entry that is no text or number is left out instead of a TypeError
  *
  * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
@@ -57,6 +59,18 @@ class ezfeZPSolrQueryBuilderIntegerIdsTester extends ezfeZPSolrQueryBuilder
     public function validAttributes( $classAttributeIdent, $contentClassIdent )
     {
         return $this->validClassAttributeIDList( $classAttributeIdent, $contentClassIdent );
+    }
+
+    public $identifiers = array( 'folder' => 1, 'article' => 16 );
+
+    public function classFilter( $contentClassIdent )
+    {
+        return $this->getContentClassFilterQuery( $contentClassIdent );
+    }
+
+    protected function fetchClassIDByIdentifier( $identifier )
+    {
+        return isset( $this->identifiers[$identifier] ) ? $this->identifiers[$identifier] : false;
     }
 
     protected function fetchClassAttribute( $classAttributeID )
@@ -203,5 +217,26 @@ class ezfeZPSolrQueryBuilderIntegerIdsTest extends PHPUnit\Framework\TestCase
         $builder->buildSearch( 'word', array( 'SearchContentClassAttributeID' => '10', 'SearchContentClassID' => 4 ) );
         $builder->buildSearch( 'word', array( 'SearchContentClassAttributeID' => '11', 'SearchContentClassID' => 4 ) );
         $this->assertSame( array( false, array( 10 ), false ), $builder->attributeArguments );
+    }
+
+    /** ID-05 */
+    public function testAClassFilterTakesIntegersAndIdentifiersOnly()
+    {
+        $builder = new ezfeZPSolrQueryBuilderIntegerIdsTester();
+        $this->assertSame( 'meta_contentclass_id_si:5', $builder->classFilter( '5' ) );
+        $this->assertSame( 'meta_contentclass_id_si:5', $builder->classFilter( 5 ) );
+        $this->assertSame( 'meta_contentclass_id_si:5', $builder->classFilter( ' 5 ' ) );
+        $this->assertSame( 'meta_contentclass_id_si:16', $builder->classFilter( 'article' ) );
+        foreach ( array( '1e0', '+1', '-1', '0', -3, 'nosuch', '5 OR other', true ) as $invalid )
+        {
+            $this->assertNull( $builder->classFilter( $invalid ), var_export( $invalid, true ) );
+        }
+        $this->assertSame( 'meta_contentclass_id_si:5 OR meta_contentclass_id_si:1',
+                           $builder->classFilter( array( '1e0', '+1', '5', 'folder', array( 2 ), true, '', null ) ) );
+        $this->assertNull( $builder->classFilter( array( '1e0', array( 2 ) ) ) );
+
+        // in buildSearch(): a list inside the list is left out, not a TypeError
+        $query = $builder->buildSearch( 'word', array( 'SearchContentClassID' => array( '2', array( 'x' ) ) ) );
+        $this->assertContains( 'meta_contentclass_id_si:2', $query['fq'] );
     }
 }
