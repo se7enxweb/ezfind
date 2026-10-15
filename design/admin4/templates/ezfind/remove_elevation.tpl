@@ -36,7 +36,7 @@
     </thead>
     <tbody>
         <tr>
-            <td><a href={concat( '/ezfind/elevate/(search_query)/', $feedback.confirm_remove.search_query )|ezurl} title="{'See all objects elevated by \'%searchQuery\''|i18n( 'extension/ezfind/elevate', '', hash( '%searchQuery', $feedback.confirm_remove.search_query ) )|wash}">{$feedback.confirm_remove.search_query|wash}</a></td>
+            <td><a href={concat( '/ezfind/elevate/(search_query)/', $feedback.confirm_remove.search_query )|ezurl} title="{'See all objects elevated by \'%searchQuery\''|i18n( 'extension/ezfind/elevate', '', hash( '%searchQuery', $feedback.confirm_remove.search_query_text ) )|wash}">{$feedback.confirm_remove.search_query_text|wash}</a></td>
             <td>{if eq( $feedback.confirm_remove.language_code, $language_wildcard )}<em>{'All'|i18n( 'extension/ezfind/elevate' )}</em>{else}{$feedback.confirm_remove.language_code|wash}{/if}</td>
         </tr>
     </tbody>

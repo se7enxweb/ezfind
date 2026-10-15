@@ -277,6 +277,9 @@ class ezfAdmin4TemplatesTest extends TestCase
         $this->assertNotFalse( strpos( $source, "trim( (string)\$http->postVariable( 'ezfind-removeelevation-languagecode', '' ) ) === ''" ) );
         $this->assertLessThan( $purge, $guard, 'the guard comes before the purge' );
         $this->assertStringContainsString( "htmlspecialchars( htmlspecialchars_decode(", $source );
+        // the confirmation shows the query as entered, washed once, not the stored encoded form washed again
+        $this->assertSame( 2, substr_count( $source, "'search_query_text' => htmlspecialchars_decode(" ) );
+        $this->assertStringContainsString( '{$feedback.confirm_remove.search_query_text|wash}', file_get_contents( self::root() . '/design/admin4/templates/ezfind/remove_elevation.tpl' ) );
 
         foreach ( array( 'a&b "c"', 'a&amp;b &quot;c&quot;' ) as $posted )
         {

@@ -52,6 +52,8 @@ elseif ( $object and $http->hasPostVariable( 'ezfind-removeelevation-do' ) )
     $feedback['removal_back_link'] = '/ezfind/elevate/';
     $feedback['confirm_remove'] = array( 'contentobject_id' => $object->attribute( 'id' ),
                                          'search_query'     => $searchQuery,
+                                         // the query as entered, for display (the template washes it once)
+                                         'search_query_text' => htmlspecialchars_decode( $searchQuery, ENT_QUOTES ),
                                          'language_code'    => $languageCode  );
 }
 else
@@ -78,6 +80,9 @@ else
         // Ask for removal confirmation
         $feedback['confirm_remove'] = array( 'contentobject_id' => $object->attribute( 'id' ),
                                              'search_query'     => $searchQuery,
+                                             // the query as entered, for display: a link from the list of
+                                             // configurations carries the stored, encoded query
+                                             'search_query_text' => htmlspecialchars_decode( (string)$searchQuery, ENT_QUOTES ),
                                              'language_code'    => $Params['LanguageCode']  );
     }
     else
