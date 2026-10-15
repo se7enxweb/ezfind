@@ -17,6 +17,8 @@
  *  A4-06 - ger-DE translates every string of the admin4 templates and leaves design/admin/content/search complete:
  *          an unfinished message in an extension's translation is read as its English source and hides the
  *          kernel's translation of the same message
+ *  A4-07 - A toggle is a button with aria-pressed, and every icon button is named by what it acts on
+ *  A4-08 - The eng-US translation spells Synchronize for the British sources
  *
  * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
@@ -149,6 +151,42 @@ class ezfAdmin4TemplatesTest extends TestCase
         $this->assertMatchesRegularExpression( '/^PolicyList\[\]=ezfind\/elevate$/m', $section );
         $this->assertStringContainsString( "ini_section='Leftmenu_ezfind'", self::admin4Templates()['backoffice_left_menu.tpl'] );
         $this->assertStringContainsString( 'design:parts/left_width_control.tpl', self::admin4Templates()['backoffice_left_menu.tpl'] );
+    }
+
+    /**
+     * A4-07 - A control that switches a state is a button with aria-pressed, not a link with a button role, and every
+     *         icon button is named by what it acts on (not a bare "Edit" or "Trash" repeated in every row)
+     */
+    public function testTogglesAreButtonsAndIconButtonsHaveFullNames(): void
+    {
+        foreach ( self::admin4Templates() as $file => $source )
+        {
+            $this->assertDoesNotMatchRegularExpression( '/<a\b[^>]*role="button"/', $source, "$file: a link with a button role" );
+            preg_match_all( '/<a class="a4-icon-btn"[^>]*>.*?<\/a>/s', $source, $buttons );
+            foreach ( $buttons[0] as $button )
+            {
+                $this->assertMatchesRegularExpression( '/<span class="a4-sr-only">\{\'(?!Edit\'|Trash\')[^\']{12,}/', $button, "$file: icon button without a full name" );
+            }
+            if ( preg_match_all( '/<button\b[^>]*name="Value"[^>]*>/', $source, $toggles ) )
+            {
+                foreach ( $toggles[0] as $toggle )
+                {
+                    $this->assertMatchesRegularExpression( '/aria-pressed="(true|false)"/', $toggle, "$file: a toggle without its state" );
+                }
+            }
+        }
+    }
+
+    /** A4-08 - American English: the eng-US translation spells Synchronize for the British sources */
+    public function testAmericanEnglishSpellsSynchronize(): void
+    {
+        $english = self::translations( 'eng-US' );
+        foreach ( array( 'Synchronise', 'Synchronise Elevate configuration with Solr', 'Synchronise the Elevate configuration with Solr.' ) as $text )
+        {
+            $entry = $english['extension/ezfind/elevate'][$text] ?? null;
+            $this->assertNotNull( $entry, $text );
+            $this->assertStringContainsString( 'Synchronize', $entry[1] );
+        }
     }
 
     public function testGermanTranslatesThePages(): void
