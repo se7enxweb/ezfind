@@ -20,6 +20,7 @@
  *  ID-06 - Request filters (fetch( 'ezfind', 'filterParameters' )) pass only field names, and each value as a number
  *          or as one quoted phrase
  *  ID-07 - A More Like This search by node or object id takes a positive integer; anything else finds nothing
+ *  ID-08 - A query outside buildSearch() (the autocomplete) gets the same class rule and the policy limitation
  *
  * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
@@ -291,5 +292,18 @@ class ezfeZPSolrQueryBuilderIntegerIdsTest extends PHPUnit\Framework\TestCase
         $this->assertStringStartsWith( 'meta_node_id_si:0 AND ', $query['q'] );
         $query = $builder->buildMoreLikeThis( 'oid', '57', array() );
         $this->assertStringStartsWith( 'meta_id_si:57 AND ', $query['q'] );
+    }
+
+    /** ID-08 */
+    public function testQueriesOutsideBuildSearchGetTheClassRuleAndThePolicy()
+    {
+        $builder = new ezfeZPSolrQueryBuilderIntegerIdsTester();
+        $this->assertSame( array( 'POLICY' ), $builder->classAndPolicyFilterQueries( null ) );
+        $this->assertSame( array( 'POLICY' ), $builder->classAndPolicyFilterQueries( array() ) );
+        $this->assertSame( array( 'meta_contentclass_id_si:5 OR meta_contentclass_id_si:16', 'POLICY' ),
+                           $builder->classAndPolicyFilterQueries( array( '5', 'article', '1e5', ' +1', '-1' ) ) );
+        // classes given, none valid: nothing matches, the search is not widened to every class
+        $this->assertSame( array( 'meta_contentclass_id_si:0', 'POLICY' ),
+                           $builder->classAndPolicyFilterQueries( array( '1e5', 'nosuch' ) ) );
     }
 }

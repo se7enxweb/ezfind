@@ -1550,6 +1550,31 @@ class ezfeZPSolrQueryBuilder
     }
 
     /**
+     * The filters of a query that does not go through buildSearch(), such as the autocomplete of
+     * eZFindServerCallFunctions: the class filter of $contentClassIdent by the rule of getContentClassFilterQuery()
+     * (a list of ids and identifiers; when it is given but names no class, a filter that matches nothing), and the
+     * policy limitation of the current user.
+     *
+     * @param mixed $contentClassIdent null, '' or array() for no class filter
+     * @return string[] filter queries, each to be ANDed
+     */
+    public function classAndPolicyFilterQueries( $contentClassIdent )
+    {
+        $filterQueries = array();
+        if ( $contentClassIdent !== null && $contentClassIdent !== '' && $contentClassIdent !== array() )
+        {
+            $classFilter = $this->getContentClassFilterQuery( $contentClassIdent );
+            $filterQueries[] = $classFilter !== null ? $classFilter : eZSolr::getMetaFieldName( 'contentclass_id' ) . ':0';
+        }
+        $policyFilter = $this->policyLimitationFilterQuery();
+        if ( $policyFilter !== false && $policyFilter !== null && $policyFilter !== '' )
+        {
+            $filterQueries[] = $policyFilter;
+        }
+        return $filterQueries;
+    }
+
+    /**
      * The id of one entry of a class filter: a positive integer (given as an integer or as digits), or the id of
      * the class a text names as its identifier.
      *

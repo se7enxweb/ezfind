@@ -17,6 +17,8 @@ class eZFindServerCallFunctions
     {
         $http = eZHTTPTool::instance();
 
+        $searchStr = '';
+        $search_sub_tree_array = array();
         if ( $http->hasPostVariable( 'SearchStr' ) )
             $searchStr = trim( $http->postVariable( 'SearchStr' ) );
 
@@ -133,7 +135,8 @@ class eZFindServerCallFunctions
                              'facet.prefix' => $input,
                              'facet.limit' => $limit,
                              'facet.method' => $facetMethod,
-                             'facet.mincount' => 1 );
+                             'facet.mincount' => 1,
+                             'fq' => '' );
 
             if ( $findINI->variable( 'LanguageSearch', 'MultiCore' ) == 'enabled' )
             {
@@ -164,31 +167,22 @@ class eZFindServerCallFunctions
                 $params['fq'] .= eZSolr::getMetaFieldName( 'path' ) . ':' . (int)$args[2];
             }
 
-            //build the query part for the class limitation
-            if ( isset( $args[3] ) && $args[3] )
+            // the class limitation (ids and identifiers, as the query builder takes them) and the current user's
+            // policy limitation, so the suggestions come only from content the user may read
+            $classes = isset( $args[3] ) && is_string( $args[3] ) && $args[3] !== '' ? explode( ',', $args[3] ) : null;
+            $builder = new ezfeZPSolrQueryBuilder( new stdClass() );
+            foreach ( $builder->classAndPolicyFilterQueries( $classes ) as $filterQuery )
             {
-                if ( isset( $params['fq'] ) && $params['fq'] )
+                if ( $params['fq'] !== '' )
                 {
                     $params['fq'] .= ' AND ';
                 }
-                $classes = explode( ',', $args[3] );
-                $classQueryParts = array();
-                foreach( $classes as $class )
-                {
-                    if ( !is_numeric( $class ) )
-                    {
-                        if ( $class = eZContentClass::fetchByIdentifier( $class ) )
-                        {
-                            $classQueryParts[] = eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $class->attribute( 'id' );
-                        }
-                    }
-                    else
-                    {
-                        $classQueryParts[] = eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $class;
-                    }
-                }
-                $classQueryParts = implode( ' OR ', $classQueryParts );
-                $params['fq'] .= '(' . $classQueryParts . ')';
+                $params['fq'] .= '(' . $filterQuery . ')';
+            }
+
+            if ( $params['fq'] === '' )
+            {
+                unset( $params['fq'] );
             }
 
             $solrBase = new eZSolrBase( $fullSolrURI );
