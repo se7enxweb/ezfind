@@ -1,0 +1,31 @@
+Changes from 3.0.1 to 3.0.2
+===========================
+
+*Updated:
+- The query builder writes subtree and section ids into its filter queries as positive integers only,
+  in buildSearch() and buildMoreLikeThis(); a list of sections works as a list.
+- The class filter takes a positive integer of digits or a class identifier; any other entry is left out.
+- A class attribute that does not exist, or that belongs to another class than the one searched, is left
+  out with a warning instead of ending the search with an error or returning nothing.
+- Offset, limit and the SearchDate period are kept in range.
+- The request filters of fetch( 'ezfind', 'filterParameters' ) (filter[]=<name>:<value>) pass only field
+  names, and per value a number or one quoted phrase. Filters passed by templates and code keep their full
+  syntax.
+- A More Like This search by node or object id ('nid', 'oid') takes a positive integer; any other value
+  finds nothing. A 'url' search must come from code or settings.
+- The autocomplete takes the same class rule as a search and adds the current user's policy limitation,
+  so it suggests only words from content the user may read.
+- The deprecated search() server call and the multi-core autocomplete no longer raise PHP 8 warnings.
+
+*Upgrade notes:
+- A template that builds filter[] links with range or wildcard syntax as values gets them quoted as one
+  phrase. Pass such filters as the 'filter' parameter of fetch( 'ezfind', 'search' ) from the template
+  instead of through the request.
+- A search with a subtree or section value that is no positive integer now runs without that limit (the
+  policy limitation still applies), and a class attribute of another class widens the attribute search to
+  the searched class.
+- With AutoComplete enabled, suggestions now follow the read access of the current user.
+
+*Not changed:
+- With DistributedSearch rawfilterlist, the raw shard filters are still ORed with all other filters,
+  including the policy limitation, as documented: foreign indexes do not carry its fields.
