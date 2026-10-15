@@ -17,6 +17,9 @@
  *          is no attribute filter
  *  ID-05 - A numeric class id is a positive integer of digits; anything else is looked up as a class identifier,
  *          and an entry that is no text or number is left out instead of a TypeError
+ *  ID-06 - Request filters (fetch( 'ezfind', 'filterParameters' )) pass only field names, and each value as a number
+ *          or as one quoted phrase
+ *  ID-07 - A More Like This search by node or object id takes a positive integer; anything else finds nothing
  *
  * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
@@ -28,7 +31,8 @@ foreach ( array( 'ezfSolrDocumentFieldName' => 'classes/ezfsolrdocumentfieldname
                  'ezfSolrDocumentFieldBase' => 'classes/ezfsolrdocumentfieldbase.php',
                  'eZSolr' => 'search/plugins/ezsolr/ezsolr.php',
                  'eZFindElevateConfiguration' => 'classes/ezfindelevateconfiguration.php',
-                 'ezfeZPSolrQueryBuilder' => 'classes/ezfezpsolrquerybuilder.php' ) as $ezfindClass => $ezfindFile )
+                 'ezfeZPSolrQueryBuilder' => 'classes/ezfezpsolrquerybuilder.php',
+                 'ezfModuleFunctionCollection' => 'classes/ezfmodulefunctioncollection.php' ) as $ezfindClass => $ezfindFile )
 {
     if ( !class_exists( $ezfindClass ) )
     {
@@ -238,5 +242,54 @@ class ezfeZPSolrQueryBuilderIntegerIdsTest extends PHPUnit\Framework\TestCase
         // in buildSearch(): a list inside the list is left out, not a TypeError
         $query = $builder->buildSearch( 'word', array( 'SearchContentClassID' => array( '2', array( 'x' ) ) ) );
         $this->assertContains( 'meta_contentclass_id_si:2', $query['fq'] );
+    }
+
+    /** ID-06 */
+    public function testRequestFiltersCarryFieldNamesAndOnePhrasePerValue()
+    {
+        $this->assertSame(
+            array( 'owner_id' => '12', 'language_code' => '"eng-GB"', 'attr_tags_lk' => '"a \\"b\\" c"',
+                   'article/title' => '"x) OR (*:*"', 'path' => '2' ),
+            ezfModuleFunctionCollection::requestFilterList( array(
+                'owner_id:12', 'language_code:eng-GB', 'attr_tags_lk:"a \\"b\\" c"', 'article/title:x) OR (*:*',
+                'path: 2 ' ) ) );
+
+        // names that are no field names, entries without a colon or text, empty values: left out, no warning
+        $this->assertSame( array(), ezfModuleFunctionCollection::requestFilterList( array(
+            '{!join from=meta_id_si to=meta_id_si}x:1', 'Owner_ID:1', 'a b:1', '*:*', 'x/y/z/w:1', ':1', 'noColon',
+            array( 'owner_id:1' ), 5, 'owner_id:', 'owner_id: ' ) ) );
+        $this->assertSame( array(), ezfModuleFunctionCollection::requestFilterList( 'owner_id:1' ) );
+        $this->assertSame( array(), ezfModuleFunctionCollection::requestFilterList( null ) );
+
+        // a value is one phrase: quotes and backslashes inside are escaped, an unbalanced phrase is quoted anew
+        $this->assertSame( '"a\\\\"', ezfModuleFunctionCollection::requestFilterValue( 'a\\' ) );
+        $this->assertSame( '"\\"a\\" OR \\"b\\""', ezfModuleFunctionCollection::requestFilterValue( '"a" OR "b"' ) );
+        $this->assertSame( '"\\"a\\\\\\""', ezfModuleFunctionCollection::requestFilterValue( '"a\\"' ) );
+        $this->assertSame( '"[1 TO 10]"', ezfModuleFunctionCollection::requestFilterValue( '[1 TO 10]' ) );
+        $this->assertNull( ezfModuleFunctionCollection::requestFilterValue( str_repeat( 'x', 1025 ) ) );
+
+        // what the query builder makes of them: every value stays one term or phrase
+        $builder = new ezfeZPSolrQueryBuilderIntegerIdsTester();
+        $query = $builder->buildSearch( 'word', array( 'Filter' => ezfModuleFunctionCollection::requestFilterList(
+            array( 'attr_title_t:x) OR (*:*' ) ) ) );
+        $this->assertContains( 'attr_title_t:"x) OR (*:*"', $query['fq'] );
+        $this->assertContains( 'POLICY', $query['fq'] );
+    }
+
+    /** ID-07 */
+    public function testMoreLikeThisByIdTakesAPositiveInteger()
+    {
+        $this->assertSame( 12, ezfeZPSolrQueryBuilder::moreLikeThisID( 12 ) );
+        $this->assertSame( 12, ezfeZPSolrQueryBuilder::moreLikeThisID( ' 12 ' ) );
+        foreach ( array( '12 OR *:*', '1e3', '+1', '-1', '0', 0, -4, 1.5, null, true, array( 3 ), '' ) as $invalid )
+        {
+            $this->assertSame( 0, ezfeZPSolrQueryBuilder::moreLikeThisID( $invalid ), var_export( $invalid, true ) );
+        }
+
+        $builder = new ezfeZPSolrQueryBuilderIntegerIdsTester();
+        $query = $builder->buildMoreLikeThis( 'nid', '43 OR *:*', array() );
+        $this->assertStringStartsWith( 'meta_node_id_si:0 AND ', $query['q'] );
+        $query = $builder->buildMoreLikeThis( 'oid', '57', array() );
+        $this->assertStringStartsWith( 'meta_id_si:57 AND ', $query['q'] );
     }
 }

@@ -55,6 +55,9 @@ class ezfModuleFunctionCollection
      * <code>
      * http://my_url/some/path?filter[]=owner_id:12&filter[]=language_code:eng-GB
      *
+     * The request values pass requestFilterList(): only field names, and each value as a number or as one quoted
+     * phrase, so a request can narrow a search but cannot add query syntax to it.
+     *
      * @return array HTTP GET filter parameters
      */
     public function getFilterParameters()
@@ -63,14 +66,83 @@ class ezfModuleFunctionCollection
         $filterList = array();
         if ( $http->hasGetVariable( 'filter' ) )
         {
-            foreach ( $http->getVariable( 'filter' ) as $filterCond )
-            {
-                list( $name, $value ) = explode( ':', $filterCond, 2 );
-                $filterList[$name] = $value;
-            }
+            $filterList = self::requestFilterList( $http->getVariable( 'filter' ) );
         }
 
         return array( 'result' => $filterList );
+    }
+
+    /**
+     * The filters of a request ("<name>:<value>" each) as a Filter hash for the query builder.
+     * An entry is left out when it is not a string, has no ":", its name is not a field name (see
+     * isRequestFilterName()) or its value is empty or longer than 1024 bytes. A value of digits stays as it is;
+     * a value that is exactly one quoted phrase (as the facet links write it, with solr_quotes_escape) stays as
+     * it is; any other value becomes one quoted phrase, with its quotes and backslashes escaped.
+     *
+     * @param mixed $filters the request variable "filter"
+     * @return array name => value
+     */
+    public static function requestFilterList( $filters )
+    {
+        $filterList = array();
+        if ( !is_array( $filters ) )
+        {
+            return $filterList;
+        }
+        foreach ( $filters as $filterCond )
+        {
+            if ( !is_string( $filterCond ) || strpos( $filterCond, ':' ) === false )
+            {
+                continue;
+            }
+            list( $name, $value ) = explode( ':', $filterCond, 2 );
+            $name = trim( $name );
+            $value = self::requestFilterValue( $value );
+            if ( !self::isRequestFilterName( $name ) || $value === null )
+            {
+                continue;
+            }
+            $filterList[$name] = $value;
+        }
+        return $filterList;
+    }
+
+    /**
+     * Whether $name can name a field in a request filter: a meta field name, a Solr field name, or a class
+     * attribute path ("<class>/<attribute>[/<sub attribute>]"), in lower case letters, digits and "_".
+     * Local parameters ("{!...}") and every other query syntax are refused.
+     *
+     * @param mixed $name
+     * @return bool
+     */
+    public static function isRequestFilterName( $name )
+    {
+        return is_string( $name ) && strlen( $name ) <= 255
+            && preg_match( '#^[a-z][a-z0-9_]*(/[a-z0-9_]+){0,2}$#D', $name ) === 1;
+    }
+
+    /**
+     * The value of a request filter as the query builder may write it into a filter query, or null.
+     *
+     * @param mixed $value
+     * @return string|null
+     */
+    public static function requestFilterValue( $value )
+    {
+        if ( !is_string( $value ) )
+        {
+            return null;
+        }
+        $value = trim( $value );
+        if ( $value === '' || strlen( $value ) > 1024 )
+        {
+            return null;
+        }
+        if ( ctype_digit( $value ) || preg_match( '/^"(?:[^"\\\\]|\\\\.)*"$/sD', $value ) === 1 )
+        {
+            return $value;
+        }
+        return '"' . addcslashes( $value, '"\\' ) . '"';
     }
 
     /**

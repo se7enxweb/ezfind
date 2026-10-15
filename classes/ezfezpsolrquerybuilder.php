@@ -829,13 +829,15 @@ class ezfeZPSolrQueryBuilder
         switch ( strtolower( $queryType ) )
         {
             case 'nid':
-                $mltQuery = eZSolr::getMetaFieldName( 'node_id' ) . ':' . $query;
+                $mltQuery = eZSolr::getMetaFieldName( 'node_id' ) . ':' . self::moreLikeThisID( $query );
                 $mltQuery .= ' AND ' . eZSolr::getMetaFieldName( 'installation_id' ) . ':' . $queryInstallationID;
                 break;
             case 'oid':
-                $mltQuery = eZSolr::getMetaFieldName( 'id' ) . ':' . $query;
+                $mltQuery = eZSolr::getMetaFieldName( 'id' ) . ':' . self::moreLikeThisID( $query );
                 $mltQuery .= ' AND ' . eZSolr::getMetaFieldName( 'installation_id' ) . ':' . $queryInstallationID;
                 break;
+            // url: Solr fetches the document at this address (stream.url), so it must come from code or
+            // settings, never from request input
             case 'url':
                 $mltVariant = 'stream.url';
                 $mltQuery = $query;
@@ -1001,6 +1003,8 @@ class ezfeZPSolrQueryBuilder
      * The values of Filter are written into the filter query as they are given (field names are mapped, values
      * are not quoted or checked), so a value may carry any query syntax. They must come from code or settings,
      * never from request input; a value a visitor chooses has to be checked or escaped by the caller first.
+     * The request filters of fetch( 'ezfind', 'filterParameters' ) are: ezfModuleFunctionCollection::requestFilterList()
+     * lets through only field names, and per value a number or one quoted phrase.
      *
      * @deprecated api is way too limited now
      * @todo for eZ Find 2.0: rework this for recursive boolean combinations and a few more filter types, the possible combinations are almost infinite for pure Solr syntax
@@ -1586,9 +1590,27 @@ class ezfeZPSolrQueryBuilder
     }
 
     /**
+     * The node or object id of a More Like This search by id ('nid', 'oid'): an integer above 0, or a string of
+     * digits (spaces around it allowed) above 0; anything else is 0, which no node or object has, so the search
+     * finds nothing.
+     *
+     * @param mixed $query
+     * @return int
+     */
+    public static function moreLikeThisID( $query )
+    {
+        if ( is_string( $query ) )
+        {
+            $query = trim( $query );
+            $query = ctype_digit( $query ) ? (int)$query : 0;
+        }
+        return is_int( $query ) && $query > 0 ? $query : 0;
+    }
+
+    /**
      * The ids of a search parameter as positive integers: one id or a list of them, as a search parameter or a
      * request gives it. Every value is cast with (int) and kept when it is above 0; values that are no number
-     * (an array inside the list, an object, null, true or false) are left out, and so are doubles. The ids are
+     * (an array inside the list, an object, null, true or false) are left out, and so are duplicates. The ids are
      * written into Solr filter queries, so nothing but an integer may reach them.
      *
      * @param mixed $value
