@@ -63,8 +63,10 @@ else
 
 
     // check limit
+    // the preference holds the page size: 1, 2, 3 for 10, 25, 50 (0, unset or anything else: 10)
     $limitHint = array( 10, 10, 25, 50 );
-    $viewParameters = array_merge( $viewParameters, array( 'limit' => $limitHint[eZPreferences::value( 'ezfind_elevate_preview_configurations' )] ) ) ;
+    $limitPreference = (int)eZPreferences::value( 'ezfind_elevate_preview_configurations' );
+    $viewParameters = array_merge( $viewParameters, array( 'limit' => $limitHint[$limitPreference] ?? 10 ) );
 
     $limitArray = array( 'offset' => $viewParameters['offset'],
                          'limit'  => $viewParameters['limit'] );
