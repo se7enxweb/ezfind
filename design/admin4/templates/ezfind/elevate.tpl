@@ -175,13 +175,17 @@
     {/if}
     </h2>
     {if is_set( $view_parameters.search_query )|not}
-    <div class="a4-actions">
+    {* a toggle button with its state: a POST form (ezformtoken adds its token) that sets the preference and
+       returns to this page, like the width control of the left menu *}
+    <form class="a4-actions" method="post" action={'/user/preferences/set'|ezurl}>
+        <input type="hidden" name="Key" value="ezfind_elevate_preview_configurations" />
+        <input type="hidden" name="RedirectURIAfterSet" value="ezfind/elevate" />
         {if $preview}
-        <a class="a4-btn a4-btn-small" href={'/user/preferences/set/ezfind_elevate_preview_configurations/0'|ezurl} aria-pressed="true" role="button" title="{'Hide preview of existing elevate configurations.'|i18n( 'extension/ezfind/elevate' )|wash}">{'Preview existing configurations'|i18n( 'extension/ezfind/elevate' )}</a>
+        <button type="submit" class="a4-btn a4-btn-small" name="Value" value="0" aria-pressed="true" title="{'Hide preview of existing elevate configurations.'|i18n( 'extension/ezfind/elevate' )|wash}">{'Preview existing configurations'|i18n( 'extension/ezfind/elevate' )}</button>
         {else}
-        <a class="a4-btn a4-btn-small" href={'/user/preferences/set/ezfind_elevate_preview_configurations/1'|ezurl} aria-pressed="false" role="button" title="{'Show preview of existing elevate configurations.'|i18n( 'extension/ezfind/elevate' )|wash}">{'Preview existing configurations'|i18n( 'extension/ezfind/elevate' )}</a>
+        <button type="submit" class="a4-btn a4-btn-small" name="Value" value="1" aria-pressed="false" title="{'Show preview of existing elevate configurations.'|i18n( 'extension/ezfind/elevate' )|wash}">{'Preview existing configurations'|i18n( 'extension/ezfind/elevate' )}</button>
         {/if}
-    </div>
+    </form>
     {/if}
 </div>
 
@@ -209,7 +213,7 @@
             <td class="a4-end a4-nowrap">
                 <a class="a4-icon-btn" href={$detail_url|ezurl} title="{'See elevate configuration details for \'%objectName\''|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name ) )|wash}"><span class="a4-icon a4-bi-pencil" aria-hidden="true"></span><span class="a4-sr-only">{'See elevate configuration details for \'%objectName\''|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name ) )|wash}</span></a>
                 {if is_set( $view_parameters.fuzzy_filter )|not}
-                <a class="a4-icon-btn" href={concat( '/ezfind/remove_elevation/', $object.id, '/', $view_parameters.search_query )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name, '%searchQuery', $view_parameters.search_query ) )|wash}"><span class="a4-icon a4-bi-trash" aria-hidden="true"></span><span class="a4-sr-only">{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name, '%searchQuery', $view_parameters.search_query ) )|wash}</span></a>
+                <a class="a4-icon-btn" href={concat( '/ezfind/remove_elevation/', $object.id, '/', $view_parameters.search_query )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name|wash, '%searchQuery', $view_parameters.search_query ) )}"><span class="a4-icon a4-bi-trash" aria-hidden="true"></span><span class="a4-sr-only">{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name|wash, '%searchQuery', $view_parameters.search_query ) )}</span></a>
                 {/if}
             </td>
         </tr>
@@ -237,14 +241,14 @@
              $obj_name = $conf.contentobject_id}
         {if $tmp_obj}{set $obj_name = $tmp_obj.name}{/if}
         <tr>
-            <td><a href={concat( $baseurl, '/(search_query)/', $conf.search_query )|ezurl} title="{'See all objects elevated by \'%searchQuery\''|i18n( 'extension/ezfind/elevate', '', hash( '%searchQuery', $conf.search_query ) )|wash}">{$conf.search_query}</a></td>
+            <td><a href={concat( $baseurl, '/(search_query)/', $conf.search_query )|ezurl} title="{'See all objects elevated by \'%searchQuery\''|i18n( 'extension/ezfind/elevate', '', hash( '%searchQuery', $conf.search_query ) )}">{$conf.search_query}</a></td>
             <td>{if $tmp_obj}<a href={$tmp_obj.main_node.url_alias|ezurl}>{$tmp_obj.name|wash}</a>{else}<span class="a4-muted">{$conf.contentobject_id|wash}</span>{/if}</td>
             <td>{if eq( $conf.language_code, $language_wildcard )}<em>{'All'|i18n( 'extension/ezfind/elevate' )}</em>{else}{$conf.language_code|wash}{/if}</td>
             <td class="a4-end a4-nowrap">
                 {if $tmp_obj}
-                <a class="a4-icon-btn" href={concat( '/ezfind/elevation_detail/', $tmp_obj.id )|ezurl} title="{'See elevate configuration details for \'%objectName\''|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $tmp_obj.name ) )|wash}"><span class="a4-icon a4-bi-pencil" aria-hidden="true"></span><span class="a4-sr-only">{'Edit'|i18n( 'extension/ezfind/elevate' )}</span></a>
+                <a class="a4-icon-btn" href={concat( '/ezfind/elevation_detail/', $tmp_obj.id )|ezurl} title="{'See elevate configuration details for \'%objectName\''|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $tmp_obj.name ) )|wash}"><span class="a4-icon a4-bi-pencil" aria-hidden="true"></span><span class="a4-sr-only">{'See elevate configuration details for \'%objectName\''|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $tmp_obj.name ) )|wash}</span></a>
                 {/if}
-                <a class="a4-icon-btn" href={concat( '/ezfind/remove_elevation/', $conf.contentobject_id, '/', $conf.search_query, '/', $conf.language_code )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $obj_name, '%searchQuery', $conf.search_query ) )|wash}"><span class="a4-icon a4-bi-trash" aria-hidden="true"></span><span class="a4-sr-only">{'Trash'|i18n( 'extension/ezfind/elevate' )}</span></a>
+                <a class="a4-icon-btn" href={concat( '/ezfind/remove_elevation/', $conf.contentobject_id, '/', $conf.search_query, '/', $conf.language_code )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $obj_name|wash, '%searchQuery', $conf.search_query ) )}"><span class="a4-icon a4-bi-trash" aria-hidden="true"></span><span class="a4-sr-only">{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $obj_name|wash, '%searchQuery', $conf.search_query ) )}</span></a>
             </td>
         </tr>
     {/foreach}

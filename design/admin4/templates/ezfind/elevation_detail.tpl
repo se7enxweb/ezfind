@@ -107,10 +107,10 @@
     <tbody>
     {foreach $configurations as $conf}
         <tr>
-            <td><a href={concat( $baseurl, '/(search_query)/', $conf.search_query )|ezurl} title="{'See all objects elevated by \'%searchQuery\''|i18n( 'extension/ezfind/elevate', '', hash( '%searchQuery', $conf.search_query ) )|wash}">{$conf.search_query}</a></td>
+            <td><a href={concat( $baseurl, '/(search_query)/', $conf.search_query )|ezurl} title="{'See all objects elevated by \'%searchQuery\''|i18n( 'extension/ezfind/elevate', '', hash( '%searchQuery', $conf.search_query ) )}">{$conf.search_query}</a></td>
             <td>{if eq( $conf.language_code, $language_wildcard )}<em>{'All'|i18n( 'extension/ezfind/elevate' )}</em>{else}{$conf.language_code|wash}{/if}</td>
             <td class="a4-end a4-nowrap">
-                <a class="a4-icon-btn" href={concat( '/ezfind/remove_elevation/', $elevatedObject.id, '/', $conf.search_query, '/', $conf.language_code )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $elevatedObject.name, '%searchQuery', $conf.search_query ) )|wash}"><span class="a4-icon a4-bi-trash" aria-hidden="true"></span><span class="a4-sr-only">{'Trash'|i18n( 'extension/ezfind/elevate' )}</span></a>
+                <a class="a4-icon-btn" href={concat( '/ezfind/remove_elevation/', $elevatedObject.id, '/', $conf.search_query, '/', $conf.language_code )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $elevatedObject.name|wash, '%searchQuery', $conf.search_query ) )}"><span class="a4-icon a4-bi-trash" aria-hidden="true"></span><span class="a4-sr-only">{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $elevatedObject.name|wash, '%searchQuery', $conf.search_query ) )}</span></a>
             </td>
         </tr>
     {/foreach}
