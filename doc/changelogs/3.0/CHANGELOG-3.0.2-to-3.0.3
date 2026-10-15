@@ -1,0 +1,27 @@
+Changes from 3.0.2 to 3.0.3
+===========================
+
+*Added:
+- The Elevate pages (elevate, elevation detail, remove elevation) and their left menu in the admin4
+  design, built from its shared components: notices, one card per task, data tables, the pager and the
+  width control of every admin4 left menu. The left menu is the menu.ini section [Leftmenu_ezfind],
+  shown to users with the ezfind/elevate policy, like the top menu tab.
+- An American English translation (eng-US) that spells Synchronize and occurred on the Elevate pages.
+- The admin4 template test (tests/classes/ezfAdmin4TemplatesTest.php) checks the templates, the
+  menu, the toggle state, the names of the icon buttons, the completeness of the German translation and
+  the removal guard, without a kernel.
+
+*Updated:
+- The German translation covers every administration page, the search pages of the site designs and the
+  facet names. The admin search page's messages are translated, so they no longer hide the kernel's
+  translation with their English source.
+- The preview of existing configurations on admin4 is a toggle button with its state (aria-pressed), in
+  a form that posts the preference and returns to the page.
+- An Elevate detail page without a page size preference lists 10 configurations instead of raising a
+  PHP 8 warning about an undefined array key.
+- A confirmed removal of an Elevate configuration needs its search query and its language: without
+  them it removes nothing, where it used to remove every configuration of the object. A search query
+  with & or quotes is matched with the stored one, however the confirmation posted it, and the
+  admin4 confirmation shows it as it was entered.
+- The credit line of the search plugin has its current source in the translation files and is
+  translated into German; German buttons and search tips follow the kernel's terms.
