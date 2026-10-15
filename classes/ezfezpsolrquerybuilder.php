@@ -130,13 +130,23 @@ class ezfeZPSolrQueryBuilder
         $solrIni = eZINI::instance( 'solr.ini' );
         $siteIni = eZINI::instance( 'site.ini' );
 
-        $offset = ( isset( $params['SearchOffset'] ) && $params['SearchOffset'] ) ? $params['SearchOffset'] : 0;
-        $limit = ( isset( $params['SearchLimit']  ) && $params['SearchLimit'] ) ? $params['SearchLimit'] : 10;
-        $subtrees = isset( $params['SearchSubTreeArray'] ) ? $params['SearchSubTreeArray'] : array();
+        $offset = self::searchOffset( $params );
+        $limit = self::searchLimit( $params );
+        // Ids are concatenated into filter queries: only positive integers get there
+        $subtrees = isset( $params['SearchSubTreeArray'] ) ? self::positiveIntegerIDList( $params['SearchSubTreeArray'] ) : array();
         $contentClassID = ( isset( $params['SearchContentClassID'] ) && $params['SearchContentClassID'] <> -1 ) ? $params['SearchContentClassID'] : false;
-        $contentClassAttributeID = ( isset( $params['SearchContentClassAttributeID'] ) && $params['SearchContentClassAttributeID'] <> -1 ) ? $params['SearchContentClassAttributeID'] : false;
-        $sectionID = isset( $params['SearchSectionID'] ) && $params['SearchSectionID'] > 0 ? $params['SearchSectionID'] : false;
-        $dateFilter = isset( $params['SearchDate'] ) && $params['SearchDate'] > 0 ? $params['SearchDate'] : false;
+        $contentClassAttributeID = ( isset( $params['SearchContentClassAttributeID'] ) && $params['SearchContentClassAttributeID'] <> -1 ) ? $this->validClassAttributeIDList( $params['SearchContentClassAttributeID'], $contentClassID ) : false;
+        if ( !$contentClassAttributeID )
+        {
+            $contentClassAttributeID = false;
+        }
+        $sectionID = isset( $params['SearchSectionID'] ) ? self::positiveIntegerIDList( $params['SearchSectionID'] ) : array();
+        // SearchDate is one of the periods 1 (last day) to 5 (last year)
+        $dateFilter = isset( $params['SearchDate'] ) && is_scalar( $params['SearchDate'] ) ? (int)$params['SearchDate'] : 0;
+        if ( $dateFilter < 1 || $dateFilter > 5 )
+        {
+            $dateFilter = 0;
+        }
         $asObjects = isset( $params['AsObjects'] ) ? $params['AsObjects'] : true;
         $spellCheck = isset( $params['SpellCheck'] ) && $params['SpellCheck'] > 0 ? $params['SpellCheck'] : array();
         $queryHandler = isset( $params['QueryHandler'] )  ?  $params['QueryHandler'] : $eZFindIni->variable( 'SearchHandler', 'DefaultSearchHandler' );
@@ -582,6 +592,9 @@ class ezfeZPSolrQueryBuilder
      * Boost Functions support.
      * "Allows one to use the actual value of a numeric field and functions of those fields in a relevancy score."
      *
+     * The fields and functions are passed to Solr as they are given (BoostFunctions, like QueryBoost
+     * RawBoostQueries of ezfind.ini). They must come from code or settings, never from request input.
+     *
      * @see http://wiki.apache.org/solr/FunctionQuery
      * @param array $boostFunctions Example :
      * <code>
@@ -724,11 +737,11 @@ class ezfeZPSolrQueryBuilder
         $eZFindIni = eZINI::instance( 'ezfind.ini' );
 
         $queryInstallationID = ( isset( $params['QueryInstallationID'] ) && $params['QueryInstallationID'] ) ? $params['QueryInstallationID'] : eZSolr::installationID();
-        $offset = ( isset( $params['SearchOffset'] ) && $params['SearchOffset'] ) ? $params['SearchOffset'] : 0;
-        $limit = ( isset( $params['SearchLimit']  ) && $params['SearchLimit'] ) ? $params['SearchLimit'] : 10;
-        $subtrees = isset( $params['SearchSubTreeArray'] ) ? $params['SearchSubTreeArray'] : array();
+        $offset = self::searchOffset( $params );
+        $limit = self::searchLimit( $params );
+        $subtrees = isset( $params['SearchSubTreeArray'] ) ? self::positiveIntegerIDList( $params['SearchSubTreeArray'] ) : array();
         $contentClassID = ( isset( $params['SearchContentClassID'] ) && $params['SearchContentClassID'] <> -1 ) ? $params['SearchContentClassID'] : false;
-        $sectionID = isset( $params['SearchSectionID'] ) && $params['SearchSectionID'] > 0 ? $params['SearchSectionID'] : false;
+        $sectionID = isset( $params['SearchSectionID'] ) ? self::positiveIntegerIDList( $params['SearchSectionID'] ) : array();
         $filterQuery = array();
 
 
@@ -759,9 +772,10 @@ class ezfeZPSolrQueryBuilder
         }
 
         // Add section to query filter.
-        if ( $sectionID )
+        $sectionLimitationFilter = $this->getSectionFilterQuery( $sectionID );
+        if ( $sectionLimitationFilter !== null )
         {
-            $filterQuery[] = eZSolr::getMetaFieldName( 'section_id' ) . ':' . $sectionID;
+            $filterQuery[] = $sectionLimitationFilter;
         }
 
         $languageFilterQuery = $this->buildLanguageFilterQuery();
@@ -983,6 +997,11 @@ class ezfeZPSolrQueryBuilder
 
     /**
      * Build filter query from search filter parameter.
+     *
+     * The values of Filter are written into the filter query as they are given (field names are mapped, values
+     * are not quoted or checked), so a value may carry any query syntax. They must come from code or settings,
+     * never from request input; a value a visitor chooses has to be checked or escaped by the caller first.
+     *
      * @deprecated api is way too limited now
      * @todo for eZ Find 2.0: rework this for recursive boolean combinations and a few more filter types, the possible combinations are almost infinite for pure Solr syntax
      * @param array Parameter list array.
@@ -1109,6 +1128,9 @@ class ezfeZPSolrQueryBuilder
     /**
      * Build facet parameter list. This function extracts the facet parameter from
      * the ezfeZPSolrQueryBuilder::search( ...,$params parameter.
+     *
+     * A facet's 'query' (facet.query), like its field, prefix and the other facet values, is passed to Solr as it
+     * is given. It must come from code or settings, never from request input.
      *
      * @todo specify dedicated facet fields (may be mapped to sort fields)
      *
@@ -1490,55 +1512,198 @@ class ezfeZPSolrQueryBuilder
      */
     protected function getContentClassFilterQuery( $contentClassIdent )
     {
-		if ( empty( $contentClassIdent ) )
+        if ( empty( $contentClassIdent ) )
         {
             return null;
         }
 
-        if ( is_array( $contentClassIdent ) )
+        // Ids are written into the filter query: a numeric class id counts only as a positive integer of digits
+        // (not "1e0", "+1" or a list inside the list), anything else is looked up as a class identifier
+        $classQueryParts = array();
+        foreach ( is_array( $contentClassIdent ) ? $contentClassIdent : array( $contentClassIdent ) as $classIdent )
         {
-            $classQueryParts = array();
-            foreach ( $contentClassIdent as $classID )
+            $classID = $this->classIdentToID( $classIdent );
+            if ( $classID === null )
             {
-                $classID = trim( $classID );
-                if ( empty( $classID ) )
-                {
-                    continue;
-                }
-                if ( (int)$classID . '' == $classID . '' )
-                {
-                    $classQueryParts[] = eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $classID;
-                }
-                elseif ( is_string( $classID ) )
-                {
-                    if ( $class = eZContentClass::fetchByIdentifier( $classID ) )
-                    {
-                        $classQueryParts[] = eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $class->attribute( 'id' );
-                    }
-                }
-            	else
-				{
-					eZDebug::writeError( "Unknown class_id filtering parameter: $classID", __METHOD__ );
-				}
+                continue;
             }
+            if ( $classID === false )
+            {
+                eZDebug::writeError( 'Unknown class_id filtering parameter: ' . ( is_scalar( $classIdent ) ? $classIdent : gettype( $classIdent ) ), __METHOD__ );
+                continue;
+            }
+            $classQueryParts[] = eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $classID;
+        }
 
+        if ( $classQueryParts )
+        {
             return implode( ' OR ', $classQueryParts );
-        }
-        elseif ( (int)$contentClassIdent . '' == $contentClassIdent . '' )
-        {
-            return eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $contentClassIdent;
-        }
-        elseif ( is_string( $contentClassIdent ) )
-        {
-            if ( $class = eZContentClass::fetchByIdentifier( $contentClassIdent ) )
-            {
-                return eZSolr::getMetaFieldName( 'contentclass_id' ) . ':' . $class->attribute( 'id' );
-            }
         }
 
         eZDebug::writeError( 'No valid content class', __METHOD__ );
 
         return null;
+    }
+
+    /**
+     * The id of one entry of a class filter: a positive integer (given as an integer or as digits), or the id of
+     * the class a text names as its identifier.
+     *
+     * @param mixed $classIdent
+     * @return int|false|null the class id; false when it names no class; null for an empty entry
+     */
+    protected function classIdentToID( $classIdent )
+    {
+        if ( is_int( $classIdent ) )
+        {
+            return $classIdent > 0 ? $classIdent : false;
+        }
+        if ( !is_string( $classIdent ) )
+        {
+            return false;
+        }
+        $classIdent = trim( $classIdent );
+        if ( $classIdent === '' )
+        {
+            return null;
+        }
+        if ( ctype_digit( $classIdent ) )
+        {
+            return (int)$classIdent > 0 ? (int)$classIdent : false;
+        }
+        $classID = (int)$this->fetchClassIDByIdentifier( $classIdent );
+        return $classID > 0 ? $classID : false;
+    }
+
+    /**
+     * @param string $identifier
+     * @return int|false
+     */
+    protected function fetchClassIDByIdentifier( $identifier )
+    {
+        $class = eZContentClass::fetchByIdentifier( $identifier );
+        return $class ? (int)$class->attribute( 'id' ) : false;
+    }
+
+    /**
+     * The ids of a search parameter as positive integers: one id or a list of them, as a search parameter or a
+     * request gives it. Every value is cast with (int) and kept when it is above 0; values that are no number
+     * (an array inside the list, an object, null, true or false) are left out, and so are doubles. The ids are
+     * written into Solr filter queries, so nothing but an integer may reach them.
+     *
+     * @param mixed $value
+     * @return int[] in the order given
+     */
+    public static function positiveIntegerIDList( $value )
+    {
+        if ( !is_array( $value ) )
+        {
+            $value = array( $value );
+        }
+        $idList = array();
+        foreach ( $value as $item )
+        {
+            if ( !is_int( $item ) && !is_string( $item ) && !is_float( $item ) )
+            {
+                continue;
+            }
+            $id = (int)$item;
+            if ( $id > 0 )
+            {
+                $idList[$id] = $id;
+            }
+        }
+        return array_values( $idList );
+    }
+
+    /**
+     * The offset of a search: SearchOffset as an integer, 0 when it is missing or below 0 (Solr refuses a
+     * negative start).
+     *
+     * @param array $params
+     * @return int
+     */
+    public static function searchOffset( $params )
+    {
+        $offset = isset( $params['SearchOffset'] ) && is_scalar( $params['SearchOffset'] ) ? (int)$params['SearchOffset'] : 0;
+        return $offset > 0 ? $offset : 0;
+    }
+
+    /**
+     * The number of results of a search: SearchLimit as an integer, 10 when it is missing or not above 0.
+     *
+     * @param array $params
+     * @return int
+     */
+    public static function searchLimit( $params )
+    {
+        $limit = isset( $params['SearchLimit'] ) && is_scalar( $params['SearchLimit'] ) ? (int)$params['SearchLimit'] : 0;
+        return $limit > 0 ? $limit : 10;
+    }
+
+    /**
+     * The class attributes a search may be limited to: those of the given ids that exist, and, when classes are
+     * given, belong to one of them. An id of an attribute that does not exist or belongs to another class is left
+     * out (with a debug warning); before, the first stopped the search with a TypeError and the second gave no
+     * result at all.
+     *
+     * @param mixed $classAttributeIdent a class attribute id or a list of them
+     * @param mixed $contentClassIdent the class filter of the search: an id, an identifier, a list of them, or false
+     * @return int[]
+     */
+    protected function validClassAttributeIDList( $classAttributeIdent, $contentClassIdent )
+    {
+        $classIDList = $this->classIDList( $contentClassIdent );
+        $validIDList = array();
+        foreach ( self::positiveIntegerIDList( $classAttributeIdent ) as $classAttributeID )
+        {
+            $classAttribute = $this->fetchClassAttribute( $classAttributeID );
+            if ( !$classAttribute instanceof eZContentClassAttribute )
+            {
+                eZDebug::writeWarning( "Class attribute $classAttributeID does not exist and is left out of the search", __METHOD__ );
+                continue;
+            }
+            if ( $classIDList && !in_array( (int)$classAttribute->attribute( 'contentclass_id' ), $classIDList, true ) )
+            {
+                eZDebug::writeWarning( "Class attribute $classAttributeID is not one of the classes searched and is left out", __METHOD__ );
+                continue;
+            }
+            $validIDList[] = $classAttributeID;
+        }
+        return $validIDList;
+    }
+
+    /**
+     * The class ids of a class filter: ids as positive integers, identifiers as the id of their class.
+     *
+     * @param mixed $contentClassIdent an id, an identifier, a list of them, or false
+     * @return int[]
+     */
+    protected function classIDList( $contentClassIdent )
+    {
+        if ( $contentClassIdent === false || $contentClassIdent === null || $contentClassIdent === '' )
+        {
+            return array();
+        }
+        $classIDList = array();
+        foreach ( is_array( $contentClassIdent ) ? $contentClassIdent : array( $contentClassIdent ) as $classIdent )
+        {
+            $classID = $this->classIdentToID( $classIdent );
+            if ( is_int( $classID ) )
+            {
+                $classIDList[] = $classID;
+            }
+        }
+        return $classIDList;
+    }
+
+    /**
+     * @param int $classAttributeID
+     * @return eZContentClassAttribute|null
+     */
+    protected function fetchClassAttribute( $classAttributeID )
+    {
+        return eZContentClassAttribute::fetch( $classAttributeID );
     }
 
     /**
@@ -1561,8 +1726,8 @@ class ezfeZPSolrQueryBuilder
             $sectionQueryParts = array();
             foreach ( $sectionIdent as $sectionID )
             {
-                $sectionID = trim( $sectionID );
-                if ( ctype_digit( $sectionID ) )
+                $sectionID = trim( (string)$sectionID );
+                if ( ctype_digit( $sectionID ) && (int)$sectionID > 0 )
                 {
                     $sectionQueryParts[] = eZSolr::getMetaFieldName( 'section_id' ) . ':' . $sectionID;
                 }
@@ -1572,11 +1737,11 @@ class ezfeZPSolrQueryBuilder
                 }
             }
 
-            return implode( ' OR ', $sectionQueryParts );
+            return $sectionQueryParts ? implode( ' OR ', $sectionQueryParts ) : null;
         }
 
-        $sectionIdent = trim( $sectionIdent );
-        if ( ctype_digit( $sectionIdent ) )
+        $sectionIdent = trim( (string)$sectionIdent );
+        if ( ctype_digit( $sectionIdent ) && (int)$sectionIdent > 0 )
         {
             return eZSolr::getMetaFieldName( 'section_id' ) . ':' . $sectionIdent;
         }
@@ -1864,16 +2029,16 @@ class ezfeZPSolrQueryBuilder
         $classAttributeArray = array();
 
         // classAttributeIDArray = simple integer (content class attribute ID)
-        if ( is_numeric( $classAttributeIDArray ) and $classAttributeIDArray > 0 )
+        // or array of integers (content class attribute IDs); ids that name no attribute are left out
+        if ( ( is_numeric( $classAttributeIDArray ) and $classAttributeIDArray > 0 ) or is_array( $classAttributeIDArray ) )
         {
-            $classAttributeArray[] = eZContentClassAttribute::fetch( $classAttributeIDArray );
-        }
-        // classAttributeIDArray = array of integers (content class attribute IDs)
-        else if ( is_array( $classAttributeIDArray ) )
-        {
-            foreach ( $classAttributeIDArray as $classAttributeID )
+            foreach ( self::positiveIntegerIDList( $classAttributeIDArray ) as $classAttributeID )
             {
-                $classAttributeArray[] = eZContentClassAttribute::fetch( $classAttributeID );
+                $classAttribute = $this->fetchClassAttribute( $classAttributeID );
+                if ( $classAttribute instanceof eZContentClassAttribute )
+                {
+                    $classAttributeArray[] = $classAttribute;
+                }
             }
         }
 
