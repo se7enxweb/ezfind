@@ -30,12 +30,23 @@ elseif ( $object and $http->hasPostVariable( 'ezfind-removeelevation-cancel' ) )
     // Redirect to the detail elevate configuration page for this object :
     $module->redirectTo( '/ezfind/elevation_detail/' . $object->attribute( 'id' ) );
 }
+// One confirmed removal without its search query or its language: purge() would remove every configuration of the
+// object (or of the object in that language), so nothing is removed and the object's configurations are shown.
+elseif ( $object and $http->hasPostVariable( 'ezfind-removeelevation-do' ) and
+         ( trim( (string)$http->postVariable( 'ezfind-removeelevation-searchquery', '' ) ) === '' or
+           trim( (string)$http->postVariable( 'ezfind-removeelevation-languagecode', '' ) ) === '' ) )
+{
+    $module->redirectTo( '/ezfind/elevation_detail/' . $object->attribute( 'id' ) );
+}
 // One confirmed removal :
 elseif ( $object and $http->hasPostVariable( 'ezfind-removeelevation-do' ) )
 {
     $tpl->setVariable( 'elevatedObject', $object );
-    $searchQuery = htmlspecialchars( $http->postVariable( "ezfind-removeelevation-searchquery" ), ENT_QUOTES );
-    $languageCode = htmlspecialchars( $http->postVariable( "ezfind-removeelevation-languagecode" ), ENT_QUOTES );
+    // The search query is stored encoded with htmlspecialchars(). The confirmation form posts it as it came in the
+    // link, which is the stored (encoded) value for a link from the list of configurations: decode first, so that
+    // encoding once matches the stored value whichever form it arrived in.
+    $searchQuery = htmlspecialchars( htmlspecialchars_decode( (string)$http->postVariable( 'ezfind-removeelevation-searchquery' ), ENT_QUOTES ), ENT_QUOTES );
+    $languageCode = htmlspecialchars( (string)$http->postVariable( 'ezfind-removeelevation-languagecode' ), ENT_QUOTES );
     eZFindElevateConfiguration::purge( $searchQuery , $object->attribute( 'id' ), $languageCode );
 
     $feedback['removal_back_link'] = '/ezfind/elevate/';
