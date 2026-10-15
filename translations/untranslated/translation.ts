@@ -799,6 +799,10 @@
         <source>Clear all filters</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Last modified</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>extension/ezfind/popupmenu</name>

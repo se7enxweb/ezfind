@@ -42,7 +42,7 @@
     </message>
     <message>
         <source>Try more general keywords.</source>
-        <translation>Versuchen Sie es mit allgemeineren Worten.</translation>
+        <translation>Versuchen Sie es mit allgemeineren Suchbegriffen.</translation>
     </message>
     <message>
         <source>Fewer keywords result in more matches. Try reducing keywords until you get a result.</source>
@@ -128,7 +128,7 @@
     <message>
         <source>For more options try the %1Advanced search%2</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation>Für erweiterte Optionen benutzen Sie bitte die %1erweiterten Suche%2</translation>
+        <translation>Für weitere Optionen benutzen Sie bitte die %1erweiterte Suche%2</translation>
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;</source>
@@ -163,19 +163,19 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Das könnte Sie auch interessieren:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunden, die diesen Artikel gekauft haben, kauften auch</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Menge</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>In den Warenkorb</translation>
     </message>
 </context>
 <context>
@@ -237,7 +237,7 @@
     <message>
         <source>For more options try the %1Advanced search%2</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation>Für erweiterte Optionen benutzen Sie bitte die %1erweiterten Suche%2</translation>
+        <translation>Für weitere Optionen benutzen Sie bitte die %1erweiterte Suche%2</translation>
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;.</source>
@@ -277,11 +277,11 @@
     </message>
     <message>
         <source>tips</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipps</translation>
     </message>
     <message>
         <source>Remove filter on </source>
-        <translation type="unfinished"></translation>
+        <translation>Filter entfernen: </translation>
     </message>
 </context>
 <context>
@@ -464,7 +464,7 @@
     </message>
     <message>
         <source>Refine with facets</source>
-        <translation type="unfinished"></translation>
+        <translation>Mit Facetten verfeinern</translation>
     </message>
 </context>
 <context>
@@ -738,7 +738,7 @@
     </message>
     <message>
         <source>Error while generating the configuration XML</source>
-        <translation>Fehler beim Erzeugen der Konfigurations-XML</translation>
+        <translation>Fehler beim Erzeugen des Konfigurations-XML</translation>
     </message>
     <message>
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
@@ -793,11 +793,15 @@
     </message>
     <message>
         <source>Publication Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Erscheinungsjahr</translation>
     </message>
     <message>
         <source>Clear all filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Filter entfernen</translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation>Zuletzt geändert</translation>
     </message>
 </context>
 <context>
@@ -839,7 +843,7 @@
     </message>
     <message>
         <source>Search took: %1 msecs, using </source>
-        <translation type="unfinished"></translation>
+        <translation>Die Suche dauerte %1 ms, mit </translation>
     </message>
     <message>
         <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
