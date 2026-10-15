@@ -1,0 +1,188 @@
+<?php
+/**
+ * The eZ Find administration pages in the admin4 design: the Elevate views have an admin4 template each, built from
+ * the design's components, with the same form fields the views read; the left menu is a menu.ini section; and the
+ * German translation leaves no message of these pages, or of the admin search page, unfinished. Reads the files only,
+ * without a kernel, a database or Solr:
+ *
+ *   php vendor/bin/phpunit extension/ezfind/tests/classes/ezfAdmin4TemplatesTest.php
+ *
+ *  A4-01 - Every administration view (a view of modules/ezfind with the eZ Find left menu) has its template and the
+ *          left menu in admin4
+ *  A4-02 - The admin4 templates carry no inline CSS, no table layout attributes and no images for icons
+ *  A4-03 - A value from the request or from a stored configuration is printed washed, except the search query: the
+ *          views pass it, and store it, encoded with htmlspecialchars() already, and washing it again breaks it
+ *  A4-04 - Every form field and button the standard template posts is in the admin4 template too
+ *  A4-05 - menu.ini has the left menu [Leftmenu_ezfind] with the Elevate view, limited like the top menu tab
+ *  A4-06 - ger-DE translates every string of the admin4 templates and leaves design/admin/content/search complete:
+ *          an unfinished message in an extension's translation is read as its English source and hides the
+ *          kernel's translation of the same message
+ *
+ * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ * @package tests
+ */
+
+use PHPUnit\Framework\TestCase;
+
+class ezfAdmin4TemplatesTest extends TestCase
+{
+    private static function root(): string
+    {
+        return dirname( __DIR__, 2 );
+    }
+
+    /** @return array<string, string> file name => template source without template comments */
+    private static function admin4Templates(): array
+    {
+        $templates = array();
+        foreach ( glob( self::root() . '/design/admin4/templates/ezfind/*.tpl' ) ?: array() as $file )
+        {
+            $templates[basename( $file )] = (string)preg_replace( '/\{\*.*?\*\}/s', '', (string)file_get_contents( $file ) );
+        }
+        ksort( $templates );
+        return $templates;
+    }
+
+    /** @return array<int, string> the names of the form fields and buttons in a template */
+    private static function formNames( string $source ): array
+    {
+        preg_match_all( '/\bname="([^"{]+)"/', $source, $matches );
+        $names = array_values( array_unique( $matches[1] ) );
+        sort( $names );
+        return $names;
+    }
+
+    /** @return array<string, array<string, array{0: string|null, 1: string}>> context => source => (type, translation) */
+    private static function translations( string $language ): array
+    {
+        $document = new DOMDocument();
+        $document->load( self::root() . "/translations/$language/translation.ts" );
+        $result = array();
+        foreach ( $document->getElementsByTagName( 'context' ) as $context )
+        {
+            $name = $context->getElementsByTagName( 'name' )->item( 0 )->textContent;
+            foreach ( $context->getElementsByTagName( 'message' ) as $message )
+            {
+                $translation = $message->getElementsByTagName( 'translation' )->item( 0 );
+                $result[$name][$message->getElementsByTagName( 'source' )->item( 0 )->textContent] = array(
+                    $translation && $translation->hasAttribute( 'type' ) ? $translation->getAttribute( 'type' ) : null,
+                    $translation ? $translation->textContent : '',
+                );
+            }
+        }
+        return $result;
+    }
+
+    /** @return array<int, string> the templates of the views that draw the eZ Find left menu, and the menu itself */
+    private static function administrationTemplates(): array
+    {
+        $templates = array();
+        foreach ( glob( self::root() . '/modules/ezfind/*.php' ) ?: array() as $view )
+        {
+            $source = (string)file_get_contents( $view );
+            if ( strpos( $source, 'design:ezfind/backoffice_left_menu.tpl' ) === false )
+            {
+                continue;
+            }
+            preg_match_all( '/fetch\(\s*["\']design:ezfind\/([\w.]+\.tpl)["\']/', $source, $matches );
+            $templates = array_merge( $templates, $matches[1] );
+        }
+        $templates[] = 'backoffice_left_menu.tpl';
+        $templates = array_values( array_unique( $templates ) );
+        sort( $templates );
+        return $templates;
+    }
+
+    public function testEveryAdministrationViewHasAnAdmin4Template(): void
+    {
+        $templates = self::administrationTemplates();
+        $this->assertContains( 'elevate.tpl', $templates );
+        $this->assertSame( array(), array_values( array_diff( $templates, array_keys( self::admin4Templates() ) ) ) );
+    }
+
+    public function testTheAdmin4TemplatesCarryNoInlineCss(): void
+    {
+        foreach ( self::admin4Templates() as $file => $source )
+        {
+            $this->assertDoesNotMatchRegularExpression( '/<style\b/i', $source, $file );
+            $this->assertDoesNotMatchRegularExpression( '/(?<![\w.\-])style\s*=/i', $source, $file );
+            $this->assertDoesNotMatchRegularExpression( '/\b(cellspacing|width)\s*=/i', $source, $file );
+            $this->assertDoesNotMatchRegularExpression( '/<img\b/i', $source, $file );
+            $this->assertStringNotContainsString( 'box-tc', $source, "$file: the admin4 frame has no corner boxes" );
+        }
+    }
+
+    public function testValuesFromTheRequestOrTheStoreArePrintedWashed(): void
+    {
+        $encoded = array( '{$view_parameters.search_query}', '{$conf.search_query}' );
+        foreach ( self::admin4Templates() as $file => $source )
+        {
+            // a variable printed as it is: {$feedback.x}, {$lang.name} ...; the search query comes encoded
+            preg_match_all( '/\{\$(view_parameters|conf|feedback|elevateSearchQuery|lang|translation|elevatedObject|tmp_obj|object|baseurl|language_wildcard)\b[^}|]*\}/', str_replace( $encoded, '', $source ), $raw );
+            $this->assertSame( array(), $raw[0], "$file prints a value without |wash" );
+            if ( $file !== 'remove_elevation.tpl' )
+            {
+                $this->assertStringNotContainsString( 'search_query|wash', $source, "$file washes the encoded search query a second time" );
+            }
+        }
+    }
+
+    public function testTheAdmin4TemplatesPostTheSameFields(): void
+    {
+        foreach ( array( 'elevate.tpl', 'elevation_detail.tpl', 'remove_elevation.tpl' ) as $file )
+        {
+            $standard = self::formNames( (string)file_get_contents( self::root() . "/design/standard/templates/ezfind/$file" ) );
+            $admin4 = self::formNames( self::admin4Templates()[$file] );
+            $this->assertSame( array(), array_values( array_diff( $standard, $admin4 ) ), "$file: fields of the standard template missing in admin4" );
+        }
+    }
+
+    public function testMenuIniHasTheLeftMenu(): void
+    {
+        $ini = (string)file_get_contents( self::root() . '/settings/menu.ini.append.php' );
+        $this->assertMatchesRegularExpression( '/^\[Leftmenu_ezfind\]$/m', $ini );
+        $rest = substr( $ini, strpos( $ini, '[Leftmenu_ezfind]' ) + strlen( '[Leftmenu_ezfind]' ) );
+        $section = preg_split( '/^(?:\[|\*\/)/m', $rest )[0];
+        $this->assertMatchesRegularExpression( '/^Links\[elevate\]=ezfind\/elevate$/m', $section );
+        $this->assertMatchesRegularExpression( '/^LinkNames\[elevate\]=\S/m', $section );
+        $this->assertMatchesRegularExpression( '/^PolicyList\[\]=ezfind\/elevate$/m', $section );
+        $this->assertStringContainsString( "ini_section='Leftmenu_ezfind'", self::admin4Templates()['backoffice_left_menu.tpl'] );
+        $this->assertStringContainsString( 'design:parts/left_width_control.tpl', self::admin4Templates()['backoffice_left_menu.tpl'] );
+    }
+
+    public function testGermanTranslatesThePages(): void
+    {
+        $german = self::translations( 'ger-DE' );
+        $missing = array();
+        foreach ( self::admin4Templates() as $file => $source )
+        {
+            preg_match_all( "/\\{(['\"])((?:(?!\\1).|\\\\\\1)*)\\1\\|i18n\\(\\s*'([^']+)'/", $source, $matches, PREG_SET_ORDER );
+            foreach ( $matches as $match )
+            {
+                $text = str_replace( array( "\\'", '\\"' ), array( "'", '"' ), $match[2] );
+                $entry = $german[$match[3]][$text] ?? null;
+                if ( $entry === null || $entry[0] === 'unfinished' || trim( $entry[1] ) === '' )
+                {
+                    $missing[] = "$file: {$match[3]}: $text";
+                }
+            }
+        }
+        foreach ( array( 'Elevation', 'eZ Find' ) as $text )
+        {
+            $entry = $german['design/admin/parts/ezfind/menu'][$text] ?? null;
+            if ( $entry === null || $entry[0] === 'unfinished' || trim( $entry[1] ) === '' )
+            {
+                $missing[] = "menu.ini: design/admin/parts/ezfind/menu: $text";
+            }
+        }
+        foreach ( $german['design/admin/content/search'] ?? array() as $text => $entry )
+        {
+            if ( $entry[0] === 'unfinished' || trim( $entry[1] ) === '' )
+            {
+                $missing[] = "design/admin/content/search: $text";
+            }
+        }
+        $this->assertSame( array(), $missing );
+    }
+}

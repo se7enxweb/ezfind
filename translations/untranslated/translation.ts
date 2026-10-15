@@ -744,6 +744,30 @@
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>extension/ezfind/facets</name>
@@ -807,6 +831,17 @@
     </message>
     <message>
         <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Elevation</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

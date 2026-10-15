@@ -5,114 +5,114 @@
     <name>design/admin/content/search</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchen</translation>
     </message>
     <message>
         <source>All content</source>
-        <translation type="unfinished"></translation>
+        <translation>Kompletten Inhalt</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished"></translation>
+        <translation>Gleicher Ort</translation>
     </message>
     <message>
         <source>For more options try the %1Advanced search%2.</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation type="unfinished"></translation>
+        <translation>Probieren Sie die %1erweiterte Suche%2 für weitere Möglichkeiten.</translation>
     </message>
     <message>
         <source>The following words were excluded from the search</source>
-        <translation type="unfinished">Die folgenden Wörter wurden von der Suche ausgeschlossen</translation>
+        <translation>Die folgenden Wörter wurden von der Suche ausgeschlossen</translation>
     </message>
     <message>
         <source>No results were found while searching for &lt;%1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bei der Suche nach &lt;%1&gt; wurden keine Ergebnisse gefunden</translation>
     </message>
     <message>
         <source>Search tips</source>
-        <translation type="unfinished">Suchhinweise</translation>
+        <translation>Suchtipps</translation>
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation type="unfinished">Rechtschreibeprüfung für Suchbegriffe.</translation>
+        <translation>Überprüfen Sie die Rechtschreibung der Suchbegriffe.</translation>
     </message>
     <message>
         <source>Try changing some keywords e.g. &amp;quot;car&amp;quot; instead of &amp;quot;cars&amp;quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wandeln Sie einige Suchwörter ab, z. B. &amp;quot;Auto&amp;quot; statt &amp;quot;Autos&amp;quot;.</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
-        <translation type="unfinished">Versuchen Sie es mit allgemeineren Suchbegriffen.</translation>
+        <translation>Versuchen Sie es mit allgemeineren Worten.</translation>
     </message>
     <message>
         <source>Fewer keywords result in more matches. Try reducing keywords until you get a result.</source>
-        <translation type="unfinished"></translation>
+        <translation>Weniger Suchwörter liefern mehr Ergebnisse. Versuchen Sie, die Anzahl der Suchwörter zu reduzieren.</translation>
     </message>
     <message>
         <source>Search for &lt;%1&gt; returned %2 matches</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Suche nach &lt;%1&gt; ergab %2 Treffer</translation>
     </message>
 </context>
 <context>
     <name>design/admin/node/view/full</name>
     <message>
         <source>Show 10 items per page.</source>
-        <translation type="unfinished"></translation>
+        <translation>10 Einträge pro Seite anzeigen.</translation>
     </message>
     <message>
         <source>Show 50 items per page.</source>
-        <translation type="unfinished"></translation>
+        <translation>50 Einträge pro Seite anzeigen.</translation>
     </message>
     <message>
         <source>Show 25 items per page.</source>
-        <translation type="unfinished"></translation>
+        <translation>25 Einträge pro Seite anzeigen.</translation>
     </message>
 </context>
 <context>
     <name>design/admin/pagelayout</name>
     <message>
         <source>Search in all content</source>
-        <translation type="unfinished"></translation>
+        <translation>Den kompletten Inhalt durchsuchen</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchen</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Erweitert</translation>
     </message>
     <message>
         <source>Search in &apos;%node&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>In '%node' suchen</translation>
     </message>
     <message>
         <source>Advanced search.</source>
-        <translation type="unfinished"></translation>
+        <translation>Erweiterte Suche.</translation>
     </message>
     <message>
         <source>Search scope</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchbereich</translation>
     </message>
     <message>
         <source>Section</source>
-        <translation type="unfinished"></translation>
+        <translation>Sektion</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle</translation>
     </message>
     <message>
         <source>Search only from the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur ab dem aktuellen Ort suchen</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktueller Ort</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished"></translation>
+        <translation>Gleicher Ort</translation>
     </message>
 </context>
 <context>
@@ -441,15 +441,15 @@
     <name>extension/ezfind</name>
     <message>
         <source>eZFind</source>
-        <translation type="unfinished"></translation>
+        <translation>eZ Find</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchtreffer hervorheben</translation>
     </message>
     <message>
         <source>Remove Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebung entfernen</translation>
     </message>
 </context>
 <context>
@@ -471,278 +471,302 @@
     <name>extension/ezfind/backoffice_left_menu</name>
     <message>
         <source>eZFind</source>
-        <translation type="unfinished"></translation>
+        <translation>eZ Find</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchtreffer hervorheben</translation>
     </message>
     <message>
         <source>Boost</source>
-        <translation type="unfinished"></translation>
+        <translation>Boost</translation>
     </message>
     <message>
         <source>Facets</source>
-        <translation type="unfinished"></translation>
+        <translation>Facetten</translation>
     </message>
 </context>
 <context>
     <name>extension/ezfind/elevate</name>
     <message>
         <source>Hide preview of existing elevate configurations.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorschau der vorhandenen Hervorhebungen ausblenden.</translation>
     </message>
     <message>
         <source>Preview existing configurations</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorhandene Hervorhebungen anzeigen</translation>
     </message>
     <message>
         <source>Show preview of existing elevate configurations.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorschau der vorhandenen Hervorhebungen einblenden.</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchtreffer hervorheben</translation>
     </message>
     <message>
         <source>Please enter a search query.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte geben Sie einen Suchbegriff ein.</translation>
     </message>
     <message>
         <source>Please choose a valid object.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte wählen Sie ein gültiges Objekt.</translation>
     </message>
     <message>
         <source>Missing language information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Sprachangabe fehlt.</translation>
     </message>
     <message>
         <source>Successful creation of the following Elevate configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Die folgende Hervorhebung wurde angelegt</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Details</translation>
     </message>
     <message>
         <source>Successful synchronization of the local Elevate configuration with Solr&apos;s.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die lokalen Hervorhebungen wurden mit Solr abgeglichen.</translation>
     </message>
     <message>
         <source>Synchronise Elevate configuration with Solr</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebungen mit Solr abgleichen</translation>
     </message>
     <message>
         <source>Synchronise</source>
-        <translation type="unfinished"></translation>
+        <translation>Abgleichen</translation>
     </message>
     <message>
         <source>Synchronise the Elevate configuration with Solr.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die Hervorhebungen mit Solr abgleichen.</translation>
     </message>
     <message>
         <source>Elevate an object</source>
-        <translation type="unfinished"></translation>
+        <translation>Objekt hervorheben</translation>
     </message>
     <message>
         <source>&quot;Elevating an object&quot; for a given search query means that this object will be returned among the very first search results when a search is triggered using this search query.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ein Objekt für einen Suchbegriff „hervorzuheben“ heißt: Wer mit diesem Suchbegriff sucht, bekommt das Objekt unter den allerersten Treffern.</translation>
     </message>
     <message>
         <source>Search query</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchbegriff</translation>
     </message>
     <message>
         <source>Search query to elevate the object for.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Suchbegriff, für den das Objekt hervorgehoben wird.</translation>
     </message>
     <message>
         <source>Elevate object</source>
-        <translation type="unfinished"></translation>
+        <translation>Objekt hervorheben</translation>
     </message>
     <message>
         <source>Browse for the object to associate elevation to.</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Objekt auswählen, das hervorgehoben werden soll.</translation>
     </message>
     <message>
         <source>Elevate %objectlink with &amp;nbsp;  %searchquery &amp;nbsp;  for language:</source>
-        <translation type="unfinished"></translation>
+        <translation>%objectlink hervorheben für &amp;nbsp;  %searchquery &amp;nbsp;  in der Sprache:</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle</translation>
     </message>
     <message>
         <source>Elevate</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorheben</translation>
     </message>
     <message>
         <source>Store elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebung speichern</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Cancel elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebung abbrechen</translation>
     </message>
     <message>
         <source>Search for elevated objects</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorgehobene Objekte suchen</translation>
     </message>
     <message>
         <source>By search query</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach Suchbegriff</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprache</translation>
     </message>
     <message>
         <source>Select a translation to narrow down the search.</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine Sprache wählen, um die Suche einzuschränken.</translation>
     </message>
     <message>
         <source>Fuzzy match</source>
-        <translation type="unfinished"></translation>
+        <translation>Unscharfe Suche</translation>
     </message>
     <message>
         <source>Fuzzy match on the search query.</source>
-        <translation type="unfinished"></translation>
+        <translation>Den Suchbegriff unscharf vergleichen.</translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtern</translation>
     </message>
     <message>
         <source>Find elevate configurations matching the search query entered.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebungen zum eingegebenen Suchbegriff finden.</translation>
     </message>
     <message>
         <source>By object</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach Objekt</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Auswählen</translation>
     </message>
     <message>
         <source>Objects elevated by &quot;%search_query&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Für „%search_query“ hervorgehobene Objekte</translation>
     </message>
     <message>
         <source>fuzzy match</source>
-        <translation type="unfinished"></translation>
+        <translation>unscharf</translation>
     </message>
     <message>
         <source>Existing configurations</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorhandene Hervorhebungen</translation>
     </message>
     <message>
         <source>No existing Elevate configuration.</source>
-        <translation type="unfinished"></translation>
+        <translation>Es gibt keine Hervorhebung.</translation>
     </message>
     <message>
         <source>Content object</source>
-        <translation type="unfinished"></translation>
+        <translation>Objekt</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktionen</translation>
     </message>
     <message>
         <source>See elevate configuration details for &apos;%objectName&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebungen von '%objectName' ansehen</translation>
     </message>
     <message>
         <source>Remove elevation by &apos;%searchQuery&apos; for &apos;%objectName&apos;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebung von '%objectName' für '%searchQuery' entfernen.</translation>
     </message>
     <message>
         <source>See all objects elevated by &apos;%searchQuery&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle für '%searchQuery' hervorgehobenen Objekte ansehen</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <source>Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <source>Elevation detail for object %objectName</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebungen des Objekts %objectName</translation>
     </message>
     <message>
         <source>Missing content object.</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Objekt fehlt.</translation>
     </message>
     <message>
         <source>Elevate %objectName</source>
-        <translation type="unfinished"></translation>
+        <translation>%objectName hervorheben</translation>
     </message>
     <message>
         <source>Elevate %objectlink with:</source>
-        <translation type="unfinished"></translation>
+        <translation>%objectlink hervorheben für:</translation>
     </message>
     <message>
         <source>for language:</source>
-        <translation type="unfinished"></translation>
+        <translation>in der Sprache:</translation>
     </message>
     <message>
         <source>Existing configurations for %objectName</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorhandene Hervorhebungen von %objectName</translation>
     </message>
     <message>
         <source>in %selectedLanguage</source>
-        <translation type="unfinished"></translation>
+        <translation>in %selectedLanguage</translation>
     </message>
     <message>
         <source>containing &apos;%searchQuery&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>mit '%searchQuery'</translation>
     </message>
     <message>
         <source>Search query to filter the result set on.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Suchbegriff, nach dem die Liste gefiltert wird.</translation>
     </message>
     <message>
         <source>Filter configurations by language</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebungen nach Sprache filtern</translation>
     </message>
     <message>
         <source>Removal confirmed ( for %objectName ) :</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernt (für %objectName):</translation>
     </message>
     <message>
         <source>Confirm removal of the following Elevate configuration ( for %objectName ) :</source>
-        <translation type="unfinished"></translation>
+        <translation>Diese Hervorhebung entfernen (für %objectName)?</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurück</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfernen</translation>
     </message>
     <message>
         <source>Confirm removal of the elevate configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Entfernen der Hervorhebung bestätigen</translation>
     </message>
     <message>
         <source>Cancel removal of the elevate configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Das Entfernen der Hervorhebung abbrechen</translation>
     </message>
     <message>
         <source>Error while generating the configuration XML</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Erzeugen der Konfigurations-XML</translation>
     </message>
     <message>
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
-        <translation type="unfinished"></translation>
+        <translation>Beim Aktualisieren der Hervorhebungen in Solr ist ein unbekannter Fehler aufgetreten.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>Die Hervorhebung konnte nicht gespeichert werden.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Objekt</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Ein Objekt wählen, um seine Hervorhebungen zu sehen.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Pro Seite</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>%count Einträge pro Seite anzeigen.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>Die Hervorhebung wurde entfernt.</translation>
     </message>
 </context>
 <context>
@@ -780,15 +804,15 @@
     <name>extension/ezfind/popupmenu</name>
     <message>
         <source>eZ Find</source>
-        <translation type="unfinished"></translation>
+        <translation>eZ Find</translation>
     </message>
     <message>
         <source>Elevate</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorheben</translation>
     </message>
     <message>
         <source>Elevation detail</source>
-        <translation type="unfinished"></translation>
+        <translation>Hervorhebungen des Objekts</translation>
     </message>
 </context>
 <context>
@@ -820,6 +844,17 @@
     <message>
         <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation>Suchtreffer hervorheben</translation>
     </message>
 </context>
 </TS>
