@@ -19,6 +19,9 @@
  *          kernel's translation of the same message
  *  A4-07 - A toggle is a button with aria-pressed, and every icon button is named by what it acts on
  *  A4-08 - The eng-US translation spells Synchronize for the British sources
+ *  A4-09 - ger-DE leaves no current message unfinished, every message is in the untranslated sources, and the
+ *          credit line has the source ezsolr.php translates
+ *  A4-10 - A confirmed removal needs its search query and its language, and matches the stored encoded query
  *
  * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
@@ -222,5 +225,62 @@ class ezfAdmin4TemplatesTest extends TestCase
             }
         }
         $this->assertSame( array(), $missing );
+    }
+
+    /**
+     * A4-09 - ger-DE leaves no current message unfinished or empty (obsolete ones aside), every message of it is in the
+     * untranslated source file too, and the source of the credit line is the text ezsolr.php translates
+     */
+    public function testGermanIsCompleteAndMatchesTheSources(): void
+    {
+        $german = self::translations( 'ger-DE' );
+        $sources = self::translations( 'untranslated' );
+        $unfinished = array();
+        $unknown = array();
+        foreach ( $german as $context => $messages )
+        {
+            foreach ( $messages as $text => $entry )
+            {
+                if ( $entry[0] === 'obsolete' )
+                {
+                    continue;
+                }
+                if ( $entry[0] === 'unfinished' || trim( $entry[1] ) === '' )
+                {
+                    $unfinished[] = "$context: $text";
+                }
+                if ( !isset( $sources[$context][$text] ) )
+                {
+                    $unknown[] = "$context: $text";
+                }
+            }
+        }
+        $this->assertSame( array(), $unfinished, 'unfinished in ger-DE' );
+        $this->assertSame( array(), $unknown, 'in ger-DE but not in untranslated' );
+
+        preg_match( "/ezpI18n::tr\\(\\s*'ezfind',\\s*'(eZ Find %version search plugin[^']*)'/", file_get_contents( self::root() . '/search/plugins/ezsolr/ezsolr.php' ), $match );
+        $this->assertNotEmpty( $match, 'credit line in ezsolr.php' );
+        $this->assertArrayHasKey( $match[1], $german['ezfind'] );
+        $this->assertArrayHasKey( $match[1], $sources['ezfind'] );
+    }
+
+    /**
+     * A4-10 - A confirmed removal needs its search query and its language (purge() with an empty one removes every
+     * configuration of the object) and matches the stored, encoded search query whether it was posted encoded or not
+     */
+    public function testRemovalNeedsTheQueryAndTheLanguage(): void
+    {
+        $source = file_get_contents( self::root() . '/modules/ezfind/remove_elevation.php' );
+        $guard = strpos( $source, "trim( (string)\$http->postVariable( 'ezfind-removeelevation-searchquery', '' ) ) === ''" );
+        $purge = strpos( $source, 'eZFindElevateConfiguration::purge(' );
+        $this->assertNotFalse( $guard );
+        $this->assertNotFalse( strpos( $source, "trim( (string)\$http->postVariable( 'ezfind-removeelevation-languagecode', '' ) ) === ''" ) );
+        $this->assertLessThan( $purge, $guard, 'the guard comes before the purge' );
+        $this->assertStringContainsString( "htmlspecialchars( htmlspecialchars_decode(", $source );
+
+        foreach ( array( 'a&b "c"', 'a&amp;b &quot;c&quot;' ) as $posted )
+        {
+            $this->assertSame( htmlspecialchars( 'a&b "c"', ENT_QUOTES ), htmlspecialchars( htmlspecialchars_decode( $posted, ENT_QUOTES ), ENT_QUOTES ) );
+        }
     }
 }
