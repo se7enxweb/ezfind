@@ -136,11 +136,11 @@
     </message>
     <message>
         <source>Search tips</source>
-        <translation>Suchhinweise</translation>
+        <translation>Suchtipps</translation>
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation>Rechtschreibeprüfung für Suchbegriffe.</translation>
+        <translation>Überprüfen Sie die Rechtschreibung der Suchbegriffe.</translation>
     </message>
     <message>
         <source>Try changing some keywords eg. car instead of cars.</source>
@@ -218,14 +218,14 @@
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation>Eine angenäherte Suche ist unter Anwendung von Anführungszeichen und einen maximalen Abstand (in Worten) nach einem ~ Zeichen möglich, &quot;Konferenz veröffentlichen&quot; ~ 5 sucht nach einem Text, in dem Konferenz und veröffentlichen bis maximal 5 Wörter getrennt sind</translation>
+        <translation>Eine Umkreissuche ist mit Anführungszeichen und einem maximalen Abstand (in Wörtern) nach einem ~ möglich, z. B. findet "Konferenz veröffentlichen"~5 Texte, in denen Konferenz und veröffentlichen höchstens 5 Wörter auseinanderliegen</translation>
     </message>
 </context>
 <context>
     <name>design/ezflow/block/search</name>
     <message>
         <source>Search</source>
-        <translation>Suche</translation>
+        <translation>Suchen</translation>
     </message>
 </context>
 <context>
@@ -249,7 +249,7 @@
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation>Rechtschreibeprüfung für Suchbegriffe.</translation>
+        <translation>Überprüfen Sie die Rechtschreibung der Suchbegriffe.</translation>
     </message>
     <message>
         <source>Try changing some keywords (eg, &quot;car&quot; instead of &quot;cars&quot;).</source>
@@ -296,7 +296,7 @@
     </message>
     <message>
         <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</source>
-        <translation>Bitte melden Sie sich %login_link_startLogan%login_link_end oder %create_link_startregistrieren%create_link_end Sie sich um kommentieren zu können.</translation>
+        <translation>%login_link_startMelden Sie sich an%login_link_end oder %create_link_startregistrieren Sie sich%create_link_end, um zu kommentieren.</translation>
     </message>
     <message>
         <source>Tip a friend</source>
@@ -315,7 +315,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation>Suche</translation>
+        <translation>Suchen</translation>
     </message>
 </context>
 <context>
@@ -346,7 +346,7 @@
     </message>
     <message>
         <source>Class attribute</source>
-        <translation>Klasseneigenschaft</translation>
+        <translation>Klassenattribut</translation>
     </message>
     <message>
         <source>Any attribute</source>
@@ -354,7 +354,7 @@
     </message>
     <message>
         <source>Update attributes</source>
-        <translation>Eigenschaften aktualisieren</translation>
+        <translation>Attribute aktualisieren</translation>
     </message>
     <message>
         <source>In</source>
@@ -366,7 +366,7 @@
     </message>
     <message>
         <source>Published</source>
-        <translation>Publiziert</translation>
+        <translation>Veröffentlicht</translation>
     </message>
     <message>
         <source>Any time</source>
@@ -418,7 +418,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation>Suche</translation>
+        <translation>Suchen</translation>
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;</source>
@@ -827,7 +827,7 @@
     </message>
     <message>
         <source>Core search time: %1 msecs</source>
-        <translation>Kern Suchdauer: %1 msecs</translation>
+        <translation>Suchdauer im Kern: %1 ms</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -846,8 +846,8 @@
         <translation>Die Suche dauerte %1 ms, mit </translation>
     </message>
     <message>
-        <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
-        <translation type="unfinished"></translation>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
+        <translation>eZ Find %version Such-Plugin &amp;copy; 1999-2014 eZ Systems AS, basierend auf Apache Solr 4.7.0</translation>
     </message>
 </context>
 <context>
