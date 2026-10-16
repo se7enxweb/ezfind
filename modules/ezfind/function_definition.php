@@ -100,7 +100,13 @@ $FunctionList['search'] = array( 'name' => 'search',
                                                         array ( 'name'  => 'extended_attribute_filter',
                                                                 'type' => 'array',
                                                                 'required' => false,
-                                                                'default' => array() )) );
+                                                                'default' => array() ),
+                                                        // one class attribute to search in, as
+                                                        // fetch( content, search ) offers it
+                                                        array ( 'name'  => 'class_attribute_id',
+                                                                'type' => 'mixed',
+                                                                'required' => false,
+                                                                'default' => false )) );
 
 
 $FunctionList['getDefaultSearchFacets'] = array( 'name' => 'getDefaultSearchFacets',
