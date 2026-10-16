@@ -136,7 +136,7 @@
 </div>
 
 <div class="yui3-skin-sam ez-autocomplete">
-    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" value="{$search_text|wash}" />
+    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" value="{$search_text|wash}" aria-label="{'Search'|i18n('design/ezwebin/content/search')}" />
     <input class="button" name="SearchButton" type="submit" value="{'Search'|i18n('design/ezwebin/content/search')}" />
 </div>
 

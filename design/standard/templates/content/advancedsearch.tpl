@@ -42,12 +42,12 @@
 </div>
 
 <div class="block">
-<label>{"Search all the words"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
-<input class="box" type="text" size="40" name="SearchText" value="{$full_search_text|wash}" />
+<label for="advancedsearch-searchtext">{"Search all the words"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
+<input id="advancedsearch-searchtext" class="box" type="text" size="40" name="SearchText" value="{$full_search_text|wash}" />
 </div>
 <div class="block">
-<label>{"Search the exact phrase"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
-<input class="box" type="text" size="40" name="PhraseSearchText" value="{$phrase_search_text|wash}" />
+<label for="advancedsearch-phrasesearchtext">{"Search the exact phrase"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
+<input id="advancedsearch-phrasesearchtext" class="box" type="text" size="40" name="PhraseSearchText" value="{$phrase_search_text|wash}" />
 </div>
 {*<div class="block">
 <label>{"Search with at least one of the words"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
@@ -56,8 +56,8 @@
 <div class="block">
 
 <div class="element">
-<label>{"Class"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
-<select name="SearchContentClassID">
+<label for="advancedsearch-class">{"Class"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
+<select id="advancedsearch-class" name="SearchContentClassID">
 <option value="-1">{"Any class"|i18n("design/standard/content/search")}</option>
 {foreach $content_class_array as $contentClass}
     <option {cond( $search_contentclass_id|eq( $contentClass.id ), 'selected="selected"', '' )} value="{$contentClass.id}">{$contentClass.name|wash}</option>
@@ -67,11 +67,11 @@
 </div>
 <div class="element">
 
-<label>{"Class attribute"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
+<label{if $search_contentclass_id|gt(0)} for="advancedsearch-classattribute"{/if}>{"Class attribute"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
 
 {if $search_contentclass_id|gt(0)}
 
-<select name="SearchContentClassAttributeID">
+<select id="advancedsearch-classattribute" name="SearchContentClassAttributeID">
 <option value="-1">{"Any attribute"|i18n("design/standard/content/search")}</option>
 {foreach $search_content_class_attribute_array as $classAttribute}
 <option value="{$classAttribute.id}"
@@ -91,8 +91,8 @@
 <div class="block">
 <div class="element">
 
-<label>{"In"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
-<select name="SearchSectionID">
+<label for="advancedsearch-section">{"In"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
+<select id="advancedsearch-section" name="SearchSectionID">
 <option value="-1">{"Any section"|i18n("design/standard/content/search")}</option>
 {foreach $section_array as $section}
 <option {cond( eq( $search_section_id, $section.id ), 'selected="selected"', '' )} value="{$section.id}">{$section.name|wash}</option>
@@ -102,8 +102,8 @@
 </div>
 <div class="element">
 
-<label>{"Published"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
-<select name="SearchDate">
+<label for="advancedsearch-date">{"Published"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
+<select id="advancedsearch-date" name="SearchDate">
 <option value="-1" {if eq($search_date,-1)}selected="selected"{/if}>{"Any time"|i18n("design/standard/content/search")}</option>
 <option value="1" {if eq($search_date,1)}selected="selected"{/if}>{"Last day"|i18n("design/standard/content/search")}</option>
 <option value="2" {if eq($search_date,2)}selected="selected"{/if}>{"Last week"|i18n("design/standard/content/search")}</option>
@@ -115,8 +115,8 @@
 
 {if $use_template_search}
 <div class="element">
-<label>{"Display per page"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
-<select name="SearchPageLimit">
+<label for="advancedsearch-pagelimit">{"Display per page"|i18n("design/standard/content/search")}</label><div class="labelbreak"></div>
+<select id="advancedsearch-pagelimit" name="SearchPageLimit">
 <option value="1" {if eq($search_page_limit,1)}selected="selected"{/if}>{"5 items"|i18n("design/standard/content/search")}</option>
 <option value="2" {if or(array(1,2,3,4,5)|contains($search_page_limit)|not,eq($search_page_limit,2))}selected="selected"{/if}>{"10 items"|i18n("design/standard/content/search")}</option>
 <option value="3" {if eq($search_page_limit,3)}selected="selected"{/if}>{"20 items"|i18n("design/standard/content/search")}</option>

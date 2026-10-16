@@ -120,9 +120,9 @@
        {else}
            {'Elevate %objectlink with &nbsp;  %searchquery &nbsp;  for language:'|i18n( 'extension/ezfind/elevate', '',
                                                                                         hash( '%objectlink',  concat( '<a href=', $elevatedObject.main_node.url_alias|ezurl, '>', $elevatedObject.main_node.name, '</a>' ),
-                                                                                              '%searchquery', concat( '<input type="text" name="ezfind-elevate-searchquery" size="15" value="', $elevateSearchQuery|wash, '" title="', 'Search query to elevate the object for.'|i18n( 'extension/ezfind/elevate' ) , '"/>' ) ))}
+                                                                                              '%searchquery', concat( '<input type="text" name="ezfind-elevate-searchquery" size="15" value="', $elevateSearchQuery|wash, '" title="', 'Search query to elevate the object for.'|i18n( 'extension/ezfind/elevate' ), '" aria-label="', 'Search query'|i18n( 'extension/ezfind/elevate' ), '"/>' ) ))}
 
-            <select name="ezfind-elevate-language">
+            <select name="ezfind-elevate-language" aria-label="{'Language'|i18n( 'extension/ezfind/elevate' )}">
                    <option value="{$language_wildcard}">{'All'|i18n( 'extension/ezfind/elevate' )}</option>
                    {foreach $elevatedObject.languages as $lang}
                        <option value="{$lang.locale}">{$lang.name}</option>
@@ -294,11 +294,11 @@
            </td>
            <td width="10%">
               {if is_set( $view_parameters.fuzzy_filter )}
-                   <a href={concat( '/ezfind/elevation_detail/', $object.id, '/(search_query)/', $view_parameters.search_query, '/(fuzzy_filter)/', $view_parameters.fuzzy_filter )|ezurl} title="{'See elevate configuration details for \'%objectName\''|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name ) )}"><img src={'edit.gif'|ezimage} /></a>
-                   <a href={concat( '/ezfind/elevation_detail/', $object.id, '/(search_query)/', $view_parameters.search_query, '/(fuzzy_filter)/', $view_parameters.fuzzy_filter )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name, '%searchQuery', $view_parameters.search_query ) )}"><img src={'trash-icon-16x16.gif'|ezimage} /></a>
+                   <a href={concat( '/ezfind/elevation_detail/', $object.id, '/(search_query)/', $view_parameters.search_query, '/(fuzzy_filter)/', $view_parameters.fuzzy_filter )|ezurl} title="{'See elevate configuration details for \'%objectName\''|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name ) )}"><img alt="{'Edit'|i18n( 'extension/ezfind/elevate' )}" src={'edit.gif'|ezimage} /></a>
+                   <a href={concat( '/ezfind/elevation_detail/', $object.id, '/(search_query)/', $view_parameters.search_query, '/(fuzzy_filter)/', $view_parameters.fuzzy_filter )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name, '%searchQuery', $view_parameters.search_query ) )}"><img alt="{'Trash'|i18n( 'extension/ezfind/elevate' )}" src={'trash-icon-16x16.gif'|ezimage} /></a>
                {else}
-                  <a href={concat( '/ezfind/elevation_detail/', $object.id, '/(search_query)/', $view_parameters.search_query )|ezurl} title="{'See elevate configuration details for \'%objectName\''|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name ) )}"><img src={'edit.gif'|ezimage} /></a>
-                  <a href={concat( '/ezfind/remove_elevation/', $object.id, '/', $view_parameters.search_query )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name, '%searchQuery', $view_parameters.search_query ) )}"><img src={'trash-icon-16x16.gif'|ezimage} /></a>
+                  <a href={concat( '/ezfind/elevation_detail/', $object.id, '/(search_query)/', $view_parameters.search_query )|ezurl} title="{'See elevate configuration details for \'%objectName\''|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name ) )}"><img alt="{'Edit'|i18n( 'extension/ezfind/elevate' )}" src={'edit.gif'|ezimage} /></a>
+                  <a href={concat( '/ezfind/remove_elevation/', $object.id, '/', $view_parameters.search_query )|ezurl} title="{'Remove elevation by \'%searchQuery\' for \'%objectName\'.'|i18n( 'extension/ezfind/elevate', '', hash( '%objectName', $object.name, '%searchQuery', $view_parameters.search_query ) )}"><img alt="{'Trash'|i18n( 'extension/ezfind/elevate' )}" src={'trash-icon-16x16.gif'|ezimage} /></a>
                {/if}
            </td>
            </tr>

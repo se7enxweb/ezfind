@@ -1,7 +1,7 @@
 <h2>{$block.name|wash()}</h2>
 <form id="search-form-{$block.id}" action="{'content/search'|ezurl('no')}" method="post">
 <div class="yui3-skin-sam ez-autocomplete">
-    <input id="search-string-{$block.id}" type="text" name="SearchStr" value="" />
+    <input id="search-string-{$block.id}" type="text" name="SearchStr" value="" aria-label="{'Search'|i18n( 'design/ezflow/block/search' )}" />
     <input id="search-button-{$block.id}" class="button" type="submit" name="SearchButton" value="{'Search'|i18n( 'design/ezflow/block/search' )}" />
     {def $customAttributesString='['}
     {foreach $block.custom_attributes as $name => $value}

@@ -7,6 +7,7 @@
 <div class="searchblock">
 <form action={'/content/search/'|ezurl} method="get">
     {if $ui_context_edit}
+        <label for="searchtext" class="a4-sr-only">{$search_title|wash}</label>
         <input id="searchtext" name="SearchText" class="disabled" type="text" size="20" value="{if is_set( $search_text )}{$search_text|wash}{/if}" disabled="disabled" title="{$search_title|wash}" />
         <input type="hidden" name="SubTreeArray" value="{$search_node_id|wash}" />
         <input id="searchbutton" class="button-disabled hide" name="SearchButton" type="submit" value="{'Search'|i18n( 'design/admin/pagelayout' )}" disabled="disabled" />
@@ -17,6 +18,7 @@
         {/if}
         <div class="yui3-skin-sam ez-autocomplete">
         <div id="searchtextwrapper">
+            <label for="searchtext" class="a4-sr-only">{$search_title|wash}</label>
             <input id="searchtext" name="SearchText" type="text" size="20" value="{if is_set( $search_text )}{$search_text|wash}{/if}" title="{$search_title|wash}" />
         </div>
             <input type="hidden" name="SubTreeArray" value="{$search_node_id|wash}" />
@@ -34,7 +36,7 @@
 
             <div class="searchscope-menu-container">
                 <div class="searchscope-pane" id="searchscope-pane">
-                    <a href="javascript:;" class="close" id="searchscope-pane-close"><span class="mini-icon mini-icon-remove-close"></span></a>
+                    <a href="javascript:;" class="close" id="searchscope-pane-close" title="{'Close'|i18n( 'design/admin/pagelayout' )}"><span class="mini-icon mini-icon-remove-close"></span><span class="a4-sr-only">{'Close'|i18n( 'design/admin/pagelayout' )}</span></a>
                     <div class="searchscope-title">{'Search scope'|i18n( 'design/admin/pagelayout' )}</div>
                     <div class="searchscope-body">
                         {def $disabled = false()
@@ -64,8 +66,8 @@
                                 {/if}
                             {/if}
                         {/if}
-                        <label>{'Section'|i18n( 'design/admin/pagelayout' )}</label>
-                        <select name="SectionID"{if $disabled} disabled="disabled"{/if}>
+                        <label for="searchscope-section">{'Section'|i18n( 'design/admin/pagelayout' )}</label>
+                        <select id="searchscope-section" name="SectionID"{if $disabled} disabled="disabled"{/if}>
                             <option value="-1">{'All'|i18n( 'design/admin/pagelayout' )}</option>
                             {foreach fetch( 'section', 'list' ) as $section}
                             <option value="{$section.id}"{if eq( $section.id, $section_id )} selected="selected"{/if}>{$section.name|wash()}</option>

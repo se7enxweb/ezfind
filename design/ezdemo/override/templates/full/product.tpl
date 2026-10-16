@@ -93,7 +93,7 @@
                                     <div class="item-buying-action form-inline span4">
                                         <label>
                                             <span class="hidden">{'Amount'|i18n("design/ezdemo/full/product")}</span>
-                                            <input type="text" name="Quantity" />
+                                            <input type="text" name="Quantity" aria-label="{'Amount'|i18n("design/ezdemo/full/product")}" />
                                         </label>
                                         <button class="btn btn-warning" type="submit" name="ActionAddToBasket">
                                         {'Add to basket'|i18n("design/ezdemo/full/product")}

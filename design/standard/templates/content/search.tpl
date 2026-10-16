@@ -21,7 +21,7 @@
 
 <h1>{"Search"|i18n("design/base")}</h1>
 
-    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" value="{$search_text|wash}" />
+    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" value="{$search_text|wash}" aria-label="{'Search'|i18n('design/base')}" />
     <input class="button" name="SearchButton" type="submit" value="{'Search'|i18n('design/base')}" />
 
     {def $adv_url=concat('/content/advancedsearch/',$search_text|count_chars()|gt(0)|choose('',concat('?SearchText=',$search_text|urlencode)))|ezurl}

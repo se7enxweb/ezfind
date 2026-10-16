@@ -32,6 +32,7 @@
 
 <div class="block">
     <div class="yui3-skin-sam ez-autocomplete">
+        <label for="Search" class="a4-sr-only">{'Search for'|i18n( 'design/admin/content/search' )}</label>
         <input class="halfbox" type="text" name="SearchText" id="Search" value="{$search_text|wash}" />
         <input class="button"  name="SearchButton" type="submit" value="{'Search'|i18n( 'design/admin/content/search' )}" />
     </div>
