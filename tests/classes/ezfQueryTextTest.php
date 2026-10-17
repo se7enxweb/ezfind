@@ -15,7 +15,7 @@
  *  QT-02 - wordBudget() and limitToClauseBudget(): maxBooleanClauses / (fields + 1) words, the first ones kept
  *  QT-03 - escapeSyntax(): * and ? escaped unless EnableWildcard, a ? at the end of a word always, nothing inside
  *          a phrase, an unmatched quote dropped, an escaped character left alone
- *  QT-04 - buildSearch() cuts a long text by the number of query fields and [SearchHandler] MaxBooleanClauses,
+ *  QT-04 - buildSearch() cuts a long text by the number of query fields (one for simplestandard) and [SearchHandler] MaxBooleanClauses,
  *          says so in SearchTextShortened, and escapes for every handler but simplestandard
  *  QT-05 - The extended attribute filter ezfindallwords requires every word (mm=100%)
  *  QT-06 - fetch( 'ezfind', 'search' ) takes class_attribute_id and hands it to the query builder
@@ -192,6 +192,11 @@ class ezfQueryTextTest extends PHPUnit\Framework\TestCase
 
         list( $query ) = $this->query( 'what?', array( 'QueryHandler' => 'simplestandard' ) );
         $this->assertSame( 'what?', $query['q'], 'simplestandard keeps the full syntax' );
+        list( $query, $builder ) = $this->query( $text, array( 'QueryHandler' => 'simplestandard' ), 77 );
+        $this->assertSame( $text, $query['q'], 'simplestandard searches one field: its budget is not cut by the query fields' );
+        $this->assertFalse( $builder->SearchTextShortened );
+        list( $query, $builder ) = $this->query( 'wor* ' . $text, array( 'QueryHandler' => 'heuristic' ), 77 );
+        $this->assertSame( 'wor* ' . $text, $query['q'], 'heuristic choosing simplestandard keeps every word' );
         list( $query ) = $this->query( 'what?', array( 'QueryHandler' => 'standard', 'BoostFunctions' => array() ), 1 );
         $this->assertStringContainsString( 'attr_field1_t:(what\\?)', $query['q'] );
     }

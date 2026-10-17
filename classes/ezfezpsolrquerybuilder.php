@@ -346,17 +346,6 @@ class ezfeZPSolrQueryBuilder
         }
 
 
-        // Every word is one clause per query field, and Solr refuses a query above maxBooleanClauses ("too many
-        // nested clauses"; measured with 79 query fields: 15 and 16 words failed, while site.ini
-        // [SearchSettings] MaximumSearchTextWords allowed 16). The words are cut to what the fields allow.
-        $maxClauses = $eZFindIni->hasVariable( 'SearchHandler', 'MaxBooleanClauses' ) ? (int)$eZFindIni->variable( 'SearchHandler', 'MaxBooleanClauses' ) : 0;
-        list( $searchText, $this->SearchTextShortened ) = eZFindQueryText::limitToClauseBudget(
-            $searchText, count( $queryFields ) + count( $extraFieldsToSearch ), $maxClauses > 0 ? $maxClauses : eZFindQueryText::DEFAULT_MAX_CLAUSES );
-        if ( $this->SearchTextShortened )
-        {
-            eZDebug::writeNotice( 'The search text was cut to ' . count( eZFindQueryText::units( $searchText ) ) . ' words for ' . count( $queryFields ) . ' query fields', __METHOD__ );
-        }
-
         $spellCheckParamList = array();
         // @param $spellCheck expects array (true|false, dictionary identifier, ...)
         if ( ( isset( $spellCheck[0] ) and $spellCheck[0] ) or
@@ -395,6 +384,19 @@ class ezfeZPSolrQueryBuilder
         $handlerParameters = array();
 
         $queryHandler = strtolower( $queryHandler );
+
+        // Every word is one clause per query field, and Solr refuses a query above maxBooleanClauses ("too many
+        // nested clauses"; measured with 79 query fields: 15 and 16 words failed, while site.ini
+        // [SearchSettings] MaximumSearchTextWords allowed 16). The words are cut to what the fields allow:
+        // simplestandard searches the one aggregated field, every other handler all query fields.
+        $maxClauses = $eZFindIni->hasVariable( 'SearchHandler', 'MaxBooleanClauses' ) ? (int)$eZFindIni->variable( 'SearchHandler', 'MaxBooleanClauses' ) : 0;
+        $budgetFieldCount = $queryHandler === 'simplestandard' ? 1 : count( $queryFields ) + count( $extraFieldsToSearch );
+        list( $searchText, $this->SearchTextShortened ) = eZFindQueryText::limitToClauseBudget(
+            $searchText, $budgetFieldCount, $maxClauses > 0 ? $maxClauses : eZFindQueryText::DEFAULT_MAX_CLAUSES );
+        if ( $this->SearchTextShortened )
+        {
+            eZDebug::writeNotice( 'The search text was cut to ' . count( eZFindQueryText::units( $searchText ) ) . ' words for ' . $budgetFieldCount . ' query fields', __METHOD__ );
+        }
 
         // Solr reads * and ? as wildcards whatever site.ini [SearchSettings] EnableWildcard says, and "what?"
         // searched for a single-character wildcard and found nothing. Escaped here, except for simplestandard,
