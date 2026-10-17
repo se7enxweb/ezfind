@@ -1,4 +1,4 @@
-YUI.add('ezfindautocomplete', function (Y) {
+if ( window.YUI ) YUI.add('ezfindautocomplete', function (Y) {
     "use strict";
 
     Y.namespace('eZ');
@@ -59,3 +59,44 @@ YUI.add('ezfindautocomplete', function (Y) {
         'autocomplete', 'autocomplete-highlighters', 'datasource-io', 'json-parse'
     ]
 });
+
+/*
+ * Templates without inline code: a search field with data-ezfind-autocomplete (JSON: url, minQueryLength,
+ * resultLimit, and subtree / classes where used) gets the autocomplete above when the page is ready, the way the
+ * inline "YUI(YUI3_config).use('ezfindautocomplete', ...)" did. It needs YUI 3 (ezjsc::yui3); without it nothing
+ * happens. Set up once, however often this file is printed.
+ */
+( function()
+{
+    if ( window.eZFindAutoCompleteSetup ) return;
+    window.eZFindAutoCompleteSetup = true;
+
+    var start = function()
+    {
+        var fields = document.querySelectorAll( '[data-ezfind-autocomplete][id]' );
+        if ( !fields.length || !window.YUI ) return;
+        var configs = [];
+        for ( var i = 0; i < fields.length; i++ )
+        {
+            try
+            {
+                var conf = JSON.parse( fields[i].getAttribute( 'data-ezfind-autocomplete' ) );
+                conf.inputSelector = '#' + fields[i].id;
+                configs.push( conf );
+            }
+            catch ( e ) {}
+        }
+        YUI( typeof window.YUI3_config !== 'undefined' ? window.YUI3_config : {} ).use( 'ezfindautocomplete', function( Y )
+        {
+            for ( var k = 0; k < configs.length; k++ )
+            {
+                Y.eZ.initAutoComplete( configs[k] );
+            }
+        } );
+    };
+
+    if ( document.readyState === 'loading' )
+        document.addEventListener( 'DOMContentLoaded', start );
+    else
+        start();
+} )();

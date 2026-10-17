@@ -253,3 +253,58 @@ var eZAJAXSearch = function()
 
     return ret;
 }();
+
+/*
+ * Templates without inline code: an element with data-ezflow-ajaxsearch (the same markup ezflow's ezajaxsearch.js
+ * reads) carries the settings above as data attributes: data-search-string, data-search-button, data-search-results,
+ * data-date-format, data-result-template, data-noresult-string, data-spellcheck, data-spellcheck-template,
+ * data-facets-main-template, data-facets-inner-template, data-facets-element-template, data-backend-uri and
+ * data-custom-search-attributes (a JSON list of selectors). The search starts from them when the page is ready, the
+ * way the inline "eZAJAXSearch.cfg = { ... }; eZAJAXSearch.init();" did. It needs YUI 3 (ezjsc::yui3); without it
+ * nothing happens. Set up once, however often this file is printed.
+ */
+( function()
+{
+    if ( eZAJAXSearch.dataSetup ) return;
+    eZAJAXSearch.dataSetup = true;
+
+    var keys = { 'searchstring': 'data-search-string', 'searchbutton': 'data-search-button',
+                 'searchresults': 'data-search-results', 'dateformattype': 'data-date-format',
+                 'resulttemplate': 'data-result-template', 'noresultstring': 'data-noresult-string',
+                 'spellcheck': 'data-spellcheck', 'spellchecktemplate': 'data-spellcheck-template',
+                 'facetsmainlisttemplate': 'data-facets-main-template',
+                 'facetsinnerlisttemplate': 'data-facets-inner-template',
+                 'facetselementtemplate': 'data-facets-element-template', 'backendUri': 'data-backend-uri' };
+
+    var start = function()
+    {
+        if ( !window.YUI ) return;
+        var boxes = document.querySelectorAll( '[data-ezflow-ajaxsearch]' );
+        for ( var i = 0; i < boxes.length; i++ )
+        {
+            var box = boxes[i];
+            if ( box.getAttribute( 'data-ezflow-ajaxsearch-ready' ) ) continue;
+            box.setAttribute( 'data-ezflow-ajaxsearch-ready', '1' );
+            var cfg = {};
+            for ( var key in keys )
+            {
+                if ( box.hasAttribute( keys[key] ) ) cfg[key] = box.getAttribute( keys[key] );
+            }
+            if ( box.hasAttribute( 'data-custom-search-attributes' ) )
+            {
+                try
+                {
+                    cfg.customSearchAttributes = JSON.parse( box.getAttribute( 'data-custom-search-attributes' ) );
+                }
+                catch ( e ) {}
+            }
+            eZAJAXSearch.cfg = cfg;
+            eZAJAXSearch.init();
+        }
+    };
+
+    if ( document.readyState === 'loading' )
+        document.addEventListener( 'DOMContentLoaded', start );
+    else
+        start();
+} )();

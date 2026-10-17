@@ -5,7 +5,7 @@
     {set $section_id = ezhttp( 'SectionID', 'get' )}
 {/if}
 <div class="searchblock">
-<form action={'/content/search/'|ezurl} method="get">
+<form action={'/content/search/'|ezurl} method="get" data-ezfind-searchscope="1">
     {if $ui_context_edit}
         <label for="searchtext" class="a4-sr-only">{$search_title|wash}</label>
         <input id="searchtext" name="SearchText" class="disabled" type="text" size="20" value="{if is_set( $search_text )}{$search_text|wash}{/if}" disabled="disabled" title="{$search_title|wash}" />
@@ -19,7 +19,7 @@
         <div class="yui3-skin-sam ez-autocomplete">
         <div id="searchtextwrapper">
             <label for="searchtext" class="a4-sr-only">{$search_title|wash}</label>
-            <input id="searchtext" name="SearchText" type="text" size="20" value="{if is_set( $search_text )}{$search_text|wash}{/if}" title="{$search_title|wash}" />
+            <input id="searchtext" name="SearchText" type="text" size="20" value="{if is_set( $search_text )}{$search_text|wash}{/if}" title="{$search_title|wash}" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int ) )|wash}" />
         </div>
             <input type="hidden" name="SubTreeArray" value="{$search_node_id|wash}" />
             <input id="searchbutton" class="button hide" name="SearchButton" type="submit" value="{'Search'|i18n( 'design/admin/pagelayout' )}" />
@@ -36,7 +36,7 @@
 
             <div class="searchscope-menu-container">
                 <div class="searchscope-pane" id="searchscope-pane">
-                    <a href="javascript:;" class="close" id="searchscope-pane-close" title="{'Close'|i18n( 'design/admin/pagelayout' )}"><span class="mini-icon mini-icon-remove-close"></span><span class="a4-sr-only">{'Close'|i18n( 'design/admin/pagelayout' )}</span></a>
+                    <a href="#" class="close" id="searchscope-pane-close" title="{'Close'|i18n( 'design/admin/pagelayout' )}"><span class="mini-icon mini-icon-remove-close"></span><span class="a4-sr-only">{'Close'|i18n( 'design/admin/pagelayout' )}</span></a>
                     <div class="searchscope-title">{'Search scope'|i18n( 'design/admin/pagelayout' )}</div>
                     <div class="searchscope-body">
                         {def $disabled = false()
@@ -88,37 +88,9 @@
 </form>
 </div>
 
+{* The autocomplete of the search field starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js; no inline code). *}
 {ezscript_require( array('ezjsc::yui3', 'ezajax_autocomplete.js') )}
-<script type="text/javascript">
-
-YUI(YUI3_config).use('ezfindautocomplete', function (Y) {ldelim}
-    Y.eZ.initAutoComplete({ldelim}
-            url: "{'ezjscore/call/ezfind::autocomplete'|ezurl('no')}",
-            inputSelector: '#searchtext',
-            minQueryLength: {ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )},
-            resultLimit: {ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )}
-    {rdelim});
-{rdelim});
-
-{literal}
-(function($){
-    if ( !document.getElementById('searchbuttonfield') )return;
-
-    $('#searchbuttonfield').click(function(){
-        if ( $('#searchtext').val() === $('#searchtext').attr('title') )return;
-          $('#searchbutton').click();
-    });
-    $('#searchscope').click(function(){
-        $('#searchscope-pane').addClass('active');
-    });
-    $('#searchscope-pane-close').click(function(){
-        $('#searchscope-pane').removeClass('active');
-    });
-    $('input:radio[name=SubTreeArray]').change( function() {
-        $('#searchtext').attr('value', $(this).attr('title'));
-        $('#searchtext').attr('title', $(this).attr('title'));
-    } );
-})( jQuery );
-{/literal}
-</script>
+{* The search scope pane and the search field's button (javascript/ezfind_search.js; no inline code); printed here, as the
+   page head is already out when the page layout includes this template. *}
+{ezscript( array( 'ezfind_search.js' ) )}
 {undef $search_node_id $section_id}

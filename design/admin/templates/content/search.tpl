@@ -33,7 +33,7 @@
 <div class="block">
     <div class="yui3-skin-sam ez-autocomplete">
         <label for="Search" class="a4-sr-only">{'Search for'|i18n( 'design/admin/content/search' )}</label>
-        <input class="halfbox" type="text" name="SearchText" id="Search" value="{$search_text|wash}" />
+        <input class="halfbox" type="text" name="SearchText" id="Search" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int ) )|wash}" value="{$search_text|wash}" />
         <input class="button"  name="SearchButton" type="submit" value="{'Search'|i18n( 'design/admin/content/search' )}" />
     </div>
 </div>
@@ -110,18 +110,7 @@
 
 </form>
 
+{* The autocomplete of the search field starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js; no inline code). *}
 {ezscript_require( array('ezjsc::yui3', 'ezajax_autocomplete.js') )}
-<script type="text/javascript">
-
-YUI(YUI3_config).use('ezfindautocomplete', function (Y) {ldelim}
-    Y.eZ.initAutoComplete({ldelim}
-        url: "{'ezjscore/call/ezfind::autocomplete'|ezurl('no')}",
-        inputSelector: '#Search',
-        minQueryLength: {ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )},
-        resultLimit: {ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )}
-    {rdelim});
-{rdelim});
-
-</script>
 
 {/let}

@@ -66,62 +66,6 @@
     {set $uriSuffix = concat( $uriSuffix, '&dateFilter=', $dateFilter )}
 {/if}
 
-<script type="text/javascript">
-{literal}
-    // toggle block
-    function ezfToggleBlock( id )
-    {
-        var value = (document.getElementById(id).style.display == 'none') ? 'block' : 'none';
-        ezfSetBlock( id, value );
-        ezfSetCookie( id, value );
-    }
-
-    function ezfSetBlock( id, value )
-    {
-        var el = document.getElementById(id);
-        if ( el != null )
-        {
-            el.style.display = value;
-        }
-    }
-
-    function ezfTrim( str )
-    {
-        return str.replace(/^\s+|\s+$/g, '') ;
-    }
-
-    function ezfGetCookie( name )
-    {
-        var cookieName = 'eZFind_' + name;
-        var cookie = document.cookie;
-
-        var cookieList = cookie.split( ";" );
-
-        for( var idx in cookieList )
-        {
-            cookie = cookieList[idx].split( "=" );
-
-            if ( ezfTrim( cookie[0] ) == cookieName )
-            {
-                return( cookie[1] );
-            }
-        }
-
-        return 'none';
-    }
-
-    function ezfSetCookie( name, value )
-    {
-        var cookieName = 'eZFind_' + name;
-        var expires = new Date();
-
-        expires.setTime( expires.getTime() + (365 * 24 * 60 * 60 * 1000));
-
-        document.cookie = cookieName + "=" + value + "; expires=" + expires + ";";
-    }
-{/literal}
-</script>
-
 <div class="content-search ezdemo-design">
 
 <form action={"/content/search/"|ezurl} method="get">
@@ -131,7 +75,7 @@
 </div>
 
 <div class="block yui3-skin-sam">
-    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" value="{$search_text|wash}" aria-label="{'Search'|i18n('design/ezwebin/content/search')}" />
+    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int ) )|wash}" value="{$search_text|wash}" aria-label="{'Search'|i18n('design/ezwebin/content/search')}" />
     <input class="button" name="SearchButton" type="submit" value="{'Search'|i18n('design/ezwebin/content/search')}" />
 </div>
 {if $search_extras.spellcheck_collation}
@@ -174,14 +118,14 @@
   {case}
   <div class="feedback">
   <h2 class="results-displayed">{'Search for "%1" returned %2 matches'|i18n("design/ezwebin/content/search",,array($search_text|wash,$search_count))}</h2>
-  <a class="results-displayed" onclick="ezfToggleBlock( 'ezfHelp' );"><em>({'tips'|i18n( 'design/ezwebin/content/search' )})</em></a>
+  <a class="results-displayed" data-ezfind-toggle="ezfHelp"><em>({'tips'|i18n( 'design/ezwebin/content/search' )})</em></a>
       <fieldset>
           {* <legend onclick="ezfToggleBlock( 'ezfHelp' );">{'Help'|i18n( 'design/ezwebin/content/search' )} [+/-]</legend> *}
           
           {* <a class="btn btn-mini" onclick="ezfToggleBlock( 'ezfHelp' );">{'Help'|i18n( 'design/ezwebin/content/search' )}</a> *}
                     
-          <div id="ezfHelp" class="well" style="display: none;">
-              <span class="close"><a onclick="ezfToggleBlock( 'ezfHelp' );">&times;</a></span>
+          <div id="ezfHelp" class="well" style="display: none;" data-ezfind-remember="1">
+              <span class="close"><a data-ezfind-toggle="ezfHelp">&times;</a></span>
               <ul>
                   <li>{'The search is case insensitive. Upper and lower case characters may be used.'|i18n( 'design/ezfind/search' )}</li>
                   <li>{'The search result contains all search terms.'|i18n( 'design/ezfind/search' )}</li>
@@ -341,22 +285,9 @@
 <p class="small"><em>{'Search took: %1 msecs, using '|i18n('ezfind',,array($search_extras.responseHeader.QTime|wash))}{$search_extras.engine}</em></p>
 
 
+{* The autocomplete of the search field starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js; no inline code). *}
 {ezscript_require( array('ezjsc::yui3', 'ezajax_autocomplete.js') )}
+{* The search tips toggle and remember their state (javascript/ezfind_search.js; no inline code). *}
+{ezscript_require( array( 'ezfind_search.js' ) )}
 {ezcss_require( 'ezajax_autocomplete.css' )}
 
-<script type="text/javascript">
-
-YUI(YUI3_config).use('ezfindautocomplete', function (Y) {ldelim}
-    Y.eZ.initAutoComplete({ldelim}
-        url: "{'ezjscore/call/ezfind::autocomplete'|ezurl('no')}",
-        inputSelector: '#Search',
-        minQueryLength: {ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )},
-        resultLimit: {ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )}
-    {rdelim});
-{rdelim});
-
-{literal}
-ezfSetBlock( 'ezfFacets', ezfGetCookie( 'ezfFacets' ) );
-ezfSetBlock( 'ezfHelp', ezfGetCookie( 'ezfHelp' ) );
-{/literal}
-</script>
