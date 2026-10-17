@@ -1,0 +1,32 @@
+Changes from 3.0.4 to 3.0.5
+===========================
+
+*Fixed:
+- A long search no longer fails with "too many nested clauses": the query builder keeps as many words as
+  ezfind.ini [SearchHandler] MaxBooleanClauses (new, default 1024, Solr's default) allows over the query
+  fields, the first ones, a quoted phrase as one word. simplestandard counts its one field.
+  SearchExtras.text_shortened tells a template that the text was cut. Raise the setting only together
+  with Solr's maxBooleanClauses (solr.xml and solrconfig.xml).
+- A question mark that ends a word ("what?") is searched as text, not as a wildcard.
+- site.ini [SearchSettings] EnableWildcard is honored for every handler but simplestandard. eZ Find sets
+  it to true in its site.ini.append.php, so * and ? stay wildcards as before; a site that sets false gets
+  them searched as text, as the setting says.
+- An unmatched double quote is dropped instead of finding nothing.
+- A query Solr refuses shows "The search engine could not run this search" (translated in ger-DE)
+  instead of an empty result; Solr's own message goes to the debug log only.
+
+*Added:
+- The extended attribute filter ezfindallwords (FiltersList[ezfindallwords]) requires every word
+  (mm=100%), for "Search for all of the following words".
+- fetch( 'ezfind', 'search' ) takes class_attribute_id (last parameter, default false).
+
+*Updated:
+- The eZ Find entry of the content tree and sub-items context menus is declared in data-menu-*
+  attributes (data-menu-submenu, data-menu-depth, data-menu-form), without an inline script or event
+  handler attributes, so it opens under a Content Security Policy without 'unsafe-inline'.
+  Requires the declared menus of ezpopupmenu.js in the administration design (Exponential 6.0.15 with
+  the content security policy change, or exp_adminui 1.0.0.36); with an older ezpopupmenu.js the
+  submenu does not open.
+
+Tests: tests/classes/ezfQueryTextTest.php (QT-01 to QT-07) and
+tests/classes/ezfContextMenuTemplatesTest.php (CM-01 to CM-03), both without a database or Solr.
