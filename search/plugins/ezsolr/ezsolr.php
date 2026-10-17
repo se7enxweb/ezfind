@@ -1012,6 +1012,7 @@ class eZSolr implements ezpSearchEngine
             eZDebug::accumulatorStart( 'Query build' );
             $queryBuilder = new ezfeZPSolrQueryBuilder( $this );
             $queryParams = $queryBuilder->buildSearch( $searchText, $params, $searchTypes );
+            $textShortened = $queryBuilder->SearchTextShortened;
             if ( !$shardQueryPart == null )
             {
                 $queryParams = array_merge( $shardQueryPart, $queryParams );
@@ -1025,7 +1026,7 @@ class eZSolr implements ezpSearchEngine
             eZDebug::accumulatorStop( 'Engine time' );
         }
 
-        if ( $resultArray )
+        if ( isset( $resultArray['response'] ) )
         {
             $searchCount = $resultArray[ 'response' ][ 'numFound' ];
             $objectRes = $this->buildResultObjects(
@@ -1038,18 +1039,49 @@ class eZSolr implements ezpSearchEngine
                 'SearchResult' => $objectRes,
                 'SearchCount' => $searchCount,
                 'StopWordArray' => $stopWordArray,
-                'SearchExtras' => new ezfSearchResultInfo( $resultArray )
+                'SearchExtras' => new ezfSearchResultInfo( $resultArray + array( 'text_shortened' => !empty( $textShortened ) ) )
             );
         }
         else
         {
             eZDebug::accumulatorStop( 'Search' );
+            // An answer without 'response' is a query Solr refused (its error block, e.g. too many clauses):
+            // Solr runs, so "Server not running" was wrong, and the answer was read as a result without hits.
+            // Solr's message goes to the debug log; visitors get the generic message, since Solr's text can
+            // carry internals (class names, field names, traces).
+            if ( is_array( $resultArray ) )
+            {
+                $error = 'The search engine could not run this search';
+                eZDebug::writeError( self::searchError( $resultArray ), __METHOD__ );
+            }
             return array(
                 'SearchResult' => false,
                 'SearchCount' => 0,
                 'StopWordArray' => array(),
                 'SearchExtras' => new ezfSearchResultInfo( array( 'error' => ezpI18n::tr( 'ezfind', $error ) ) ) );
         }
+    }
+
+    /**
+     * The message of a Solr answer without 'response': error.msg, or for an
+     * internal failure the first line of error.trace.
+     *
+     * @param array $resultArray return value of rawSearch()
+     * @return string
+     */
+    public static function searchError( array $resultArray )
+    {
+        $error = isset( $resultArray['error'] ) && is_array( $resultArray['error'] ) ? $resultArray['error'] : array();
+        if ( isset( $error['msg'] ) && trim( (string) $error['msg'] ) !== '' )
+        {
+            return 'Solr error: ' . trim( (string) $error['msg'] );
+        }
+        if ( isset( $error['trace'] ) && trim( (string) $error['trace'] ) !== '' )
+        {
+            $lines = preg_split( '/\R/', trim( (string) $error['trace'] ) );
+            return 'Solr error: ' . trim( $lines[0] );
+        }
+        return 'Unexpected answer from Solr (no response)';
     }
 
     /**

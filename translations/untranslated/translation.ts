@@ -826,6 +826,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The search engine could not run this search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>N/A</source>
         <translation type="unfinished"></translation>
     </message>

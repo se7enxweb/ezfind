@@ -346,6 +346,17 @@ class ezfeZPSolrQueryBuilder
         }
 
 
+        // Every word is one clause per query field, and Solr refuses a query above maxBooleanClauses ("too many
+        // nested clauses"; measured with 79 query fields: 15 and 16 words failed, while site.ini
+        // [SearchSettings] MaximumSearchTextWords allowed 16). The words are cut to what the fields allow.
+        $maxClauses = $eZFindIni->hasVariable( 'SearchHandler', 'MaxBooleanClauses' ) ? (int)$eZFindIni->variable( 'SearchHandler', 'MaxBooleanClauses' ) : 0;
+        list( $searchText, $this->SearchTextShortened ) = eZFindQueryText::limitToClauseBudget(
+            $searchText, count( $queryFields ) + count( $extraFieldsToSearch ), $maxClauses > 0 ? $maxClauses : eZFindQueryText::DEFAULT_MAX_CLAUSES );
+        if ( $this->SearchTextShortened )
+        {
+            eZDebug::writeNotice( 'The search text was cut to ' . count( eZFindQueryText::units( $searchText ) ) . ' words for ' . count( $queryFields ) . ' query fields', __METHOD__ );
+        }
+
         $spellCheckParamList = array();
         // @param $spellCheck expects array (true|false, dictionary identifier, ...)
         if ( ( isset( $spellCheck[0] ) and $spellCheck[0] ) or
@@ -384,6 +395,14 @@ class ezfeZPSolrQueryBuilder
         $handlerParameters = array();
 
         $queryHandler = strtolower( $queryHandler );
+
+        // Solr reads * and ? as wildcards whatever site.ini [SearchSettings] EnableWildcard says, and "what?"
+        // searched for a single-character wildcard and found nothing. Escaped here, except for simplestandard,
+        // which is chosen for the full query syntax.
+        if ( $queryHandler !== 'simplestandard' )
+        {
+            $searchText = eZFindQueryText::escapeSyntax( $searchText, $siteIni->variable( 'SearchSettings', 'EnableWildcard' ) === 'true' );
+        }
 
         switch ( $queryHandler )
         {
@@ -2199,6 +2218,14 @@ class ezfeZPSolrQueryBuilder
      * @see ezfeZPSolrQueryBuilder::ezfeZPSolrQueryBuilder
      */
     protected $searchPluginInstance;
+
+    /**
+     * Whether the last buildSearch() cut the search text to the words the query fields allow
+     * (see eZFindQueryText::limitToClauseBudget()). eZSolr::search() reports it in SearchExtras.
+     *
+     * @var bool
+     */
+    public $SearchTextShortened = false;
 
     /**
      * The kernel class asked for the search filters of the policy limitations extensions define

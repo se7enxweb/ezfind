@@ -63,7 +63,10 @@ class ezfSearchResultInfo
                       'spellcheck_collation',
                       'interestingTerms',
                       'clusters',
-                      'highlighting'
+                      'highlighting',
+                      // whether the query builder cut the text to the words the
+                      // query fields allow ([SearchHandler] MaxBooleanClauses)
+                      'text_shortened'
             );
     }
 
@@ -339,6 +342,11 @@ class ezfSearchResultInfo
                     return false;
                 }
             } break;
+            case 'text_shortened':
+            {
+                return !empty( $this->ResultArray['text_shortened'] );
+            } break;
+
             case 'highlighting':
             {
                 if ( isset( $this->ResultArray['highlighting'] ) )

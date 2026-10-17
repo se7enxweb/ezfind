@@ -838,6 +838,10 @@
         <translation type="obsolete">Server läuft nicht</translation>
     </message>
     <message>
+        <source>The search engine could not run this search</source>
+        <translation>Die Suchmaschine konnte diese Suche nicht ausführen</translation>
+    </message>
+    <message>
         <source>eZ Find search plugin &amp;copy; 2007 eZ Systems AS, eZ Labs</source>
         <translation type="obsolete">eZ Find search plugin &amp;copy; 2007 eZ Systems AS, eZ Labs</translation>
     </message>
