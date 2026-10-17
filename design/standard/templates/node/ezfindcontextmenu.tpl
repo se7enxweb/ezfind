@@ -1,11 +1,7 @@
-<script language="JavaScript1.2" type="text/javascript">
-menuArray['eZFind'] = new Array();
-menuArray['eZFind']['depth'] = 1; // this is a first level submenu of ContextMenu
-menuArray['eZFind']['elements'] = new Array();
-</script>
-
+{* The eZ Find submenu (node/ezfindcontextsubmenu.tpl) is declared in data-menu-* attributes, no inline script
+   (doc/features/6.0/content-security-policy.md) *}
  <hr/>
-    <a id="menu-ezfind" class="more" href="#" onmouseover="ezpopmenu_showSubLevel( event, 'eZFind', 'menu-ezfind' ); return false;">{'eZ Find'|i18n( 'extension/ezfind/popupmenu' )}</a>
+    <a id="menu-ezfind" class="more" href="#" data-menu-submenu="eZFind">{'eZ Find'|i18n( 'extension/ezfind/popupmenu' )}</a>
 
 {* Elevate object *}
 <form id="ezfind-menu-form-elevate" method="post" action={"/ezfind/elevate/"|ezurl}>
