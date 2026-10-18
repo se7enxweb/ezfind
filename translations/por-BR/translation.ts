@@ -18,7 +18,7 @@
     <message>
         <source>For more options try the %1Advanced search%2.</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation>Para mais opções tente a %1Busca avançada%2. </translation>
+        <translation>Para mais opções, tente a %1Pesquisa avançada%2.</translation>
     </message>
     <message>
         <source>The following words were excluded from the search</source>
@@ -92,27 +92,27 @@
     </message>
     <message>
         <source>Search scope</source>
-        <translation type="unfinished"></translation>
+        <translation>Escopo da pesquisa</translation>
     </message>
     <message>
         <source>Section</source>
-        <translation type="unfinished"></translation>
+        <translation>Seção</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Todos</translation>
+        <translation>Todos</translation>
     </message>
     <message>
         <source>Search only from the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesquisar somente a partir do local atual</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Local atual</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished">O mesmo local</translation>
+        <translation>O mesmo local</translation>
     </message>
 </context>
 <context>
@@ -163,19 +163,19 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Você também pode se interessar por:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>As pessoas que compraram este produto também compraram</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Quantidade</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Comprar</translation>
     </message>
 </context>
 <context>
@@ -210,23 +210,23 @@
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) prefix character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Palavras podem ser excluídas usando o prefixo menos ( - ), por exemplo: preguiçoso -cachorro</translation>
     </message>
     <message>
         <source>Words may be required by using a plus ( + ) prefix character, example: +yellow coat</source>
-        <translation type="unfinished"></translation>
+        <translation>Palavras podem ser exigidas usando o prefixo mais ( + ), por exemplo: +casaco amarelo</translation>
     </message>
     <message>
         <source>Wildcard characters * and ? can be used for partial string matching, example: syst* may expand to systems</source>
-        <translation type="unfinished"></translation>
+        <translation>Os curingas * e ? podem ser usados para correspondência parcial, por exemplo: sist* pode corresponder a sistemas</translation>
     </message>
     <message>
         <source>Fuzzy searches can also be used appending a ~ character, example: like suster~ may match sister</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesquisas aproximadas também podem ser feitas acrescentando o caractere ~, por exemplo: irnã~ pode corresponder a irmã</translation>
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation type="unfinished"></translation>
+        <translation>Pesquisas por proximidade podem ser feitas usando aspas duplas e uma distância máxima (em palavras) após o caractere ~, por exemplo: &quot;conferência publicar&quot;~5 corresponderá a textos em que conferência e publicar estejam separados por no máximo 5 palavras</translation>
     </message>
 </context>
 <context>
@@ -273,7 +273,7 @@
     </message>
     <message>
         <source>Search for &quot;%1&quot; returned %2 matches</source>
-        <translation></translation>
+        <translation>A buscar por &quot;%1&quot; retornou %2 resultados</translation>
     </message>
     <message>
         <source>Help</source>
@@ -309,11 +309,11 @@
     </message>
     <message>
         <source>tips</source>
-        <translation type="unfinished"></translation>
+        <translation>dicas</translation>
     </message>
     <message>
         <source>Remove filter on </source>
-        <translation type="unfinished"></translation>
+        <translation>Remover filtro de </translation>
     </message>
 </context>
 <context>
@@ -792,6 +792,30 @@
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
         <translation>Um erro desconhecido ocorreu na atualização da elevação da configuração do Solr.</translation>
     </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>Não foi possível salvar a configuração do Elevate.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Objeto</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Escolha um objeto para ver suas configurações do Elevate.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Por página</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>Mostrar %count itens por página.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>A configuração do Elevate foi removida.</translation>
+    </message>
 </context>
 <context>
     <name>extension/ezfind/facets</name>
@@ -821,7 +845,7 @@
     </message>
     <message>
         <source>Clear all filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpar todos os filtros</translation>
     </message>
 </context>
 <context>
@@ -871,7 +895,18 @@
     </message>
     <message>
         <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugin de pesquisa eZ Find %version &amp;copy; 1999-2013 eZ Systems AS, com tecnologia Apache Solr 3.6.1</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation>Elevação</translation>
     </message>
 </context>
 </TS>

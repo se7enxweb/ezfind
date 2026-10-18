@@ -22,11 +22,11 @@
     </message>
     <message>
         <source>The following words were excluded from the search</source>
-        <translation>De volgende woorden zijn weggelaten uit de zoekopdracht</translation>
+        <translation>De volgende woorden zijn uit de zoekopdracht weggelaten</translation>
     </message>
     <message>
         <source>No results were found while searching for &lt;%1&gt;</source>
-        <translation>Geen resultaten gevonden bij het zoeken naar &lt;%1&gt;</translation>
+        <translation>Er zijn geen resultaten gevonden bij het zoeken naar &lt;%1&gt;</translation>
     </message>
     <message>
         <source>Search tips</source>
@@ -34,23 +34,23 @@
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation>Controleer de spelling van de woorden.</translation>
+        <translation>Controleer de spelling van de trefwoorden.</translation>
     </message>
     <message>
         <source>Try changing some keywords e.g. &amp;quot;car&amp;quot; instead of &amp;quot;cars&amp;quot;.</source>
-        <translation>Probeer woorden te veranderen, bijvoorbeeld &amp;quot;fiets&amp;quot; in plaats van &amp;quot;fietsen&amp;quot;.</translation>
+        <translation>Probeer enkele trefwoorden te wijzigen, bijv. &amp;quot;fiets&amp;quot; in plaats van &amp;quot;fietsen&amp;quot;.</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
-        <translation>Probeer meer algemene woorden.</translation>
+        <translation>Probeer algemenere trefwoorden.</translation>
     </message>
     <message>
         <source>Fewer keywords result in more matches. Try reducing keywords until you get a result.</source>
-        <translation>Minder woorden leidt tot meer resultaten. Probeer het aantal woorden te verminderen tot u resultaat krijgt.</translation>
+        <translation>Minder trefwoorden leveren meer resultaten op. Verminder het aantal trefwoorden tot je een resultaat krijgt.</translation>
     </message>
     <message>
         <source>Search for &lt;%1&gt; returned %2 matches</source>
-        <translation>Het zoeken naar &lt;%1&gt; leverde %2 resultaten op</translation>
+        <translation>Zoeken naar &lt;%1&gt; leverde %2 resultaten op</translation>
     </message>
 </context>
 <context>
@@ -92,34 +92,34 @@
     </message>
     <message>
         <source>Search scope</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekbereik</translation>
     </message>
     <message>
         <source>Section</source>
-        <translation type="unfinished"></translation>
+        <translation>Sectie</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle</translation>
     </message>
     <message>
         <source>Search only from the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Alleen zoeken vanaf de huidige locatie</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Huidige locatie</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished">Dezelfde locatie</translation>
+        <translation>Dezelfde locatie</translation>
     </message>
 </context>
 <context>
     <name>design/base</name>
     <message>
         <source>The following words were excluded from the search</source>
-        <translation>De volgende woorden zijn weggelaten uit de zoekopdracht</translation>
+        <translation>De volgende woorden zijn uit de zoekopdracht weggelaten</translation>
     </message>
     <message>
         <source>Search</source>
@@ -140,19 +140,19 @@
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation>Controleer de spelling van de woorden.</translation>
+        <translation>Controleer de spelling van de trefwoorden.</translation>
     </message>
     <message>
         <source>Try changing some keywords eg. car instead of cars.</source>
-        <translation>Probeer woorden te veranderen, bijvoorbeeld &amp;quot;fiets&amp;quot; in plaats van &amp;quot;fietsen&amp;quot;.</translation>
+        <translation>Probeer enkele trefwoorden te wijzigen, bijv. fiets in plaats van fietsen.</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
-        <translation>Probeer meer algemene woorden.</translation>
+        <translation>Probeer algemenere trefwoorden.</translation>
     </message>
     <message>
         <source>Fewer keywords gives more results, try reducing keywords until you get a result.</source>
-        <translation>Minder woorden leidt tot meer resultaten. Probeer het aantal woorden te verminderen tot u resultaat krijgt.</translation>
+        <translation>Minder trefwoorden levert meer resultaten op; verminder het aantal trefwoorden tot je een resultaat krijgt.</translation>
     </message>
     <message>
         <source>Search for &quot;%1&quot; returned %2 matches</source>
@@ -163,30 +163,30 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Misschien vind je dit ook interessant:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>Mensen die dit kochten, kochten ook</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Bedrag</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Aan winkelwagen toevoegen</translation>
     </message>
 </context>
 <context>
     <name>design/ezfind/search</name>
     <message>
         <source>Spell check suggestion: did you mean</source>
-        <translation>Spellingssuggesties: bedoelde u</translation>
+        <translation>Spellingsuggestie: bedoelde je</translation>
     </message>
     <message>
         <source>The search is case insensitive. Upper and lower case characters may be used.</source>
-        <translation>Het zoeken is niet hoofdlettergevoelig. Zowel hoofdletters als kleine letters kunnen worden gebruikt.</translation>
+        <translation>Het zoeken is niet hoofdlettergevoelig. Je kunt zowel hoofdletters als kleine letters gebruiken.</translation>
     </message>
     <message>
         <source>The search result contains all search terms.</source>
@@ -194,31 +194,31 @@
     </message>
     <message>
         <source>Phrase search can be achieved by using quotes, example: &quot;Quick brown fox jumps over the lazy dog&quot;</source>
-        <translation>Het zoeken op zinnen kan worden gedaan door aanhalingstekens te gebruiken, bijvoorbeeld: &quot;Blaffende honden bijten niet&quot;</translation>
+        <translation>Zoeken op een zinsdeel doe je met aanhalingstekens, bijvoorbeeld: &quot;Blaffende honden bijten niet&quot;</translation>
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) character, example: lazy -dog</source>
-        <translation>Woorden kunnen worden uitgesloten door het minteken ( - ) te gebruiken, bijvoorbeeld: &quot;blaffende -honden&quot;</translation>
+        <translation>Woorden sluit je uit met een minteken ( - ), bijvoorbeeld: blaffende -honden</translation>
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) prefix character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Woorden kunnen worden uitgesloten met een minteken ( - ) ervoor, bijvoorbeeld: lui -hond</translation>
     </message>
     <message>
         <source>Words may be required by using a plus ( + ) prefix character, example: +yellow coat</source>
-        <translation type="unfinished"></translation>
+        <translation>Woorden kunnen verplicht worden gemaakt met een plusteken ( + ) ervoor, bijvoorbeeld: +gele jas</translation>
     </message>
     <message>
         <source>Wildcard characters * and ? can be used for partial string matching, example: syst* may expand to systems</source>
-        <translation type="unfinished"></translation>
+        <translation>De jokertekens * en ? kunnen worden gebruikt om op een deel van een woord te zoeken, bijvoorbeeld: syst* kan worden uitgebreid tot systemen</translation>
     </message>
     <message>
         <source>Fuzzy searches can also be used appending a ~ character, example: like suster~ may match sister</source>
-        <translation type="unfinished"></translation>
+        <translation>Ook fuzzy zoeken is mogelijk door een ~ toe te voegen, bijvoorbeeld: zuster~ kan overeenkomen met zusters</translation>
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken op nabijheid kan met dubbele aanhalingstekens en een maximale afstand (in woorden) na een ~, bijvoorbeeld: &quot;conferentie publiceren&quot;~5 vindt tekst waarin conferentie en publiceren door maximaal 5 woorden van elkaar zijn gescheiden</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;.</source>
-        <translation>Geen resultaten gevonden bij het zoeken naar &quot;%1&quot;.</translation>
+        <translation>Er zijn geen resultaten gevonden bij het zoeken naar &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>Search tips</source>
@@ -249,19 +249,19 @@
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation>Controleer de spelling van de woorden.</translation>
+        <translation>Controleer de spelling van de trefwoorden.</translation>
     </message>
     <message>
         <source>Try changing some keywords (eg, &quot;car&quot; instead of &quot;cars&quot;).</source>
-        <translation>Probeer woorden te veranderen, bijvoorbeeld &amp;quot;fiets&amp;quot; in plaats van &amp;quot;fietsen&amp;quot;.</translation>
+        <translation>Probeer enkele trefwoorden te wijzigen (bijv. &quot;auto&quot; in plaats van &quot;auto&apos;s&quot;).</translation>
     </message>
     <message>
         <source>Try searching with less specific keywords.</source>
-        <translation>Probeer te zoeken met minder specifieke woorden.</translation>
+        <translation>Probeer te zoeken met minder specifieke trefwoorden.</translation>
     </message>
     <message>
         <source>Reduce number of keywords to get more results.</source>
-        <translation>Verminder het aantal woorden om meer resultaten te krijgen.</translation>
+        <translation>Verminder het aantal trefwoorden om meer resultaten te krijgen.</translation>
     </message>
     <message>
         <source>Search for &quot;%1&quot; returned %2 matches</source>
@@ -273,15 +273,15 @@
     </message>
     <message>
         <source>Refine your search</source>
-        <translation>Resultaat verfijnen</translation>
+        <translation>Zoekopdracht verfijnen</translation>
     </message>
     <message>
         <source>tips</source>
-        <translation type="unfinished"></translation>
+        <translation>tips</translation>
     </message>
     <message>
         <source>Remove filter on </source>
-        <translation type="unfinished"></translation>
+        <translation>Filter verwijderen op </translation>
     </message>
 </context>
 <context>
@@ -300,7 +300,7 @@
     </message>
     <message>
         <source>Tip a friend</source>
-        <translation>Tip doorsturen</translation>
+        <translation>Tip een vriend</translation>
     </message>
     <message>
         <source>Related content</source>
@@ -311,7 +311,7 @@
     <name>design/ezwebin/pagelayout</name>
     <message>
         <source>Search text:</source>
-        <translation>Zoekterm:</translation>
+        <translation>Zoektekst:</translation>
     </message>
     <message>
         <source>Search</source>
@@ -346,35 +346,35 @@
     </message>
     <message>
         <source>Search all the words</source>
-        <translation>Zoeken naar alle woorden</translation>
+        <translation>Zoeken op alle woorden</translation>
     </message>
     <message>
         <source>Search the exact phrase</source>
-        <translation>Zoeken naar de exacte zin</translation>
+        <translation>Zoeken op de exacte woordgroep</translation>
     </message>
     <message>
         <source>Search with at least one of the words</source>
-        <translation>Zoeken met tenminste één van de woorden</translation>
+        <translation>Zoeken op minstens één van de woorden</translation>
     </message>
     <message>
         <source>Class</source>
-        <translation>Type</translation>
+        <translation>Klasse</translation>
     </message>
     <message>
         <source>Any class</source>
-        <translation>Alle typen</translation>
+        <translation>Elke klasse</translation>
     </message>
     <message>
         <source>Class attribute</source>
-        <translation>Type-attribuut</translation>
+        <translation>Klasse-attribuut</translation>
     </message>
     <message>
         <source>Any attribute</source>
-        <translation>Alle attributen</translation>
+        <translation>Elk attribuut</translation>
     </message>
     <message>
         <source>Update attributes</source>
-        <translation>Attributen actualiseren</translation>
+        <translation>Attributen bijwerken</translation>
     </message>
     <message>
         <source>In</source>
@@ -382,7 +382,7 @@
     </message>
     <message>
         <source>Any section</source>
-        <translation>Alle secties</translation>
+        <translation>Elke sectie</translation>
     </message>
     <message>
         <source>Published</source>
@@ -390,7 +390,7 @@
     </message>
     <message>
         <source>Any time</source>
-        <translation>Op elk gewenst moment</translation>
+        <translation>Altijd</translation>
     </message>
     <message>
         <source>Display per page</source>
@@ -430,7 +430,7 @@
     </message>
     <message>
         <source>Score</source>
-        <translation>Relevantie</translation>
+        <translation>Score</translation>
     </message>
     <message>
         <source>Name</source>
@@ -441,15 +441,15 @@
     <name>extension/ezfind</name>
     <message>
         <source>eZFind</source>
-        <translation type="unfinished">eZFind</translation>
+        <translation>eZFind</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished">Elevatie</translation>
+        <translation>Uitlichting</translation>
     </message>
     <message>
         <source>Remove Elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitlichting verwijderen</translation>
     </message>
 </context>
 <context>
@@ -460,11 +460,11 @@
     </message>
     <message>
         <source>Did you mean</source>
-        <translation>Bedoelde u</translation>
+        <translation>Bedoelde je</translation>
     </message>
     <message>
         <source>Refine with facets</source>
-        <translation>Met facetten verfijnen</translation>
+        <translation>Verfijnen met facetten</translation>
     </message>
 </context>
 <context>
@@ -475,7 +475,7 @@
     </message>
     <message>
         <source>Elevation</source>
-        <translation>Elevatie</translation>
+        <translation>Uitlichting</translation>
     </message>
     <message>
         <source>Boost</source>
@@ -490,266 +490,290 @@
     <name>extension/ezfind/elevate</name>
     <message>
         <source>Hide preview of existing elevate configurations.</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorbeeld van bestaande uitlichtingsconfiguraties verbergen.</translation>
     </message>
     <message>
         <source>Preview existing configurations</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorbeeld van bestaande configuraties bekijken</translation>
     </message>
     <message>
         <source>Show preview of existing elevate configurations.</source>
-        <translation type="unfinished"></translation>
+        <translation>Voorbeeld van bestaande uitlichtingsconfiguraties tonen.</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished">Elevatie</translation>
+        <translation>Uitlichting</translation>
     </message>
     <message>
         <source>Please enter a search query.</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer een zoekopdracht in.</translation>
     </message>
     <message>
         <source>Please choose a valid object.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies een geldig object.</translation>
     </message>
     <message>
         <source>Missing language information.</source>
-        <translation type="unfinished"></translation>
+        <translation>Taalinformatie ontbreekt.</translation>
     </message>
     <message>
         <source>Successful creation of the following Elevate configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>De volgende uitlichtingsconfiguratie is aangemaakt</translation>
     </message>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Details</translation>
     </message>
     <message>
         <source>Successful synchronization of the local Elevate configuration with Solr&apos;s.</source>
-        <translation type="unfinished"></translation>
+        <translation>De lokale uitlichtingsconfiguratie is gesynchroniseerd met die van Solr.</translation>
     </message>
     <message>
         <source>Synchronise Elevate configuration with Solr</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitlichtingsconfiguratie synchroniseren met Solr</translation>
     </message>
     <message>
         <source>Synchronise</source>
-        <translation type="unfinished"></translation>
+        <translation>Synchroniseren</translation>
     </message>
     <message>
         <source>Synchronise the Elevate configuration with Solr.</source>
-        <translation type="unfinished"></translation>
+        <translation>De uitlichtingsconfiguratie synchroniseren met Solr.</translation>
     </message>
     <message>
         <source>Elevate an object</source>
-        <translation type="unfinished"></translation>
+        <translation>Een object uitlichten</translation>
     </message>
     <message>
         <source>&quot;Elevating an object&quot; for a given search query means that this object will be returned among the very first search results when a search is triggered using this search query.</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;Een object uitlichten&quot; voor een bepaalde zoekopdracht betekent dat dit object bij de allereerste zoekresultaten verschijnt wanneer met deze zoekopdracht wordt gezocht.</translation>
     </message>
     <message>
         <source>Search query</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekopdracht</translation>
     </message>
     <message>
         <source>Search query to elevate the object for.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekopdracht waarvoor het object wordt uitgelicht.</translation>
     </message>
     <message>
         <source>Elevate object</source>
-        <translation type="unfinished"></translation>
+        <translation>Object uitlichten</translation>
     </message>
     <message>
         <source>Browse for the object to associate elevation to.</source>
-        <translation type="unfinished"></translation>
+        <translation>Blader naar het object waaraan je de uitlichting wilt koppelen.</translation>
     </message>
     <message>
         <source>Elevate %objectlink with &amp;nbsp;  %searchquery &amp;nbsp;  for language:</source>
-        <translation type="unfinished"></translation>
+        <translation>%objectlink uitlichten met &amp;nbsp;  %searchquery &amp;nbsp;  voor taal:</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle</translation>
     </message>
     <message>
         <source>Elevate</source>
-        <translation type="unfinished">Eleveren</translation>
+        <translation>Uitlichten</translation>
     </message>
     <message>
         <source>Store elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitlichting opslaan</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <source>Cancel elevation</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitlichting annuleren</translation>
     </message>
     <message>
         <source>Search for elevated objects</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitgelichte objecten zoeken</translation>
     </message>
     <message>
         <source>By search query</source>
-        <translation type="unfinished"></translation>
+        <translation>Op zoekopdracht</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Taal</translation>
     </message>
     <message>
         <source>Select a translation to narrow down the search.</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer een vertaling om de zoekopdracht te verfijnen.</translation>
     </message>
     <message>
         <source>Fuzzy match</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuzzy overeenkomst</translation>
     </message>
     <message>
         <source>Fuzzy match on the search query.</source>
-        <translation type="unfinished"></translation>
+        <translation>Fuzzy overeenkomst op de zoekopdracht.</translation>
     </message>
     <message>
         <source>Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Filteren</translation>
     </message>
     <message>
         <source>Find elevate configurations matching the search query entered.</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitlichtingsconfiguraties zoeken die overeenkomen met de ingevoerde zoekopdracht.</translation>
     </message>
     <message>
         <source>By object</source>
-        <translation type="unfinished"></translation>
+        <translation>Op object</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Bladeren</translation>
     </message>
     <message>
         <source>Objects elevated by &quot;%search_query&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Objecten uitgelicht door &quot;%search_query&quot;</translation>
     </message>
     <message>
         <source>fuzzy match</source>
-        <translation type="unfinished"></translation>
+        <translation>fuzzy overeenkomst</translation>
     </message>
     <message>
         <source>Existing configurations</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestaande configuraties</translation>
     </message>
     <message>
         <source>No existing Elevate configuration.</source>
-        <translation type="unfinished"></translation>
+        <translation>Geen bestaande uitlichtingsconfiguratie.</translation>
     </message>
     <message>
         <source>Content object</source>
-        <translation type="unfinished"></translation>
+        <translation>Inhoudsobject</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Acties</translation>
     </message>
     <message>
         <source>See elevate configuration details for &apos;%objectName&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Details van de uitlichtingsconfiguratie voor &apos;%objectName&apos; bekijken</translation>
     </message>
     <message>
         <source>Remove elevation by &apos;%searchQuery&apos; for &apos;%objectName&apos;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitlichting door &apos;%searchQuery&apos; voor &apos;%objectName&apos; verwijderen.</translation>
     </message>
     <message>
         <source>See all objects elevated by &apos;%searchQuery&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle objecten bekijken die door &apos;%searchQuery&apos; worden uitgelicht</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerken</translation>
     </message>
     <message>
         <source>Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Prullenbak</translation>
     </message>
     <message>
         <source>Elevation detail for object %objectName</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitlichtingsdetails voor object %objectName</translation>
     </message>
     <message>
         <source>Missing content object.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inhoudsobject ontbreekt.</translation>
     </message>
     <message>
         <source>Elevate %objectName</source>
-        <translation type="unfinished"></translation>
+        <translation>%objectName uitlichten</translation>
     </message>
     <message>
         <source>Elevate %objectlink with:</source>
-        <translation type="unfinished"></translation>
+        <translation>%objectlink uitlichten met:</translation>
     </message>
     <message>
         <source>for language:</source>
-        <translation type="unfinished"></translation>
+        <translation>voor taal:</translation>
     </message>
     <message>
         <source>Existing configurations for %objectName</source>
-        <translation type="unfinished"></translation>
+        <translation>Bestaande configuraties voor %objectName</translation>
     </message>
     <message>
         <source>in %selectedLanguage</source>
-        <translation type="unfinished"></translation>
+        <translation>in %selectedLanguage</translation>
     </message>
     <message>
         <source>containing &apos;%searchQuery&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>met &apos;%searchQuery&apos;</translation>
     </message>
     <message>
         <source>Search query to filter the result set on.</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoekopdracht om de resultatenset op te filteren.</translation>
     </message>
     <message>
         <source>Filter configurations by language</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuraties filteren op taal</translation>
     </message>
     <message>
         <source>Removal confirmed ( for %objectName ) :</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijdering bevestigd ( voor %objectName ) :</translation>
     </message>
     <message>
         <source>Confirm removal of the following Elevate configuration ( for %objectName ) :</source>
-        <translation type="unfinished"></translation>
+        <translation>Bevestig de verwijdering van de volgende uitlichtingsconfiguratie ( voor %objectName ) :</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Terug</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Confirm removal of the elevate configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijdering van de uitlichtingsconfiguratie bevestigen</translation>
     </message>
     <message>
         <source>Cancel removal of the elevate configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Verwijdering van de uitlichtingsconfiguratie annuleren</translation>
     </message>
     <message>
         <source>Error while generating the configuration XML</source>
-        <translation type="unfinished"></translation>
+        <translation>Fout bij het genereren van de configuratie-XML</translation>
     </message>
     <message>
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
-        <translation type="unfinished"></translation>
+        <translation>Er is een onbekende fout opgetreden bij het bijwerken van de uitlichtingsconfiguratie van Solr.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>De uitlichtingsconfiguratie kon niet worden opgeslagen.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Object</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Kies een object om de uitlichtingsconfiguraties ervan te bekijken.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Per pagina</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>%count items per pagina tonen.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>De uitlichtingsconfiguratie is verwijderd.</translation>
     </message>
 </context>
 <context>
     <name>extension/ezfind/facets</name>
     <message>
         <source>Creation time</source>
-        <translation>Aangemaakt</translation>
+        <translation>Aanmaaktijd</translation>
     </message>
     <message>
         <source>Clear all</source>
@@ -757,23 +781,23 @@
     </message>
     <message>
         <source>Content type</source>
-        <translation type="unfinished"></translation>
+        <translation>Inhoudsklasse</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>Auteur</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Trefwoorden</translation>
     </message>
     <message>
         <source>Publication Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Publicatiejaar</translation>
     </message>
     <message>
         <source>Clear all filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle filters wissen</translation>
     </message>
 </context>
 <context>
@@ -784,30 +808,41 @@
     </message>
     <message>
         <source>Elevate</source>
-        <translation>Eleveren</translation>
+        <translation>Uitlichten</translation>
     </message>
     <message>
         <source>Elevation detail</source>
-        <translation>Elevatiedetails</translation>
+        <translation>Uitlichtingsdetails</translation>
     </message>
 </context>
 <context>
     <name>ezfind</name>
     <message>
         <source>Search took: %1 msecs, using </source>
-        <translation>Zoeken duurde %1 milliseconden met</translation>
+        <translation>Zoeken duurde %1 ms, met </translation>
     </message>
     <message>
         <source>Core search time: %1 msecs</source>
-        <translation>Core zoektijd: %1 milliseconden</translation>
+        <translation>Zoektijd core: %1 ms</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/B</translation>
+        <translation>n.v.t.</translation>
     </message>
     <message>
         <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
-        <translation type="unfinished"></translation>
+        <translation>eZ Find %version zoekplugin &amp;copy; 1999-2013 eZ Systems AS, aangedreven door Apache Solr 3.6.1</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation>Uitlichting</translation>
     </message>
 </context>
 </TS>
