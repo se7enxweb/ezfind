@@ -43,7 +43,9 @@
         var el = document.getElementById( id );
         if ( el != null )
         {
-            el.style.display = value;
+            // the hidden attribute, not an inline style (the block starts with hidden="hidden")
+            el.hidden = value === 'none';
+            if ( el.style.display ) el.style.display = '';
         }
     }
 
@@ -55,7 +57,7 @@
             var id = el.getAttribute( 'data-ezfind-toggle' ), block = document.getElementById( id );
             if ( !block ) return;
             e.preventDefault();
-            var value = block.style.display == 'none' ? 'block' : 'none';
+            var value = ( block.hidden || block.style.display == 'none' ) ? 'block' : 'none';
             setBlock( id, value );
             setCookie( id, value );
             return;

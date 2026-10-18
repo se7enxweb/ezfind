@@ -1,270 +1,222 @@
-var eZAJAXSearch = function()
+/*
+ * ezfind: the AJAX search of the ezflow search block. Plain JavaScript, no library.
+ *
+ * eZAJAXSearch.cfg holds the settings and eZAJAXSearch.init() starts the search on them, as before:
+ *   searchstring, searchbutton, searchresults   selectors of the text field, the button and the result container
+ *   resulttemplate, noresultstring              HTML of a result ({title}, {date}, {class_name}, {url_alias},
+ *                                               {object_id}, {node_id}) and of "no results"
+ *   spellcheck, spellchecktemplate              the "did you mean" link and its HTML ({spellcheck})
+ *   facetsmainlisttemplate, facetsinnerlisttemplate, facetselementtemplate
+ *                                               HTML of the facets ({inner_facet_list}, {facet_name},
+ *                                               {facet_element}, {link}, {value}, {count})
+ *   dateformattype                              the date format of the results (default shortdatetime)
+ *   backendUri                                  the server function (default ezjsc::search)
+ *   callUrl                                     ezjscore's call URL (default /ezjscore/call)
+ *   customSearchAttributes                      selectors of further fields posted with the search
+ *
+ * Templates without inline code: an element with data-ezflow-ajaxsearch carries the same settings as data attributes
+ * (data-search-string, data-search-button, data-search-results, data-date-format, data-result-template,
+ * data-noresult-string, data-spellcheck, data-spellcheck-template, data-facets-main-template,
+ * data-facets-inner-template, data-facets-element-template, data-backend-uri, data-call-url and
+ * data-custom-search-attributes, a JSON list of selectors); the search starts from them when the page is ready.
+ *
+ * The values the server returns are escaped before they go into the HTML templates. Set up once, however often this
+ * file is printed.
+ */
+var eZAJAXSearch = window.eZAJAXSearch || function()
 {
-    var ret = {};
+    'use strict';
 
-    var yCallback = function(Y, result)
+    var ret = { 'cfg': {} };
+
+    function escapeHtml( value )
     {
-        var successCallBack = function(id, o)
-        {
-            if (o.responseJSON !== undefined)
-            {
-                var response = o.responseJSON;
-
-                if (response.content.SearchResult !== undefined)
-                {
-                    var itemCount = response.content.SearchResult.length;
-
-                    var resultsTarget = Y.one(ret.cfg.searchresults);
-                    resultsTarget.set('innerHTML', '');
-                    resultsTarget.addClass('loading');
-
-                    var spellCheck = response.content.SearchExtras.spellcheck;
-                    // A spellcheck proposal was made, display it :
-                    if ( spellCheck && spellCheck.collation )
-                    {
-                        const scTempNode = Y.Node.create( '<div>' + spellCheck.collation + '</div>' );
-                        const scEscaped = scTempNode.get('innerHTML');
-
-                        var scTemplate = ret.cfg.spellchecktemplate;
-                        scTemplate = scTemplate.replace( /\{+spellcheck+\}/g, scEscaped );
-                        var scDiv = Y.Node.create( scTemplate );
-                        scDiv.on( 'click', handleClickFromSpellcheck );
-                        resultsTarget.appendChild( scDiv );
-                    }
-
-                    var facets = response.content.SearchExtras.facets;
-                    // Facets were returned, display them :
-                    if ( facets && facets.length != 0 )
-                    {
-                        var facetMainList = ret.cfg.facetsmainlisttemplate;
-                        for( var i = 0; i < facets.length; i++ )
-                        {
-                            var facet = facets[i];
-                            // Name of the facet :
-                            var facetName = facet['name'];
-                            var facetInnerList = ret.cfg.facetsinnerlisttemplate;
-                            facetInnerList = facetInnerList.replace( /\{+facet_name+\}/g, facetName );
-
-                            if ( facet['list'].length > 0 )
-                            {
-                                for( var j = 0; j < facet['list'].length; j++ )
-                                {
-                                    var link = facet['list'][j]['url'];
-                                    var value = facet['list'][j]['value'];
-                                    var count = facet['list'][j]['count'];
-                                    var facetElement = ret.cfg.facetselementtemplate;
-                                    facetElement = facetElement.replace( /\{+link+\}/g, link );
-                                    facetElement = facetElement.replace( /\{+value+\}/g, value );
-                                    facetElement = facetElement.replace( /\{+count+\}/g, count );
-                                    facetInnerList = facetInnerList.replace( /\{+facet_element+\}/g, facetElement + "{facet_element}" );
-                                }
-                                facetInnerList = facetInnerList.replace( /\{+facet_element+\}/g, '' );
-                                facetMainList = facetMainList.replace( /\{+inner_facet_list+\}/g, facetInnerList + "{inner_facet_list}" );
-                            }
-                        }
-
-                        // Only display the "Refine with facets" block if actual facets were returned.
-                        if ( facetMainList != ret.cfg.facetsmainlisttemplate )
-                        {
-                            facetMainList = facetMainList.replace( /\{+inner_facet_list+\}/g, "" );
-                            var facetsDiv = Y.Node.create( facetMainList );
-
-                            resultsTarget.appendChild( facetsDiv );
-                            var id = facetsDiv.get( 'id' );
-                            //var width = facetsDiv.get( 'clientWidth' ) - 10; // removing horizontal padding in order to have the actual element's width
-                            //var height = facetsDiv.get( 'clientHeight' ) - 10; // idem.
-
-                            var myAnim = function ( Y )
-                            {
-                                var anim = new Y.Anim({
-                                    node: '#' + id,
-                                    easing: Y.Easing.backIn,
-                                    duration: 0.5,
-
-                                    from:
-                                    {
-                                        /*height: 0,
-                                        width: 0*/
-                                        opacity: 0
-                                    },
-
-                                    to:
-                                    {
-                                        /*width: width,
-                                        height: height*/
-                                        opacity: 1
-                                    }
-                                });
-                                anim.run();
-                            }
-                            YUI().use( 'animation', 'anim', myAnim );
-
-                        }
-                    }
-
-                    for(var i = 0; i < itemCount; i++)
-                    {
-                        var item = response.content.SearchResult[i];
-
-                        var template = ret.cfg.resulttemplate;
-                        template = template.replace(/\{+title+\}/g, item.name);
-                        if ( item.published_date === undefined )
-                        {
-                            var date = new Date( item.published * 1000 );
-                            var dateString = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ' ' + date.getFullYear() + '/' + date.getMonth() + '/' + date.getDay();
-                            template = template.replace(/\{+date+\}/g, dateString);
-                        }
-                        else
-                        {
-                            template = template.replace(/\{+date+\}/g, item.published_date);
-                        }
-                        template = template.replace(/\{+class_name+\}/g, item.class_name);
-                        template = template.replace(/\{+url_alias+\}/g, item.url_alias);
-                        template = template.replace(/\{+object_id+\}/g, item.id);
-                        template = template.replace(/\{+node_id+\}/g, item.node_id);
-
-                        var itemContainer = Y.Node.create(template);
-
-                        resultsTarget.removeClass('loading');
-                        resultsTarget.appendChild(itemContainer);
-                    }
-
-                    if ( itemCount === 0 )
-                    {
-                        var itemContainer = Y.Node.create(ret.cfg.noresultstring);
-                        resultsTarget.removeClass('loading');
-                        resultsTarget.appendChild(itemContainer);
-                    }
-                }
-            }
-        }
-
-        var getValueForSelector = function(sel)
-        {
-            var value, node = Y.one(sel);
-
-            if ( node )
-            {
-                if ( node.get('nodeName').toLowerCase() === 'input'
-                     && ( node.get('type') === 'radio' || node.get('type') === 'checkbox') )
-                {
-                    value = (Y.one(sel + ':checked') != null) ? Y.one(sel + ':checked').get('value') : null;
-                }
-                else if ( node.get('nodeName').toLowerCase() == 'select'
-                          && node.hasAttribute('multiple') )
-                {
-                    value = [];
-                    node.get('options').each(function( option )
-                    {
-                        if ( option.get('selected') )
-                            value.push( option.get('value') );
-                    });
-                    value = value.join(',');
-                }
-                else
-                {
-                    value = node.get('value');
-                }
-            }
-
-            return value;
-        }
-
-        var performSearch = function()
-        {
-            var searchString = getValueForSelector(ret.cfg.searchstring);
-            var dateFormatType = ret.cfg.dateformattype !== undefined ? ret.cfg.dateformattype : 'shortdatetime';
-
-            var value, data = 'SearchStr=' + searchString;
-            data += '&SearchLimit=' + getValueForSelector('[name=SearchLimit]');
-
-            if (value = getValueForSelector('[name=SearchOffset]'))
-                data += '&SearchOffset=' + value;
-
-            if (value = getValueForSelector('[name=SearchSectionID]'))
-                data += '&SearchSectionID=' + value;
-
-            if (value = getValueForSelector('[name=SearchDate]'))
-                data += '&SearchDate=' +  value;
-
-            if (value = getValueForSelector('[name=SearchContentClassAttributeID]'))
-                data += '&SearchContentClassAttributeID=' + value;
-
-            if (value = getValueForSelector('[name=SearchContentClassID]'))
-                data += '&SearchContentClassID=' + value;
-
-            if (value = getValueForSelector('[name=SearchContentClassIdentifier]'))
-                data += '&SearchContentClassIdentifier=' + value;
-
-            if (value = getValueForSelector('[name=SearchSubTreeArray]'))
-                data += '&SearchSubTreeArray=' + value;
-
-            if (value = getValueForSelector('[name=SearchTimestamp]'))
-                data += '&SearchTimestamp=' + value;
-
-            data += '&EncodingFormatDate=' + dateFormatType;
-
-            if ( ret.cfg.customSearchAttributes !== undefined )
-            {
-                for ( var i = 0, l = ret.cfg.customSearchAttributes.length; i < l; i++ )
-                {
-                    data += '&' + Y.one( ret.cfg.customSearchAttributes[i] ).get('name') + '=' + Y.one( ret.cfg.customSearchAttributes[i] ).get('value');
-                }
-            }
-
-            var backendUri = ret.cfg.backendUri ? ret.cfg.backendUri : 'ezjsc::search' ;
-
-            if(searchString !== '')
-            {
-                Y.io.ez(backendUri, {on: {success: successCallBack}, method: 'POST', data: data });
-            }
-        }
-
-        var handleClick = function(e)
-        {
-            performSearch();
-            e.preventDefault();
-        }
-
-        var handleClickFromSpellcheck = function(e)
-        {
-            Y.one(ret.cfg.searchstring).set( 'value', Y.one(ret.cfg.spellcheck).get('innerHTML') );
-            handleClick( e );
-        }
-
-        var handleKeyPress = function(e)
-        {
-            if (e.keyCode == 13)
-            {
-                performSearch();
-                e.preventDefault();
-            }
-        }
-
-        Y.one(ret.cfg.searchbutton).on('click', handleClick);
-        Y.one(ret.cfg.searchstring).on('keypress', handleKeyPress);
+        return String( value === undefined || value === null ? '' : value )
+            .replace( /&/g, '&amp;' ).replace( /</g, '&lt;' ).replace( />/g, '&gt;' )
+            .replace( /"/g, '&quot;' ).replace( /'/g, '&#039;' );
     }
-    ret.cfg = {};
+
+    function fill( template, values )
+    {
+        return String( template || '' ).replace( /\{+([a-z_]+)\}+/g, function( all, name )
+        {
+            return values.hasOwnProperty( name ) ? values[name] : all;
+        } );
+    }
+
+    function nodesOf( html )
+    {
+        var box = document.createElement( 'div' );
+        box.innerHTML = html;
+        return Array.prototype.slice.call( box.childNodes );
+    }
+
+    function valueOf( selector )
+    {
+        var node = document.querySelector( selector );
+        if ( !node ) return null;
+        var tag = node.tagName.toLowerCase();
+        if ( tag === 'input' && ( node.type === 'radio' || node.type === 'checkbox' ) )
+        {
+            var checked = document.querySelector( selector + ':checked' );
+            return checked ? checked.value : null;
+        }
+        if ( tag === 'select' && node.multiple )
+        {
+            var values = [];
+            for ( var i = 0; i < node.options.length; i++ )
+                if ( node.options[i].selected ) values.push( node.options[i].value );
+            return values.join( ',' );
+        }
+        return node.value;
+    }
+
+    function token()
+    {
+        var node = document.getElementById( 'ezxform_token_js' );
+        return node ? node.getAttribute( 'title' ) || '' : '';
+    }
+
+    function formatDate( item )
+    {
+        if ( item.published_date !== undefined ) return item.published_date;
+        var date = new Date( item.published * 1000 );
+        return date.toLocaleString();
+    }
+
+    function showResults( content, settings )
+    {
+        var cfg = settings || ret.cfg, target = document.querySelector( cfg.searchresults );
+        if ( !target || !content || content.SearchResult === undefined ) return;
+        while ( target.firstChild ) target.removeChild( target.firstChild );
+
+        var extras = content.SearchExtras || {}, spellCheck = extras.spellcheck;
+        if ( spellCheck && spellCheck.collation && cfg.spellchecktemplate )
+        {
+            nodesOf( fill( cfg.spellchecktemplate, { 'spellcheck': escapeHtml( spellCheck.collation ) } ) ).forEach( function( node )
+            {
+                if ( node.addEventListener ) node.addEventListener( 'click', function( e )
+                {
+                    var field = document.querySelector( cfg.searchstring );
+                    if ( field ) field.value = spellCheck.collation;
+                    e.preventDefault();
+                    ret.search( cfg );
+                } );
+                target.appendChild( node );
+            } );
+        }
+
+        var facets = extras.facets;
+        if ( facets && facets.length && cfg.facetsmainlisttemplate )
+        {
+            var inner = '';
+            for ( var i = 0; i < facets.length; i++ )
+            {
+                var facet = facets[i], list = facet.list || [];
+                if ( !list.length ) continue;
+                var elements = '';
+                for ( var j = 0; j < list.length; j++ )
+                {
+                    elements += fill( cfg.facetselementtemplate, { 'link': escapeHtml( list[j].url ),
+                        'value': escapeHtml( list[j].value ), 'count': escapeHtml( list[j].count ) } );
+                }
+                inner += fill( cfg.facetsinnerlisttemplate, { 'facet_name': escapeHtml( facet.name ), 'facet_element': elements } );
+            }
+            // the "Refine with facets" block only when there are facets
+            if ( inner !== '' )
+            {
+                nodesOf( fill( cfg.facetsmainlisttemplate, { 'inner_facet_list': inner } ) ).forEach( function( node )
+                {
+                    target.appendChild( node );
+                    // faded in by the stylesheet (ezfind.css, .ajax-search-facets.is-shown)
+                    if ( node.classList ) window.setTimeout( function() { node.classList.add( 'is-shown' ); }, 0 );
+                } );
+            }
+        }
+
+        var results = content.SearchResult;
+        for ( var k = 0; k < results.length; k++ )
+        {
+            var item = results[k];
+            nodesOf( fill( cfg.resulttemplate, { 'title': escapeHtml( item.name ), 'date': escapeHtml( formatDate( item ) ),
+                'class_name': escapeHtml( item.class_name ), 'url_alias': escapeHtml( item.url_alias ),
+                'object_id': escapeHtml( item.id ), 'node_id': escapeHtml( item.node_id ) } ) ).forEach( function( node )
+            {
+                target.appendChild( node );
+            } );
+        }
+        if ( !results.length && cfg.noresultstring )
+        {
+            nodesOf( cfg.noresultstring ).forEach( function( node ) { target.appendChild( node ); } );
+        }
+        target.classList.remove( 'loading' );
+    }
+
+    ret.search = function( settings )
+    {
+        var cfg = settings || ret.cfg, searchString = valueOf( cfg.searchstring );
+        if ( !searchString || typeof window.fetch !== 'function' ) return;
+
+        var data = new window.URLSearchParams(), value;
+        data.append( 'SearchStr', searchString );
+        data.append( 'SearchLimit', valueOf( '[name=SearchLimit]' ) || '' );
+        var optional = [ 'SearchOffset', 'SearchSectionID', 'SearchDate', 'SearchContentClassAttributeID',
+                         'SearchContentClassID', 'SearchContentClassIdentifier', 'SearchSubTreeArray', 'SearchTimestamp' ];
+        for ( var i = 0; i < optional.length; i++ )
+        {
+            if ( ( value = valueOf( '[name=' + optional[i] + ']' ) ) ) data.append( optional[i], value );
+        }
+        data.append( 'EncodingFormatDate', cfg.dateformattype || 'shortdatetime' );
+        var custom = cfg.customSearchAttributes || [];
+        for ( var j = 0; j < custom.length; j++ )
+        {
+            var field = document.querySelector( custom[j] );
+            if ( field ) data.append( field.name, field.value );
+        }
+        data.append( 'ezjscServer_function_arguments', cfg.backendUri || 'ezjsc::search' );
+        data.append( 'ezxform_token', token() );
+
+        var target = document.querySelector( cfg.searchresults );
+        if ( target ) target.classList.add( 'loading' );
+
+        window.fetch( ( cfg.callUrl || '/ezjscore/call' ).replace( /\/$/, '' ) + '/', {
+            'method': 'POST', 'credentials': 'same-origin', 'body': data,
+            'headers': { 'Accept': 'application/json' }
+        } ).then( function( response ) { return response.json(); } ).then( function( json )
+        {
+            showResults( json && json.content, cfg );
+        } )[ 'catch' ]( function()
+        {
+            if ( target ) target.classList.remove( 'loading' );
+        } );
+    };
 
     ret.init = function()
     {
-        var ins = YUI(YUI3_config).use('node', 'event', 'io-ez', yCallback);
-    }
+        var cfg = ret.cfg, button = document.querySelector( cfg.searchbutton ), field = document.querySelector( cfg.searchstring );
+        if ( button ) button.addEventListener( 'click', function( e ) { e.preventDefault(); ret.search( cfg ); } );
+        if ( field ) field.addEventListener( 'keydown', function( e )
+        {
+            // Enter searches, unless a search suggestion is being chosen
+            if ( e.key === 'Enter' && !e.defaultPrevented )
+            {
+                e.preventDefault();
+                ret.search( cfg );
+            }
+        } );
+    };
+
+    ret.showResults = showResults;
+    ret.escapeHtml = escapeHtml;
 
     return ret;
 }();
+window.eZAJAXSearch = eZAJAXSearch;
 
-/*
- * Templates without inline code: an element with data-ezflow-ajaxsearch (the same markup ezflow's ezajaxsearch.js
- * reads) carries the settings above as data attributes: data-search-string, data-search-button, data-search-results,
- * data-date-format, data-result-template, data-noresult-string, data-spellcheck, data-spellcheck-template,
- * data-facets-main-template, data-facets-inner-template, data-facets-element-template, data-backend-uri and
- * data-custom-search-attributes (a JSON list of selectors). The search starts from them when the page is ready, the
- * way the inline "eZAJAXSearch.cfg = { ... }; eZAJAXSearch.init();" did. It needs YUI 3 (ezjsc::yui3); without it
- * nothing happens. Set up once, however often this file is printed.
- */
 ( function()
 {
+    'use strict';
+
     if ( eZAJAXSearch.dataSetup ) return;
     eZAJAXSearch.dataSetup = true;
 
@@ -274,11 +226,11 @@ var eZAJAXSearch = function()
                  'spellcheck': 'data-spellcheck', 'spellchecktemplate': 'data-spellcheck-template',
                  'facetsmainlisttemplate': 'data-facets-main-template',
                  'facetsinnerlisttemplate': 'data-facets-inner-template',
-                 'facetselementtemplate': 'data-facets-element-template', 'backendUri': 'data-backend-uri' };
+                 'facetselementtemplate': 'data-facets-element-template', 'backendUri': 'data-backend-uri',
+                 'callUrl': 'data-call-url' };
 
     var start = function()
     {
-        if ( !window.YUI ) return;
         var boxes = document.querySelectorAll( '[data-ezflow-ajaxsearch]' );
         for ( var i = 0; i < boxes.length; i++ )
         {

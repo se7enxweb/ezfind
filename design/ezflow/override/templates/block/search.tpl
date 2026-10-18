@@ -1,8 +1,8 @@
 <h2>{$block.name|wash()}</h2>
 <form id="search-form-{$block.id}" action="{'content/search'|ezurl('no')}" method="post">
-<div class="yui3-skin-sam ez-autocomplete">
-    {* The autocomplete starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js; no inline code). *}
-    <input id="search-string-{$block.id}" type="text" name="SearchStr" value="" aria-label="{'Search'|i18n( 'design/ezflow/block/search' )}" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int ) )|wash}" />
+<div class="ez-autocomplete">
+    {* The autocomplete starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js: an accessible combobox, no inline code). *}
+    <input id="search-string-{$block.id}" type="text" name="SearchStr" value="" aria-label="{'Search'|i18n( 'design/ezflow/block/search' )}" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int, 'statusText', '%count suggestions'|i18n( 'extension/ezfind/autocomplete' ), 'noResultsText', 'No suggestions'|i18n( 'extension/ezfind/autocomplete' ) ) )|wash}" />
     <input id="search-button-{$block.id}" class="button" type="submit" name="SearchButton" value="{'Search'|i18n( 'design/ezflow/block/search' )}" />
     {def $customAttributes = array()}
     {foreach $block.custom_attributes as $name => $value}
@@ -13,7 +13,7 @@
 </form>
 
 <div id="search-results-{$block.id}"></div>
-{ezscript_require( array( 'ezjsc::jquery', 'ezjsc::yui3', 'ezjsc::yui3io', 'ezjsc::yui2', 'ezajaxsearch.js', 'ezajax_autocomplete.js' ) )}
+{ezscript_require( array( 'ezajax_autocomplete.js', 'ezajaxsearch.js' ) )}
 {ezcss_require( 'ezajax_autocomplete.css' )}
 
 {* The AJAX search settings, read by ezajaxsearch.js when the page is ready (no inline code). *}
@@ -24,6 +24,7 @@
 {set-block variable=ezfind_result_template}<div class="result-item float-break"><div class="item-title"><a href="{ldelim}url_alias{rdelim}">{ldelim}title{rdelim}</a></div><div class="item-published-date">[{ldelim}class_name{rdelim}] {ldelim}date{rdelim}</div></div>{/set-block}
 <div hidden="hidden"
      data-ezflow-ajaxsearch="1"
+     data-call-url="{'ezjscore/call'|ezurl( 'no' )|wash}"
      data-custom-search-attributes="{json_encode( $customAttributes )|wash}"
      data-noresult-string="{'No search results...'|i18n( 'extension/ezfind/ajax-search' )|wash}"
      data-search-string="#search-string-{$block.id|wash}"

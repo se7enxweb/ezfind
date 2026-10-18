@@ -1,8 +1,76 @@
-.ez-autocomplete .yui3-aclist-list {
-    text-align:left;
+/*
+ * ezfind search suggestions (javascript/ezajax_autocomplete.js) in the administration designs. Colors, radius,
+ * spacing and type come from the admin tokens (--a4-*), which carry their dark values; the fallbacks are CSS system
+ * colors, so a design without the tokens still follows the browser's light or dark scheme.
+ */
+.ezfind-ac-anchor {
+    position: relative;
 }
 
-.ez-autocomplete li.yui3-aclist-item-active {
-    background: #B0B0B0;
-    color: #FFF;
+.ezfind-ac-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    min-width: 100%;
+    max-height: 20em;
+    margin: var(--a4-space-1, 0.25rem) 0 0;
+    padding: var(--a4-space-1, 0.25rem) 0;
+    overflow-y: auto;
+    list-style: none;
+    text-align: left;
+    background: var(--a4-surface, Canvas);
+    color: var(--a4-ink, CanvasText);
+    border: 1px solid var(--a4-line-strong, GrayText);
+    border-radius: var(--a4-radius-s, 0.25rem);
+    box-shadow: var(--a4-shadow-m, none);
+    font-size: var(--a4-text-s, 0.875rem);
+}
+
+.ezfind-ac-list[hidden] {
+    display: none;
+}
+
+.ezfind-ac-option {
+    display: block;
+    margin: 0;
+    padding: var(--a4-space-1, 0.25rem) var(--a4-space-3, 0.75rem);
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.ezfind-ac-option:hover {
+    background: var(--a4-accent-soft, Highlight);
+    color: var(--a4-ink, HighlightText);
+}
+
+.ezfind-ac-option.is-active {
+    background: var(--a4-accent-strong, Highlight);
+    color: var(--a4-on-accent, HighlightText);
+}
+
+.ezfind-ac-match {
+    background: none;
+    color: inherit;
+    font-weight: 700;
+}
+
+.ezfind-ac-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (forced-colors: active) {
+    .ezfind-ac-option.is-active {
+        outline: 2px solid Highlight;
+        outline-offset: -2px;
+    }
 }

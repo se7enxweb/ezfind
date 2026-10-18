@@ -16,10 +16,10 @@
         {if $search_node_id|gt( 1 )}
             {set $search_title = "Search in '%node'"|i18n( 'design/admin/pagelayout',, hash( '%node', fetch( 'content', 'node', hash( 'node_id', $search_node_id ) ).name ) )}
         {/if}
-        <div class="yui3-skin-sam ez-autocomplete">
+        <div class="ez-autocomplete">
         <div id="searchtextwrapper">
             <label for="searchtext" class="a4-sr-only">{$search_title|wash}</label>
-            <input id="searchtext" name="SearchText" type="text" size="20" value="{if is_set( $search_text )}{$search_text|wash}{/if}" title="{$search_title|wash}" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int ) )|wash}" />
+            <input id="searchtext" name="SearchText" type="text" size="20" value="{if is_set( $search_text )}{$search_text|wash}{/if}" title="{$search_title|wash}" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int, 'statusText', '%count suggestions'|i18n( 'extension/ezfind/autocomplete' ), 'noResultsText', 'No suggestions'|i18n( 'extension/ezfind/autocomplete' ) ) )|wash}" />
         </div>
             <input type="hidden" name="SubTreeArray" value="{$search_node_id|wash}" />
             <input id="searchbutton" class="button hide" name="SearchButton" type="submit" value="{'Search'|i18n( 'design/admin/pagelayout' )}" />
@@ -88,9 +88,8 @@
 </form>
 </div>
 
-{* The autocomplete of the search field starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js; no inline code). *}
-{ezscript_require( array('ezjsc::yui3', 'ezajax_autocomplete.js') )}
-{* The search scope pane and the search field's button (javascript/ezfind_search.js; no inline code); printed here, as the
-   page head is already out when the page layout includes this template. *}
-{ezscript( array( 'ezfind_search.js' ) )}
+{* The search field's suggestions (javascript/ezajax_autocomplete.js: an accessible combobox), the search scope pane and
+   the search field's button (javascript/ezfind_search.js); no inline code. Printed here with ezscript(), as the page
+   head is already out when the page layout includes this template; each file sets itself up once. *}
+{ezscript( array( 'ezajax_autocomplete.js', 'ezfind_search.js' ) )}
 {undef $search_node_id $section_id}

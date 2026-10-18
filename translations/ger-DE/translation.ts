@@ -453,6 +453,17 @@
     </message>
 </context>
 <context>
+    <name>extension/ezfind/autocomplete</name>
+    <message>
+        <source>%count suggestions</source>
+        <translation>Vorschläge: %count</translation>
+    </message>
+    <message>
+        <source>No suggestions</source>
+        <translation>Keine Vorschläge</translation>
+    </message>
+</context>
+<context>
     <name>extension/ezfind/ajax-search</name>
     <message>
         <source>No search results...</source>

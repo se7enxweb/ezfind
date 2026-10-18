@@ -1,18 +1,90 @@
-.ez-autocomplete .yui3-aclist-list {
-    background: white;
+/*
+ * ezfind search suggestions (javascript/ezajax_autocomplete.js) on the site: a plain list under the search field in
+ * the site design's grey and white, with a dark variant for a browser in dark mode.
+ */
+.ezfind-ac-anchor {
+    position: relative;
 }
 
-.ez-autocomplete .yui3-aclist-item {
-    background-image: none;
-    display: block;
+.ezfind-ac-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    min-width: 100%;
+    max-height: 20em;
+    margin: 2px 0 0;
+    padding: 2px 0;
+    overflow-y: auto;
+    list-style: none;
     text-align: left;
+    background: #fff;
+    color: #333;
+    border: 1px solid #999;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-#header .ez-autocomplete .yui3-aclist-item {
+.ezfind-ac-list[hidden] {
+    display: none;
+}
+
+.ezfind-ac-option,
+#header .ezfind-ac-option {
     display: block;
+    float: none;
+    margin: 0;
+    padding: 3px 8px;
+    background-image: none;
+    white-space: nowrap;
+    cursor: pointer;
 }
 
-.ez-autocomplete li.yui3-aclist-item-active {
-    background: #B0B0B0;
-    color: #FFF;
+.ezfind-ac-option:hover {
+    background: #e6e6e6;
+}
+
+.ezfind-ac-option.is-active {
+    background: #595959;
+    color: #fff;
+}
+
+.ezfind-ac-match {
+    background: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+.ezfind-ac-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .ezfind-ac-list {
+        background: #222;
+        color: #eee;
+        border-color: #777;
+    }
+    .ezfind-ac-option:hover {
+        background: #3a3a3a;
+    }
+    .ezfind-ac-option.is-active {
+        background: #ddd;
+        color: #111;
+    }
+}
+
+@media (forced-colors: active) {
+    .ezfind-ac-option.is-active {
+        outline: 2px solid Highlight;
+        outline-offset: -2px;
+    }
 }

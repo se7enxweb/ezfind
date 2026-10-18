@@ -74,8 +74,8 @@
     <h1 class="long">{"Search"|i18n("design/ezwebin/content/search")}</h1>
 </div>
 
-<div class="block yui3-skin-sam">
-    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int ) )|wash}" value="{$search_text|wash}" aria-label="{'Search'|i18n('design/ezwebin/content/search')}" />
+<div class="block ez-autocomplete">
+    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int, 'statusText', '%count suggestions'|i18n( 'extension/ezfind/autocomplete' ), 'noResultsText', 'No suggestions'|i18n( 'extension/ezfind/autocomplete' ) ) )|wash}" value="{$search_text|wash}" aria-label="{'Search'|i18n('design/ezwebin/content/search')}" />
     <input class="button" name="SearchButton" type="submit" value="{'Search'|i18n('design/ezwebin/content/search')}" />
 </div>
 {if $search_extras.spellcheck_collation}
@@ -124,7 +124,7 @@
           
           {* <a class="btn btn-mini" onclick="ezfToggleBlock( 'ezfHelp' );">{'Help'|i18n( 'design/ezwebin/content/search' )}</a> *}
                     
-          <div id="ezfHelp" class="well" style="display: none;" data-ezfind-remember="1">
+          <div id="ezfHelp" class="well" hidden="hidden" data-ezfind-remember="1">
               <span class="close"><a data-ezfind-toggle="ezfHelp">&times;</a></span>
               <ul>
                   <li>{'The search is case insensitive. Upper and lower case characters may be used.'|i18n( 'design/ezfind/search' )}</li>
@@ -285,8 +285,8 @@
 <p class="small"><em>{'Search took: %1 msecs, using '|i18n('ezfind',,array($search_extras.responseHeader.QTime|wash))}{$search_extras.engine}</em></p>
 
 
-{* The autocomplete of the search field starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js; no inline code). *}
-{ezscript_require( array('ezjsc::yui3', 'ezajax_autocomplete.js') )}
+{* The autocomplete of the search field starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js: an accessible combobox, no inline code). *}
+{ezscript_require( array( 'ezajax_autocomplete.js' ) )}
 {* The search tips toggle and remember their state (javascript/ezfind_search.js; no inline code). *}
 {ezscript_require( array( 'ezfind_search.js' ) )}
 {ezcss_require( 'ezajax_autocomplete.css' )}

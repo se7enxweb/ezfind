@@ -1,0 +1,37 @@
+Changes from 3.0.6 to 3.0.7
+===========================
+
+*Fixed:
+- The search suggestions work again. They needed YUI 3, which ezjscore no longer ships, so no field showed
+  any. ezajax_autocomplete.js is now plain JavaScript without a library, for the administration search box
+  and search page, the site's search box and search page (ezwebin, ezdemo) and the ezflow search block.
+- The administration search box (page_search.tpl) prints its suggestion script itself: it asked for it with
+  ezscript_require() after the page head was out, so the script never reached the page.
+- The AJAX search of the ezflow search block (ezajaxsearch.js) runs without YUI as well. The values the
+  server returns are escaped before they go into the result, facet and spellcheck templates, the search
+  posts its fields encoded, and several search blocks on one page keep their own settings.
+
+*Updated:
+- The suggestion list is an accessible combobox: the field has role="combobox", aria-expanded,
+  aria-controls and aria-activedescendant, the list is a named listbox of options, and a status region
+  announces how many suggestions there are ("%count suggestions" and "No suggestions", context
+  extension/ezfind/autocomplete, translated in ger-DE). Down and Up move through the suggestions and wrap,
+  Alt+Down opens the list, Enter takes the highlighted suggestion (without one it submits the search as
+  before), Escape closes the list, a click takes a suggestion. The typed text is marked in each suggestion.
+- Lookups wait for a pause in typing (250 ms, data-ezfind-autocomplete "delay"), only the answer to the
+  latest lookup is shown, and answers are kept for the page. The server function and its URL are
+  unchanged: ezjscore/call/ezfind::autocomplete::<text>::<limit>::<subtree>::<classes>.
+- The list's look is in ezajax_autocomplete.css (classes ezfind-ac-*): the administration's tokens with
+  their dark values in the administration designs, the site design's grey and white (with a dark variant)
+  on the site. The yui3-* classes and the yui3-skin-sam wrappers are gone; a site that styled them needs
+  the new class names.
+- The facets of the AJAX search fade in by a CSS transition (ezfind.css, .ajax-search-facets.is-shown),
+  without motion when the browser asks for reduced motion.
+- The search tips of the search pages start hidden by the hidden attribute instead of an inline style.
+
+*Removed:
+- The templates no longer load ezjsc::yui3, ezjsc::yui3io, ezjsc::yui2 or ezjsc::jquery for the search.
+
+Tests: tests/classes/ezfSearchScriptsTest.php (SS-01 to SS-04) runs tests/js/autocomplete.js (AC-01 to
+AC-09) and tests/js/ajaxsearch.js (AS-01, AS-02) in node against a stubbed server function, and checks that
+nothing in the extension refers to YUI; no database or Solr.

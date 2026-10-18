@@ -79,8 +79,8 @@
     <h1 class="long">{"Search"|i18n("design/ezwebin/content/search")}</h1>
 </div>
 
-<div class="yui3-skin-sam ez-autocomplete">
-    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int ) )|wash}" value="{$search_text|wash}" aria-label="{'Search'|i18n('design/ezwebin/content/search')}" />
+<div class="ez-autocomplete">
+    <input class="halfbox" type="text" size="20" name="SearchText" id="Search" data-ezfind-autocomplete="{json_encode( hash( 'url', 'ezjscore/call/ezfind::autocomplete'|ezurl( 'no' ), 'minQueryLength', ezini( 'AutoCompleteSettings', 'MinQueryLength', 'ezfind.ini' )|int, 'resultLimit', ezini( 'AutoCompleteSettings', 'Limit', 'ezfind.ini' )|int, 'statusText', '%count suggestions'|i18n( 'extension/ezfind/autocomplete' ), 'noResultsText', 'No suggestions'|i18n( 'extension/ezfind/autocomplete' ) ) )|wash}" value="{$search_text|wash}" aria-label="{'Search'|i18n('design/ezwebin/content/search')}" />
     <input class="button" name="SearchButton" type="submit" value="{'Search'|i18n('design/ezwebin/content/search')}" />
 </div>
 
@@ -127,7 +127,7 @@
 
       <fieldset>
           <legend data-ezfind-toggle="ezfHelp">{'Help'|i18n( 'design/ezwebin/content/search' )} [+/-]</legend>
-          <div id="ezfHelp" style="display: none;" data-ezfind-remember="1">
+          <div id="ezfHelp" hidden="hidden" data-ezfind-remember="1">
               <ul>
                   <li>{'The search is case insensitive. Upper and lower case characters may be used.'|i18n( 'design/ezfind/search' )}</li>
                   <li>{'Phrase search can be achieved by using quotes, example: "Quick brown fox jumps over the lazy dog"'|i18n( 'design/ezfind/search' )}</li>
@@ -281,8 +281,8 @@
 <div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
 </div>
 
-{* The autocomplete of the search field starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js; no inline code). *}
-{ezscript_require( array('ezjsc::yui3', 'ezajax_autocomplete.js') )}
+{* The autocomplete of the search field starts from data-ezfind-autocomplete (javascript/ezajax_autocomplete.js: an accessible combobox, no inline code). *}
+{ezscript_require( array( 'ezajax_autocomplete.js' ) )}
 {* The search tips toggle and remember their state (javascript/ezfind_search.js; no inline code). *}
 {ezscript_require( array( 'ezfind_search.js' ) )}
 {ezcss_require( 'ezajax_autocomplete.css' )}

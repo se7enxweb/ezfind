@@ -90,11 +90,20 @@ div.ajax-search-facets
     border: 1px solid #F0F0F0;
     font-size: 90%;
 
-    /* for IE */
-    filter:'alpha(opacity=0)'; /* Will be faded in by the YUI animation */
-    /* CSS3 standard */
-    opacity: 0; /* Will be faded in by the YUI animation */
+    /* faded in when ezajaxsearch.js adds is-shown */
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
 
-    /*height: 0;
-    width: 0;*/
+div.ajax-search-facets.is-shown
+{
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce)
+{
+    div.ajax-search-facets
+    {
+        transition: none;
+    }
 }
