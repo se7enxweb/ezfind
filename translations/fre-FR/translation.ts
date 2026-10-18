@@ -38,7 +38,7 @@
     </message>
     <message>
         <source>Try changing some keywords e.g. &amp;quot;car&amp;quot; instead of &amp;quot;cars&amp;quot;.</source>
-        <translation>Essayez de changer certains mot-clés par ex. &amp;quot;voiture&amp;quot; au lieu de &amp;quot;voitures&amp;quot;.</translation>
+        <translation>Essayez de changer certains mots-clés, par ex. &amp;quot;voiture&amp;quot; au lieu de &amp;quot;voitures&amp;quot;.</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
@@ -50,7 +50,7 @@
     </message>
     <message>
         <source>Search for &lt;%1&gt; returned %2 matches</source>
-        <translation>La recheche de &lt;%1&gt; retourne %2 resultat(s)</translation>
+        <translation>La recherche de &lt;%1&gt; a retourné %2 résultat(s)</translation>
     </message>
 </context>
 <context>
@@ -163,19 +163,19 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ceci pourrait aussi vous intéresser :</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>Les gens ayant acheté ce produit ont également acheté</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter au panier</translation>
     </message>
 </context>
 <context>
@@ -194,7 +194,7 @@
     </message>
     <message>
         <source>Phrase search can be achieved by using quotes, example: &quot;Quick brown fox jumps over the lazy dog&quot;</source>
-        <translation>Une recherche d&quot;une expression est obtenu en utlisant les guillemets, par exemple &quot;le renard a sauté au dessus du chien paresseux&quot; </translation>
+        <translation>Une recherche d&apos;expression s&apos;obtient en utilisant des guillemets, par exemple : &quot;le renard a sauté au-dessus du chien paresseux&quot;</translation>
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) character, example: lazy -dog</source>
@@ -296,7 +296,7 @@
     </message>
     <message>
         <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</source>
-        <translation>%login_link_startIdentifiez vous %login_link_end ou %create_link_startCréer un compte utilisateur %create_link_end pour participer.</translation>
+        <translation>%login_link_startIdentifiez-vous%login_link_end ou %create_link_startcréez un compte utilisateur%create_link_end pour participer.</translation>
     </message>
     <message>
         <source>Tip a friend</source>
@@ -490,7 +490,7 @@
     <name>extension/ezfind/elevate</name>
     <message>
         <source>Hide preview of existing elevate configurations.</source>
-        <translation>Masquer les configurations d&apos;élévations.</translation>
+        <translation>Masquer la prévisualisation des configurations d&apos;élévation existantes.</translation>
     </message>
     <message>
         <source>Preview existing configurations</source>
@@ -498,7 +498,7 @@
     </message>
     <message>
         <source>Show preview of existing elevate configurations.</source>
-        <translation>Afficher la prévisualistaion des configurations d&apos;élévation.</translation>
+        <translation>Afficher la prévisualisation des configurations d&apos;élévation existantes.</translation>
     </message>
     <message>
         <source>Elevation</source>
@@ -518,7 +518,7 @@
     </message>
     <message>
         <source>Successful creation of the following Elevate configuration</source>
-        <translation>Création réussie de la configuration de l&apos;élévation</translation>
+        <translation>Création réussie de la configuration d&apos;élévation suivante</translation>
     </message>
     <message>
         <source>Details</source>
@@ -526,7 +526,7 @@
     </message>
     <message>
         <source>Successful synchronization of the local Elevate configuration with Solr&apos;s.</source>
-        <translation>Synchonisation réussie de la configuration locale de l&apos;élévation avec Solr.</translation>
+        <translation>Synchronisation réussie de la configuration d&apos;élévation locale avec celle de Solr.</translation>
     </message>
     <message>
         <source>Synchronise Elevate configuration with Solr</source>
@@ -542,11 +542,11 @@
     </message>
     <message>
         <source>Elevate an object</source>
-        <translation>Promouvoir l&apos;objet</translation>
+        <translation>Élever un objet</translation>
     </message>
     <message>
         <source>&quot;Elevating an object&quot; for a given search query means that this object will be returned among the very first search results when a search is triggered using this search query.</source>
-        <translation>&quot;Promouvoir un objet&quot; pour une recherche donnée signifie qu&apos;un objet sera retourné dans les premiers résultats de recherche quand une recherche déclenchera cette requête.</translation>
+        <translation>« Élever un objet » pour une requête de recherche donnée signifie que cet objet sera retourné parmi les tout premiers résultats lorsqu&apos;une recherche est lancée avec cette requête.</translation>
     </message>
     <message>
         <source>Search query</source>
@@ -554,19 +554,19 @@
     </message>
     <message>
         <source>Search query to elevate the object for.</source>
-        <translation>Requête de recherche pour promouvoir l&apos;objet.</translation>
+        <translation>Requête de recherche pour laquelle élever l&apos;objet.</translation>
     </message>
     <message>
         <source>Elevate object</source>
-        <translation>Promouvoir l&apos;objet</translation>
+        <translation>Élever l&apos;objet</translation>
     </message>
     <message>
         <source>Browse for the object to associate elevation to.</source>
-        <translation>Parcourir afin de trouver l&apos;objet à promouvoir.</translation>
+        <translation>Parcourir pour trouver l&apos;objet auquel associer l&apos;élévation.</translation>
     </message>
     <message>
         <source>Elevate %objectlink with &amp;nbsp;  %searchquery &amp;nbsp;  for language:</source>
-        <translation>Promouvoir %objectlink avec &amp;nbsp; %searchquery &amp;nbsp; pour la langue:</translation>
+        <translation>Élever %objectlink avec &amp;nbsp;  %searchquery &amp;nbsp;  pour la langue :</translation>
     </message>
     <message>
         <source>All</source>
@@ -574,7 +574,7 @@
     </message>
     <message>
         <source>Elevate</source>
-        <translation>Promouvoir</translation>
+        <translation>Élever</translation>
     </message>
     <message>
         <source>Store elevation</source>
@@ -586,11 +586,11 @@
     </message>
     <message>
         <source>Cancel elevation</source>
-        <translation>Annuler la promotion</translation>
+        <translation>Annuler l&apos;élévation</translation>
     </message>
     <message>
         <source>Search for elevated objects</source>
-        <translation>Recherche des objets promus</translation>
+        <translation>Rechercher des objets élevés</translation>
     </message>
     <message>
         <source>By search query</source>
@@ -618,7 +618,7 @@
     </message>
     <message>
         <source>Find elevate configurations matching the search query entered.</source>
-        <translation>Trouver la configuration de l&apos;élévation correspondante à la requête de recherche entrée.</translation>
+        <translation>Trouver les configurations d&apos;élévation correspondant à la requête de recherche saisie.</translation>
     </message>
     <message>
         <source>By object</source>
@@ -630,7 +630,7 @@
     </message>
     <message>
         <source>Objects elevated by &quot;%search_query&quot;</source>
-        <translation>Objets promus par &quot;%search_query&quot;</translation>
+        <translation>Objets élevés par &quot;%search_query&quot;</translation>
     </message>
     <message>
         <source>fuzzy match</source>
@@ -642,7 +642,7 @@
     </message>
     <message>
         <source>No existing Elevate configuration.</source>
-        <translation>Pas de promotions existantes.</translation>
+        <translation>Aucune configuration d&apos;élévation existante.</translation>
     </message>
     <message>
         <source>Content object</source>
@@ -654,15 +654,15 @@
     </message>
     <message>
         <source>See elevate configuration details for &apos;%objectName&apos;</source>
-        <translation>Voir le détail de la promotion pour &apos;%objectName&apos;</translation>
+        <translation>Voir le détail de la configuration d&apos;élévation pour &apos;%objectName&apos;</translation>
     </message>
     <message>
         <source>Remove elevation by &apos;%searchQuery&apos; for &apos;%objectName&apos;.</source>
-        <translation>Supprimer la promotion par &apos;*searchQuery&apos; pour &apos;%objectName&apos;.</translation>
+        <translation>Supprimer l&apos;élévation par &apos;%searchQuery&apos; pour &apos;%objectName&apos;.</translation>
     </message>
     <message>
         <source>See all objects elevated by &apos;%searchQuery&apos;</source>
-        <translation>Voir tous les objets promus par &apos;%searchQuery&apos;</translation>
+        <translation>Voir tous les objets élevés par &apos;%searchQuery&apos;</translation>
     </message>
     <message>
         <source>Edit</source>
@@ -674,7 +674,7 @@
     </message>
     <message>
         <source>Elevation detail for object %objectName</source>
-        <translation>Détail de la promotion pour l&apos;objet %objectName</translation>
+        <translation>Détail de l&apos;élévation pour l&apos;objet %objectName</translation>
     </message>
     <message>
         <source>Missing content object.</source>
@@ -682,11 +682,11 @@
     </message>
     <message>
         <source>Elevate %objectName</source>
-        <translation>Promouvoir %objectName</translation>
+        <translation>Élever %objectName</translation>
     </message>
     <message>
         <source>Elevate %objectlink with:</source>
-        <translation>Promouvoir %objectlink avec:</translation>
+        <translation>Élever %objectlink avec :</translation>
     </message>
     <message>
         <source>for language:</source>
@@ -718,7 +718,7 @@
     </message>
     <message>
         <source>Confirm removal of the following Elevate configuration ( for %objectName ) :</source>
-        <translation>Confirmer la suppression de la promotion ( pour %objectName ) :</translation>
+        <translation>Confirmer la suppression de la configuration d&apos;élévation suivante ( pour %objectName ) :</translation>
     </message>
     <message>
         <source>Back</source>
@@ -730,11 +730,11 @@
     </message>
     <message>
         <source>Confirm removal of the elevate configuration</source>
-        <translation>Confirmer la suppression de la promotion</translation>
+        <translation>Confirmer la suppression de la configuration d&apos;élévation</translation>
     </message>
     <message>
         <source>Cancel removal of the elevate configuration</source>
-        <translation>Annuler la suppression de la promotion</translation>
+        <translation>Annuler la suppression de la configuration d&apos;élévation</translation>
     </message>
     <message>
         <source>Error while generating the configuration XML</source>
@@ -742,7 +742,31 @@
     </message>
     <message>
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
-        <translation>Une erreur inconnue est survenue dans la mise à jour de la configuration de l&apos;élevation de Solr.</translation>
+        <translation>Une erreur inconnue est survenue lors de la mise à jour de la configuration d&apos;élévation de Solr.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>La configuration d&apos;élévation n&apos;a pas pu être enregistrée.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Objet</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Choisissez un objet pour voir ses configurations d&apos;élévation.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Par page</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>Afficher %count éléments par page.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>La configuration d&apos;élévation a été supprimée.</translation>
     </message>
 </context>
 <context>
@@ -775,6 +799,10 @@
         <source>Clear all filters</source>
         <translation>Supprimer tous les filtres</translation>
     </message>
+    <message>
+        <source>Last modified</source>
+        <translation>Dernière modification</translation>
+    </message>
 </context>
 <context>
     <name>extension/ezfind/popupmenu</name>
@@ -795,7 +823,7 @@
     <name>ezfind</name>
     <message>
         <source>Search took: %1 msecs, using </source>
-        <translation>Temps de recherche : %1 msecs, en utilisant</translation>
+        <translation>Temps de recherche : %1 ms, en utilisant </translation>
     </message>
     <message>
         <source>Core search time: %1 msecs</source>
@@ -816,6 +844,36 @@
     <message>
         <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
         <translation>Plugin de recherche eZ Find %version &amp;copy; 1999-2013 eZ Systems AS, propulsé par Apache Solr 3.6.1</translation>
+    </message>
+    <message>
+        <source>The search engine could not run this search</source>
+        <translation>Le moteur de recherche n&apos;a pas pu exécuter cette recherche</translation>
+    </message>
+    <message>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
+        <translation>Plugin de recherche eZ Find %version &amp;copy; 1999-2014 eZ Systems AS, propulsé par Apache Solr 4.7.0</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation>Élévation</translation>
+    </message>
+</context>
+<context>
+    <name>extension/ezfind/autocomplete</name>
+    <message>
+        <source>%count suggestions</source>
+        <translation>%count suggestions</translation>
+    </message>
+    <message>
+        <source>No suggestions</source>
+        <translation>Aucune suggestion</translation>
     </message>
 </context>
 </TS>
