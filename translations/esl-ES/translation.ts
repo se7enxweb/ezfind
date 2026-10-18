@@ -163,7 +163,7 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation>También le puede interesar:</translation>
+        <translation>También te puede interesar:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
@@ -782,7 +782,7 @@
     </message>
     <message>
         <source>Choose an object to see its elevate configurations.</source>
-        <translation>Elija un objeto para ver sus configuraciones de elevación.</translation>
+        <translation>Elige un objeto para ver sus configuraciones de elevación.</translation>
     </message>
     <message>
         <source>Per page</source>
