@@ -114,6 +114,10 @@
         <source>The same location</source>
         <translation>Samme placering</translation>
     </message>
+    <message>
+        <source>Search in &apos;%node&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>design/base</name>
@@ -767,6 +771,30 @@
     <message>
         <source>The Elevate configuration was removed.</source>
         <translation>Fremhævningskonfigurationen blev fjernet.</translation>
+    </message>
+    <message>
+        <source>Successful synchronization of the local Elevate configuration with Solr&apos;s.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See elevate configuration details for &apos;%objectName&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove elevation by &apos;%searchQuery&apos; for &apos;%objectName&apos;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See all objects elevated by &apos;%searchQuery&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>containing &apos;%searchQuery&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
