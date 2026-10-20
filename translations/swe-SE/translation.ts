@@ -5,52 +5,52 @@
     <name>design/admin/content/search</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Sök</translation>
+        <translation>Sök</translation>
     </message>
     <message>
         <source>All content</source>
-        <translation type="unfinished"></translation>
+        <translation>Allt innehåll</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished"></translation>
+        <translation>Samma plasts</translation>
     </message>
     <message>
         <source>For more options try the %1Advanced search%2.</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation type="unfinished"></translation>
+        <translation>Om du vill ha fler alternativ kan du prova %1Avancerad sökning%2.</translation>
     </message>
     <message>
         <source>The following words were excluded from the search</source>
-        <translation type="unfinished">Följande ord ingick ej i sökningen</translation>
+        <translation>Följande ord var borttagna ur sökningen</translation>
     </message>
     <message>
         <source>No results were found while searching for &lt;%1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Inga resultat funna i sökningen av &lt;%1&gt;</translation>
     </message>
     <message>
         <source>Search tips</source>
-        <translation type="unfinished">Hjälp med sökningsstrategi</translation>
+        <translation>Söktips</translation>
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation type="unfinished">Jämför stavning av sökorden med ord på sajten.</translation>
+        <translation>Kolla stavningen av nyckelord.</translation>
     </message>
     <message>
         <source>Try changing some keywords e.g. &amp;quot;car&amp;quot; instead of &amp;quot;cars&amp;quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Försök ändra några nyckelord e.g. &amp;quot;car&amp;quot; istället för &amp;quot;cars&amp;quot;.</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
-        <translation type="unfinished">Försök med mindre specifika sökord.</translation>
+        <translation>Prova mer generella nyckelord.</translation>
     </message>
     <message>
         <source>Fewer keywords result in more matches. Try reducing keywords until you get a result.</source>
-        <translation type="unfinished"></translation>
+        <translation>Färre nyckelord innebär fler träffar. Försök minska antal nyckelord tills du får en träff.</translation>
     </message>
     <message>
         <source>Search for &lt;%1&gt; returned %2 matches</source>
-        <translation type="unfinished"></translation>
+        <translation>Sökning av &lt;%1&gt; resulterade i %2 resultat</translation>
     </message>
 </context>
 <context>
@@ -92,27 +92,27 @@
     </message>
     <message>
         <source>Search scope</source>
-        <translation type="unfinished"></translation>
+        <translation>Sökomfång</translation>
     </message>
     <message>
         <source>Section</source>
-        <translation type="unfinished"></translation>
+        <translation>Sektion</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Alla</translation>
+        <translation>Alla</translation>
     </message>
     <message>
         <source>Search only from the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök bara från den aktuella platsen</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuvarande plats</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished"></translation>
+        <translation>Samma plasts</translation>
     </message>
 </context>
 <context>
@@ -163,19 +163,19 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kanske också är intresserad av:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>Människor som köpt denna har också klöpt</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Antal</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till kundvagnen</translation>
     </message>
 </context>
 <context>
@@ -197,32 +197,28 @@
         <translation>För att söka efter en fras anger du citationstecken omkring, t ex &quot;söka på hemsidan&quot;</translation>
     </message>
     <message>
-        <source>Words may be excluded by using a minus ( - ) character, example: free -beer</source>
-        <translation type="obsolete">Ska inte ett ord förekomma i det du söker efter anger du det med minustecken (-) innan, t ex sektion -stockholm</translation>
-    </message>
-    <message>
         <source>Words may be excluded by using a minus ( - ) character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Ord kan uteslutas med ett minustecken ( - ), exempel: lazy -dog</translation>
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) prefix character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Ord kan uteslutas med ett minustecken ( - ) framför, exempel: lazy -dog</translation>
     </message>
     <message>
         <source>Words may be required by using a plus ( + ) prefix character, example: +yellow coat</source>
-        <translation type="unfinished"></translation>
+        <translation>Ord kan göras obligatoriska med ett plustecken ( + ) framför, exempel: +yellow coat</translation>
     </message>
     <message>
         <source>Wildcard characters * and ? can be used for partial string matching, example: syst* may expand to systems</source>
-        <translation type="unfinished"></translation>
+        <translation>Jokertecknen * och ? kan användas för att matcha delar av ord, exempel: syst* kan matcha systems</translation>
     </message>
     <message>
         <source>Fuzzy searches can also be used appending a ~ character, example: like suster~ may match sister</source>
-        <translation type="unfinished"></translation>
+        <translation>Ungefärliga sökningar kan göras genom att lägga till tecknet ~, exempel: suster~ kan matcha sister</translation>
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation type="unfinished"></translation>
+        <translation>Närhetssökningar görs med citattecken och ett största avstånd (i ord) efter tecknet ~, exempel: &quot;conference publish&quot;~5 matchar text där conference och publish skiljs åt av högst 5 ord</translation>
     </message>
 </context>
 <context>
@@ -281,11 +277,11 @@
     </message>
     <message>
         <source>tips</source>
-        <translation type="unfinished"></translation>
+        <translation>tips</translation>
     </message>
     <message>
         <source>Remove filter on </source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort filtret för </translation>
     </message>
 </context>
 <context>
@@ -454,6 +450,17 @@
     <message>
         <source>Remove Elevation</source>
         <translation>Ta bort gynnande av träff</translation>
+    </message>
+</context>
+<context>
+    <name>extension/ezfind/autocomplete</name>
+    <message>
+        <source>%count suggestions</source>
+        <translation>%count förslag</translation>
+    </message>
+    <message>
+        <source>No suggestions</source>
+        <translation>Inga förslag</translation>
     </message>
 </context>
 <context>
@@ -694,7 +701,7 @@
     </message>
     <message>
         <source>Filter</source>
-        <translation>Filter</translation>
+        <translation>Filtrera</translation>
     </message>
     <message>
         <source>Filter configurations by language</source>
@@ -748,6 +755,30 @@
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
         <translation>Ett okänt fel uppstod vid uppdateringen av Solrs gynnakonfiguration.</translation>
     </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>Gynnandekonfigurationen kunde inte sparas.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Objekt</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Välj ett objekt för att se dess gynnandekonfigurationer.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Per sida</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>Visa %count objekt per sida.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>Gynnandekonfigurationen togs bort.</translation>
+    </message>
 </context>
 <context>
     <name>extension/ezfind/facets</name>
@@ -777,7 +808,11 @@
     </message>
     <message>
         <source>Clear all filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa alla filter</translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation>Senast modifierad</translation>
     </message>
 </context>
 <context>
@@ -802,24 +837,31 @@
         <translation>Kärnsöktid: %1 millisekunder</translation>
     </message>
     <message>
+        <source>The search engine could not run this search</source>
+        <translation>Sökmotorn kunde inte utföra den här sökningen</translation>
+    </message>
+    <message>
         <source>N/A</source>
         <translation>Inte tillgänglig</translation>
     </message>
     <message>
         <source>Search took: %1 msecs, using </source>
-        <translation>Sökningen tog %1 millisekunder, med</translation>
+        <translation>Sökningen tog %1 ms, med </translation>
     </message>
     <message>
-        <source>Server not running</source>
-        <translation type="obsolete">Sökmaskinen svara inte. Troligen är den inte igång.</translation>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
+        <translation>eZ Find %version, sökinsticksprogram &amp;copy; 1999-2014 eZ Systems AS, drivs av Apache Solr 4.7.0</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
     </message>
     <message>
-        <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.1</source>
-        <translation type="obsolete">eZFind-sökutökningen %version &amp;copy; 1999–2012 eZ Systems AS, med Apache Solr 3.1</translation>
-    </message>
-    <message>
-        <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
-        <translation type="unfinished"></translation>
+        <source>Elevation</source>
+        <translation>Gynnande</translation>
     </message>
 </context>
 </TS>

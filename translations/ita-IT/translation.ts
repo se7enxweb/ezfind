@@ -92,27 +92,27 @@
     </message>
     <message>
         <source>Search scope</source>
-        <translation type="unfinished"></translation>
+        <translation>Ambito di ricerca</translation>
     </message>
     <message>
         <source>Section</source>
-        <translation type="unfinished"></translation>
+        <translation>Sezione</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tutti</translation>
     </message>
     <message>
         <source>Search only from the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca solo a partire dalla collocazione corrente</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Posizione corrente</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished">Nella stessa collocazione</translation>
+        <translation>Stessa collocazione</translation>
     </message>
 </context>
 <context>
@@ -163,19 +163,19 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Potrebbe interessarti anche:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>Chi ha acquistato questo ha comprato anche</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Importo</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi al carrello</translation>
     </message>
 </context>
 <context>
@@ -187,14 +187,6 @@
     <message>
         <source>The search result contains all search terms.</source>
         <translation>Il risultato della ricerca contiene tutti i termini di ricerca.</translation>
-    </message>
-    <message>
-        <source>Phrase search can be achieved by using quotes, example: &quot;No TV and no beer make Homer go something something&quot;</source>
-        <translation type="obsolete">La ricerca di una frase si può ottenere usando le virgolette, ad esempio: &quot;Senza tv e senza birra Homer diventa matto&quot;</translation>
-    </message>
-    <message>
-        <source>Words may be excluded by using a minus ( - ) character, example: free -beer</source>
-        <translation type="obsolete">Le parole possono essere escluse usando un segno meno ( - ), ad esempio: libero -birra</translation>
     </message>
     <message>
         <source>Spell check suggestion: did you mean</source>
@@ -210,23 +202,23 @@
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) prefix character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Le parole possono essere escluse anteponendo un segno meno ( - ), esempio: lazy -dog</translation>
     </message>
     <message>
         <source>Words may be required by using a plus ( + ) prefix character, example: +yellow coat</source>
-        <translation type="unfinished"></translation>
+        <translation>Le parole possono essere rese obbligatorie anteponendo un segno più ( + ), esempio: +yellow coat</translation>
     </message>
     <message>
         <source>Wildcard characters * and ? can be used for partial string matching, example: syst* may expand to systems</source>
-        <translation type="unfinished"></translation>
+        <translation>I caratteri jolly * e ? possono essere usati per corrispondenze parziali, esempio: syst* può espandersi in systems</translation>
     </message>
     <message>
         <source>Fuzzy searches can also be used appending a ~ character, example: like suster~ may match sister</source>
-        <translation type="unfinished"></translation>
+        <translation>Si possono fare anche ricerche approssimate aggiungendo il carattere ~, esempio: suster~ può corrispondere a sister</translation>
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation type="unfinished"></translation>
+        <translation>Le ricerche di prossimità si ottengono usando le virgolette e una distanza massima (in parole) dopo il carattere ~, esempio: &quot;conference publish&quot;~5 trova i testi in cui conference e publish sono separati al massimo da 5 parole</translation>
     </message>
 </context>
 <context>
@@ -280,36 +272,16 @@
         <translation>Aiuto</translation>
     </message>
     <message>
-        <source>Facets</source>
-        <translation type="obsolete">Faccette</translation>
-    </message>
-    <message>
-        <source>Class</source>
-        <translation type="obsolete">Classe</translation>
-    </message>
-    <message>
-        <source>Author</source>
-        <translation type="obsolete">Autore</translation>
-    </message>
-    <message>
-        <source>Translation</source>
-        <translation type="obsolete">Traduzione</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation type="obsolete">Tutti</translation>
-    </message>
-    <message>
         <source>Refine your search</source>
         <translation>Affina la ricerca</translation>
     </message>
     <message>
         <source>tips</source>
-        <translation type="unfinished"></translation>
+        <translation>suggerimenti</translation>
     </message>
     <message>
         <source>Remove filter on </source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi il filtro su </translation>
     </message>
 </context>
 <context>
@@ -324,7 +296,7 @@
     </message>
     <message>
         <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</source>
-        <translation>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</translation>
+        <translation>%login_link_startAccedi%login_link_end o %create_link_startcrea un account utente%create_link_end per commentare.</translation>
     </message>
     <message>
         <source>Tip a friend</source>
@@ -476,12 +448,19 @@
         <translation>Innalzamento</translation>
     </message>
     <message>
-        <source>Elevation detail</source>
-        <translation type="obsolete">Dettagli innalzamento</translation>
-    </message>
-    <message>
         <source>Remove Elevation</source>
         <translation>Elimina innalzamento</translation>
+    </message>
+</context>
+<context>
+    <name>extension/ezfind/autocomplete</name>
+    <message>
+        <source>%count suggestions</source>
+        <translation>%count suggerimenti</translation>
+    </message>
+    <message>
+        <source>No suggestions</source>
+        <translation>Nessun suggerimento</translation>
     </message>
 </context>
 <context>
@@ -520,18 +499,6 @@
 </context>
 <context>
     <name>extension/ezfind/elevate</name>
-    <message>
-        <source>Error while generating the configuration XML</source>
-        <translation>Errore nella generazione della configurazione XML</translation>
-    </message>
-    <message>
-        <source>Unable to open &apos;%1&apos;. Write access is required on this file in order to flush Solr&apos;s elevate configuration.</source>
-        <translation type="obsolete">Impossibile aprire &apos;%1&apos;. Si richiede permesso di scrittura su questo file per poter lanciare la configurazione di innalzamento di Solr.</translation>
-    </message>
-    <message>
-        <source>Unable to write Solr&apos;s elevate configuration in &apos;%1&apos;, although the file could be properly opened.</source>
-        <translation type="obsolete">Impossibile scrivere la configurazione d&apos;innalzamento di Solr in &apos;%1&apos;, sebbene questo file possa essere correttamente aperto.</translation>
-    </message>
     <message>
         <source>Hide preview of existing elevate configurations.</source>
         <translation>Nascondi l&apos;anteprima delle configurazioni d&apos;innalzamento esistenti.</translation>
@@ -657,10 +624,6 @@
         <translation>Corrispondenza euristica sulla chiave di ricerca.</translation>
     </message>
     <message>
-        <source>Find matching elevate configurations</source>
-        <translation type="obsolete">Cerca le configurazioni d&apos;innalzamento corrispondenti</translation>
-    </message>
-    <message>
         <source>Find elevate configurations matching the search query entered.</source>
         <translation>Trova le configurazioni d&apos;innalzamento corrispondenti alla chiave di ricerca inserita.</translation>
     </message>
@@ -706,7 +669,7 @@
     </message>
     <message>
         <source>See all objects elevated by &apos;%searchQuery&apos;</source>
-        <translation>Guarda tutti gli oggetti innalzati per &apos;%objectName&apos;</translation>
+        <translation>Visualizza tutti gli oggetti innalzati per &apos;%searchQuery&apos;</translation>
     </message>
     <message>
         <source>Elevation detail for object %objectName</source>
@@ -726,7 +689,7 @@
     </message>
     <message>
         <source>in %selectedLanguage</source>
-        <translation>in %selectedLanguage</translation>
+        <translation>in lingua %selectedLanguage</translation>
     </message>
     <message>
         <source>containing &apos;%searchQuery&apos;</source>
@@ -785,8 +748,36 @@
         <translation>per la lingua:</translation>
     </message>
     <message>
+        <source>Error while generating the configuration XML</source>
+        <translation>Errore nella generazione della configurazione XML</translation>
+    </message>
+    <message>
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
         <translation>Si è verificato un errore sconosciuto nel&apos;aggiornare la configurazione dell&apos;innalzamento di Solr.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>Impossibile salvare la configurazione di innalzamento.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Oggetto</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Scegli un oggetto per vederne le configurazioni di innalzamento.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Per pagina</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>Mostra %count elementi per pagina.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>La configurazione di innalzamento è stata rimossa.</translation>
     </message>
 </context>
 <context>
@@ -817,7 +808,11 @@
     </message>
     <message>
         <source>Clear all filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancella tutti i filtri</translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation>Ultima modifica</translation>
     </message>
 </context>
 <context>
@@ -838,40 +833,35 @@
 <context>
     <name>ezfind</name>
     <message>
-        <source>Search time: %1 msecs</source>
-        <translation type="obsolete">Tempo ricerca: %1 msec</translation>
-    </message>
-    <message>
         <source>Core search time: %1 msecs</source>
         <translation>Tempo ricerca nucleo: %1 msec</translation>
     </message>
     <message>
+        <source>The search engine could not run this search</source>
+        <translation>Il motore di ricerca non è riuscito a eseguire questa ricerca</translation>
+    </message>
+    <message>
         <source>N/A</source>
-        <translation>N/A</translation>
-    </message>
-    <message>
-        <source>Server not running</source>
-        <translation type="obsolete">Il server non funziona</translation>
-    </message>
-    <message>
-        <source>eZ Find search plugin &amp;copy; 2007 eZ Systems AS, eZ Labs</source>
-        <translation type="obsolete">eZ Find search plugin &amp;copy; 2007 eZ Systems AS, eZ Labs</translation>
+        <translation>N/D</translation>
     </message>
     <message>
         <source>Search took: %1 msecs, using </source>
-        <translation>La ricerca ha impiegato: %1 msec, usando</translation>
+        <translation>La ricerca ha impiegato %1 ms, usando </translation>
     </message>
     <message>
-        <source>eZ Find 2.6 search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.1</source>
-        <translation type="obsolete">eZ Find 2.6 search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.1</translation>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
+        <translation>eZ Find %version, plugin di ricerca &amp;copy; 1999-2014 eZ Systems AS, basato su Apache Solr 4.7.0</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
     </message>
     <message>
-        <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.1</source>
-        <translation type="obsolete">eZ Find %version plugin di ricerca &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.1</translation>
-    </message>
-    <message>
-        <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
-        <translation type="unfinished"></translation>
+        <source>Elevation</source>
+        <translation>Innalzamento</translation>
     </message>
 </context>
 </TS>

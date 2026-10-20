@@ -163,19 +163,19 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Možda vas zanima i:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>Osobe koje su kupile ovaj proizvod kupile su i</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Količina</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj u košaricu</translation>
     </message>
 </context>
 <context>
@@ -453,6 +453,17 @@
     </message>
 </context>
 <context>
+    <name>extension/ezfind/autocomplete</name>
+    <message>
+        <source>%count suggestions</source>
+        <translation>Prijedloga: %count</translation>
+    </message>
+    <message>
+        <source>No suggestions</source>
+        <translation>Nema prijedloga</translation>
+    </message>
+</context>
+<context>
     <name>extension/ezfind/ajax-search</name>
     <message>
         <source>No search results...</source>
@@ -690,7 +701,7 @@
     </message>
     <message>
         <source>Filter</source>
-        <translation>Filter</translation>
+        <translation>Filtar</translation>
     </message>
     <message>
         <source>Filter configurations by language</source>
@@ -744,6 +755,30 @@
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
         <translation>Dogodila se nepoznata greška prilikom osvježavanja Solrove konfiguracije podizanja.</translation>
     </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>Konfiguraciju podizanja nije moguće spremiti.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Objekt</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Odaberite objekt da biste vidjeli njegove konfiguracije podizanja.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Po stranici</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>Prikaži %count stavki po stranici.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>Konfiguracija podizanja je uklonjena.</translation>
+    </message>
 </context>
 <context>
     <name>extension/ezfind/facets</name>
@@ -775,6 +810,10 @@
         <source>Clear all filters</source>
         <translation>Ukloni sve filtre</translation>
     </message>
+    <message>
+        <source>Last modified</source>
+        <translation>Zadnja izmjena</translation>
+    </message>
 </context>
 <context>
     <name>extension/ezfind/popupmenu</name>
@@ -798,16 +837,31 @@
         <translation>Trajanje pretraživanja jezgre: %1 msek</translation>
     </message>
     <message>
+        <source>The search engine could not run this search</source>
+        <translation>Tražilica nije mogla izvršiti ovo pretraživanje</translation>
+    </message>
+    <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>Nije dostupno</translation>
     </message>
     <message>
         <source>Search took: %1 msecs, using </source>
         <translation>Pretraživanje je trajalo: %1 msek, koristeći </translation>
     </message>
     <message>
-        <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
-        <translation>eZ Find %version ekstenzija za pretraživanje &amp;copy; 1999-2013 eZ Systems AS, upogonjeno koristeći Apache Solr 3.6.1</translation>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
+        <translation>eZ Find %version, dodatak za pretraživanje &amp;copy; 1999-2014 eZ Systems AS, pokreće Apache Solr 4.7.0</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation>Podizanje</translation>
     </message>
 </context>
 </TS>

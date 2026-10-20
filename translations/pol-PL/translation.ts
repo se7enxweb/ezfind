@@ -92,27 +92,27 @@
     </message>
     <message>
         <source>Search scope</source>
-        <translation type="unfinished"></translation>
+        <translation>Zakres wyszukiwania</translation>
     </message>
     <message>
         <source>Section</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekcja</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Wszystkie</translation>
+        <translation>Wszystkie</translation>
     </message>
     <message>
         <source>Search only from the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyszukaj tylko od bieżącej lokalizacji</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Bieżąca lokalizacja</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished">Ta sama lokalizacja</translation>
+        <translation>Ta sama lokalizacja</translation>
     </message>
 </context>
 <context>
@@ -144,7 +144,7 @@
     </message>
     <message>
         <source>Try changing some keywords eg. car instead of cars.</source>
-        <translation>Spróbuj zmienić niektóre słowa kluczowe, np. &amp;quot;dom&amp;quot; zamiast &amp;quot;domy&amp;quot;.</translation>
+        <translation>Spróbuj zmienić niektóre słowa kluczowe, np. dom zamiast domy.</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
@@ -163,27 +163,23 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>Może Cię również zainteresować:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>Osoby, które to kupiły, kupiły także</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Kwota</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj do koszyka</translation>
     </message>
 </context>
 <context>
     <name>design/ezfind/search</name>
-    <message>
-        <source>Spell check suggestion: did you mean</source>
-        <translation>Sprawdzanie błędów: czy miałeś na myśli</translation>
-    </message>
     <message>
         <source>The search is case insensitive. Upper and lower case characters may be used.</source>
         <translation>Wyszukiwanie ignoruje wielkość liter. Wielkie i małe litery mogą być wykorzystane.</translation>
@@ -191,6 +187,10 @@
     <message>
         <source>The search result contains all search terms.</source>
         <translation>Wyniki wyszukiwania zawierają wszystkie wprowadzone słowa kluczowe.</translation>
+    </message>
+    <message>
+        <source>Spell check suggestion: did you mean</source>
+        <translation>Sprawdzanie błędów: czy miałeś na myśli</translation>
     </message>
     <message>
         <source>Phrase search can be achieved by using quotes, example: &quot;Quick brown fox jumps over the lazy dog&quot;</source>
@@ -202,23 +202,23 @@
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) prefix character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Słowa można wykluczyć, poprzedzając je znakiem minus ( - ), przykład: lazy -dog</translation>
     </message>
     <message>
         <source>Words may be required by using a plus ( + ) prefix character, example: +yellow coat</source>
-        <translation type="unfinished"></translation>
+        <translation>Słowa można uczynić wymaganymi, poprzedzając je znakiem plus ( + ), przykład: +yellow coat</translation>
     </message>
     <message>
         <source>Wildcard characters * and ? can be used for partial string matching, example: syst* may expand to systems</source>
-        <translation type="unfinished"></translation>
+        <translation>Do dopasowania części ciągu można użyć symboli wieloznacznych * i ?, przykład: syst* może oznaczać systems</translation>
     </message>
     <message>
         <source>Fuzzy searches can also be used appending a ~ character, example: like suster~ may match sister</source>
-        <translation type="unfinished"></translation>
+        <translation>Można też wyszukiwać rozmycie, dodając znak ~, przykład: suster~ może dopasować sister</translation>
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyszukiwanie bliskości uzyskuje się za pomocą cudzysłowu i maksymalnej odległości (w słowach) po znaku ~, przykład: &quot;conference publish&quot;~5 dopasuje tekst, w którym conference i publish dzieli najwyżej 5 słów</translation>
     </message>
 </context>
 <context>
@@ -253,7 +253,7 @@
     </message>
     <message>
         <source>Try changing some keywords (eg, &quot;car&quot; instead of &quot;cars&quot;).</source>
-        <translation>Spróbuj zmienić niektóre słowa kluczowe, np. &amp;quot;dom&amp;quot; zamiast &amp;quot;domy&amp;quot;.</translation>
+        <translation>Spróbuj zmienić niektóre słowa kluczowe (np. &quot;dom&quot; zamiast &quot;domy&quot;).</translation>
     </message>
     <message>
         <source>Try searching with less specific keywords.</source>
@@ -277,11 +277,11 @@
     </message>
     <message>
         <source>tips</source>
-        <translation type="unfinished"></translation>
+        <translation>wskazówki</translation>
     </message>
     <message>
         <source>Remove filter on </source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń filtr </translation>
     </message>
 </context>
 <context>
@@ -320,26 +320,6 @@
 </context>
 <context>
     <name>design/standard/content/search</name>
-    <message>
-        <source>Last day</source>
-        <translation>Ostatni dzień</translation>
-    </message>
-    <message>
-        <source>Last week</source>
-        <translation>Ostatni tydzień</translation>
-    </message>
-    <message>
-        <source>Last month</source>
-        <translation>Ostatni miesiąc</translation>
-    </message>
-    <message>
-        <source>Last three months</source>
-        <translation>Ostatnie trzy miesiące</translation>
-    </message>
-    <message>
-        <source>Last year</source>
-        <translation>Ostatni rok</translation>
-    </message>
     <message>
         <source>Advanced search</source>
         <translation>Wyszukiwanie zaawansowane</translation>
@@ -391,6 +371,26 @@
     <message>
         <source>Any time</source>
         <translation>Dowolny czas</translation>
+    </message>
+    <message>
+        <source>Last day</source>
+        <translation>Ostatni dzień</translation>
+    </message>
+    <message>
+        <source>Last week</source>
+        <translation>Ostatni tydzień</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Ostatni miesiąc</translation>
+    </message>
+    <message>
+        <source>Last three months</source>
+        <translation>Ostatnie trzy miesiące</translation>
+    </message>
+    <message>
+        <source>Last year</source>
+        <translation>Ostatni rok</translation>
     </message>
     <message>
         <source>Display per page</source>
@@ -450,6 +450,17 @@
     <message>
         <source>Remove Elevation</source>
         <translation>Usuń podbijanie</translation>
+    </message>
+</context>
+<context>
+    <name>extension/ezfind/autocomplete</name>
+    <message>
+        <source>%count suggestions</source>
+        <translation>Sugestie: %count</translation>
+    </message>
+    <message>
+        <source>No suggestions</source>
+        <translation>Brak sugestii</translation>
     </message>
 </context>
 <context>
@@ -613,10 +624,6 @@
         <translation>Elementy podobne dla podanej frazy.</translation>
     </message>
     <message>
-        <source>Filter</source>
-        <translation>Filtry</translation>
-    </message>
-    <message>
         <source>Find elevate configurations matching the search query entered.</source>
         <translation>Wyszukaj konfigurację podbijania dla podanej fraazy.</translation>
     </message>
@@ -658,19 +665,11 @@
     </message>
     <message>
         <source>Remove elevation by &apos;%searchQuery&apos; for &apos;%objectName&apos;.</source>
-        <translation>Usuń podbicie dla frazy &apos;*searchQuery&apos; dla obiektu &apos;%objectName&apos;.</translation>
+        <translation>Usuń podbicie dla frazy &apos;%searchQuery&apos; dla obiektu &apos;%objectName&apos;.</translation>
     </message>
     <message>
         <source>See all objects elevated by &apos;%searchQuery&apos;</source>
         <translation>Pokaż wszystkie podbite elementy dla &apos;%searchQuery&apos;</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation>Edytuj</translation>
-    </message>
-    <message>
-        <source>Trash</source>
-        <translation>Kosz</translation>
     </message>
     <message>
         <source>Elevation detail for object %objectName</source>
@@ -683,14 +682,6 @@
     <message>
         <source>Elevate %objectName</source>
         <translation>Podbij %objectName</translation>
-    </message>
-    <message>
-        <source>Elevate %objectlink with:</source>
-        <translation>Podbij %objectlink z:</translation>
-    </message>
-    <message>
-        <source>for language:</source>
-        <translation>dla języka:</translation>
     </message>
     <message>
         <source>Existing configurations for %objectName</source>
@@ -707,6 +698,10 @@
     <message>
         <source>Search query to filter the result set on.</source>
         <translation>Pokaż wyniki wyszukiwania aby włączyć filtry.</translation>
+    </message>
+    <message>
+        <source>Filter</source>
+        <translation>Filtry</translation>
     </message>
     <message>
         <source>Filter configurations by language</source>
@@ -737,12 +732,52 @@
         <translation>Anuluj usuwanie konfiruacji podbijania</translation>
     </message>
     <message>
+        <source>Edit</source>
+        <translation>Edytuj</translation>
+    </message>
+    <message>
+        <source>Trash</source>
+        <translation>Kosz</translation>
+    </message>
+    <message>
+        <source>Elevate %objectlink with:</source>
+        <translation>Podbij %objectlink z:</translation>
+    </message>
+    <message>
+        <source>for language:</source>
+        <translation>dla języka:</translation>
+    </message>
+    <message>
         <source>Error while generating the configuration XML</source>
         <translation>Błąd podczas generowania konfiguracji XML</translation>
     </message>
     <message>
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
         <translation>Wystąpił nieznany błąd przy aktualizacji konfiguracji podbijania Solr.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>Nie można zapisać konfiguracji podbicia.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Obiekt</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Wybierz obiekt, aby zobaczyć jego konfiguracje podbicia.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Na stronę</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>Pokazuj %count elementów na stronie.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>Konfiguracja podbicia została usunięta.</translation>
     </message>
 </context>
 <context>
@@ -769,11 +804,15 @@
     </message>
     <message>
         <source>Publication Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Rok publikacji</translation>
     </message>
     <message>
         <source>Clear all filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyczyść wszystkie filtry</translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation>Ostatnia modyfikacja</translation>
     </message>
 </context>
 <context>
@@ -794,24 +833,35 @@
 <context>
     <name>ezfind</name>
     <message>
-        <source>Search took: %1 msecs, using </source>
-        <translation>Wyszukiwanie zajeło : %1 milisekund, zużywając </translation>
-    </message>
-    <message>
         <source>Core search time: %1 msecs</source>
         <translation>Czas wyszukiwania %1 milisekund</translation>
+    </message>
+    <message>
+        <source>The search engine could not run this search</source>
+        <translation>Wyszukiwarka nie mogła wykonać tego wyszukiwania</translation>
     </message>
     <message>
         <source>N/A</source>
         <translation>Nie dotyczy</translation>
     </message>
     <message>
-        <source>eZ Find 2.6 search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.1</source>
-        <translation type="obsolete">Rozszerzenie do wyszukiwania treści eZ Find 2.6 &amp;copy; 1999-2013 eZ Systems AS, oparte na Apache Solr 3.1</translation>
+        <source>Search took: %1 msecs, using </source>
+        <translation>Wyszukiwanie zajeło : %1 milisekund, zużywając </translation>
     </message>
     <message>
-        <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
-        <translation type="unfinished"></translation>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
+        <translation>eZ Find %version, wtyczka wyszukiwania &amp;copy; 1999-2014 eZ Systems AS, oparta na Apache Solr 4.7.0</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation>Podbicie</translation>
     </message>
 </context>
 </TS>
