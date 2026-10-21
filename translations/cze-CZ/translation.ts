@@ -852,6 +852,10 @@
         <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
         <translation>eZ Find %version, vyhledávací modul &amp;copy; 1999-2014 eZ Systems AS, běží na Apache Solr 4.7.0</translation>
     </message>
+    <message>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
+        <translation>Vyhledávací modul eZ Find %version &amp;copy; 1999-2013 eZ Systems AS, běží na Apache Solr 3.6.1</translation>
+    </message>
 </context>
 <context>
     <name>design/admin/parts/ezfind/menu</name>
