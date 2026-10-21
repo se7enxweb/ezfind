@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="es_ES">
 <context>
     <name>design/admin/content/search</name>
     <message>
@@ -92,27 +92,27 @@
     </message>
     <message>
         <source>Search scope</source>
-        <translation type="unfinished"></translation>
+        <translation>Ámbito de búsqueda</translation>
     </message>
     <message>
         <source>Section</source>
-        <translation type="unfinished"></translation>
+        <translation>Sección</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Todos</translation>
+        <translation>Todo</translation>
     </message>
     <message>
         <source>Search only from the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar solo desde la ubicación actual</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubicación actual</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished">En la misma ubicación</translation>
+        <translation>La misma ubicación</translation>
     </message>
 </context>
 <context>
@@ -163,19 +163,19 @@
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>También te puede interesar:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>Las personas que han comprado esto también han comprado</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Importe</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir a la cesta</translation>
     </message>
 </context>
 <context>
@@ -210,23 +210,23 @@
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) prefix character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Se pueden excluir palabras anteponiéndoles un signo menos ( - ), por ejemplo: perro -perezoso</translation>
     </message>
     <message>
         <source>Words may be required by using a plus ( + ) prefix character, example: +yellow coat</source>
-        <translation type="unfinished"></translation>
+        <translation>Se pueden hacer obligatorias palabras anteponiéndoles un signo más ( + ), por ejemplo: +abrigo amarillo</translation>
     </message>
     <message>
         <source>Wildcard characters * and ? can be used for partial string matching, example: syst* may expand to systems</source>
-        <translation type="unfinished"></translation>
+        <translation>Los comodines * y ? permiten coincidencias parciales, por ejemplo: sist* puede ampliarse a sistemas</translation>
     </message>
     <message>
         <source>Fuzzy searches can also be used appending a ~ character, example: like suster~ may match sister</source>
-        <translation type="unfinished"></translation>
+        <translation>También se pueden hacer búsquedas aproximadas añadiendo un carácter ~, por ejemplo: hremana~ puede coincidir con hermana</translation>
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation type="unfinished"></translation>
+        <translation>Las búsquedas por proximidad se hacen con comillas dobles y una distancia máxima (en palabras) tras un carácter ~, por ejemplo: &quot;conferencia publicar&quot;~5 coincidirá con textos en los que conferencia y publicar estén separadas por un máximo de 5 palabras</translation>
     </message>
 </context>
 <context>
@@ -285,15 +285,15 @@
     </message>
     <message>
         <source>Refine your search</source>
-        <translation></translation>
+        <translation>Afinar la búsqueda</translation>
     </message>
     <message>
         <source>tips</source>
-        <translation type="unfinished"></translation>
+        <translation>consejos</translation>
     </message>
     <message>
         <source>Remove filter on </source>
-        <translation type="unfinished"></translation>
+        <translation>Quitar el filtro de </translation>
     </message>
 </context>
 <context>
@@ -453,11 +453,11 @@
     <name>extension/ezfind</name>
     <message>
         <source>eZFind</source>
-        <translation type="unfinished">eZFind</translation>
+        <translation>eZFind</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished">Elevación</translation>
+        <translation>Elevación</translation>
     </message>
     <message>
         <source>Elevation detail</source>
@@ -465,7 +465,7 @@
     </message>
     <message>
         <source>Remove Elevation</source>
-        <translation type="unfinished">Eliminar Elevación</translation>
+        <translation>Quitar elevación</translation>
     </message>
 </context>
 <context>
@@ -476,7 +476,7 @@
     </message>
     <message>
         <source>Refine with facets</source>
-        <translation>Refinar con características</translation>
+        <translation>Refinar con facetas</translation>
     </message>
     <message>
         <source>No search results...</source>
@@ -506,7 +506,7 @@
     <name>extension/ezfind/elevate</name>
     <message>
         <source>Error while generating the configuration XML</source>
-        <translation type="unfinished">Se ha producido un error al general la configuración XML</translation>
+        <translation>Error al generar el XML de configuración</translation>
     </message>
     <message>
         <source>Unable to open &apos;%1&apos;. Write access is required on this file in order to flush Solr&apos;s elevate configuration.</source>
@@ -546,7 +546,7 @@
     </message>
     <message>
         <source>Successful creation of the following Elevate configuration</source>
-        <translation>Se ha creado correctamente la siguiente configuración de elevación </translation>
+        <translation>Se ha creado correctamente la siguiente configuración de elevación</translation>
     </message>
     <message>
         <source>Details</source>
@@ -754,7 +754,7 @@
     </message>
     <message>
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
-        <translation type="unfinished">Se ha producido un error al actualizar la configuración de elevación del Solr.</translation>
+        <translation>Se ha producido un error desconocido al actualizar la configuración de elevación de Solr.</translation>
     </message>
     <message>
         <source>Edit</source>
@@ -772,20 +772,44 @@
         <source>for language:</source>
         <translation>para el idioma:</translation>
     </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>No se ha podido almacenar la configuración de elevación.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Objeto</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Elige un objeto para ver sus configuraciones de elevación.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Por página</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>Mostrar %count elementos por página.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>Se ha eliminado la configuración de elevación.</translation>
+    </message>
 </context>
 <context>
     <name>extension/ezfind/facets</name>
     <message>
         <source>Content type</source>
-        <translation type="unfinished">Tipo de contenido</translation>
+        <translation>Tipo de contenido</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished">Autor</translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <source>Keywords</source>
-        <translation type="unfinished">Palabras clave</translation>
+        <translation>Palabras clave</translation>
     </message>
     <message>
         <source>Creation time</source>
@@ -797,18 +821,22 @@
     </message>
     <message>
         <source>Publication Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Año de publicación</translation>
     </message>
     <message>
         <source>Clear all filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitar todos los filtros</translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation>Última modificación</translation>
     </message>
 </context>
 <context>
     <name>extension/ezfind/popupmenu</name>
     <message>
         <source>eZ Find</source>
-        <translation>eZFind</translation>
+        <translation>eZ Find</translation>
     </message>
     <message>
         <source>Elevate</source>
@@ -839,7 +867,7 @@
     </message>
     <message>
         <source>Search took: %1 msecs, using </source>
-        <translation>La búsqueda tardó: %1 msecs, usando </translation>
+        <translation>La búsqueda tardó %1 ms, usando </translation>
     </message>
     <message>
         <source>eZ Find 2.2 search plugin &amp;copy; 2009 eZ Systems AS, powered by Apache Solr 1.4</source>
@@ -852,6 +880,36 @@
     <message>
         <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The search engine could not run this search</source>
+        <translation>El motor de búsqueda no pudo ejecutar esta búsqueda</translation>
+    </message>
+    <message>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
+        <translation>Plugin de búsqueda eZ Find %version &amp;copy; 1999-2014 eZ Systems AS, con la tecnología de Apache Solr 4.7.0</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation>Elevación</translation>
+    </message>
+</context>
+<context>
+    <name>extension/ezfind/autocomplete</name>
+    <message>
+        <source>%count suggestions</source>
+        <translation>%count sugerencias</translation>
+    </message>
+    <message>
+        <source>No suggestions</source>
+        <translation>Sin sugerencias</translation>
     </message>
 </context>
 </TS>
