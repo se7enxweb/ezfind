@@ -13,7 +13,8 @@
  *  A4-03 - A value from the request or from a stored configuration is printed washed, except the search query: the
  *          views pass it, and store it, encoded with htmlspecialchars() already, and washing it again breaks it
  *  A4-04 - Every form field and button the standard template posts is in the admin4 template too
- *  A4-05 - menu.ini has the left menu [Leftmenu_ezfind] with the Elevate view, limited like the top menu tab
+ *  A4-05 - menu.ini has the left menu [Leftmenu_ezfind] with the Elevate view, limited like the top menu tab; the
+ *          standard design's left menu shows the link only with the policy ezfind/elevate
  *  A4-06 - ger-DE translates every string of the admin4 templates and leaves design/admin/content/search complete:
  *          an unfinished message in an extension's translation is read as its English source and hides the
  *          kernel's translation of the same message
@@ -154,6 +155,12 @@ class ezfAdmin4TemplatesTest extends TestCase
         $this->assertMatchesRegularExpression( '/^PolicyList\[\]=ezfind\/elevate$/m', $section );
         $this->assertStringContainsString( "ini_section='Leftmenu_ezfind'", self::admin4Templates()['backoffice_left_menu.tpl'] );
         $this->assertStringContainsString( 'design:parts/left_width_control.tpl', self::admin4Templates()['backoffice_left_menu.tpl'] );
+
+        $standard = (string)preg_replace( '/\{\*.*?\*\}/s', '', (string)file_get_contents( self::root() . '/design/standard/templates/ezfind/backoffice_left_menu.tpl' ) );
+        $this->assertMatchesRegularExpression(
+            "/\\{if fetch\\( 'user', 'has_access_to', hash\\( 'module', 'ezfind', 'function', 'elevate' \\) \\)\\}\\s*<li><div><a href=\\{'\\/ezfind\\/elevate\\/'\\|ezurl\\}/",
+            $standard
+        );
     }
 
     /**
