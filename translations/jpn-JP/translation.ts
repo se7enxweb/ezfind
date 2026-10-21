@@ -670,7 +670,7 @@
     </message>
     <message>
         <source>See all objects elevated by &apos;%searchQuery&apos;</source>
-        <translation>&quot;%search_query&quot;でエレベーションされたオブジェクト一覧</translation>
+        <translation>&quot;%searchQuery&quot;でエレベーションされたオブジェクト一覧</translation>
     </message>
     <message>
         <source>Edit</source>
