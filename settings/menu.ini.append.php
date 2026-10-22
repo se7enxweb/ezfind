@@ -7,6 +7,9 @@ Part[ezfindnavigationpart]=eZFind
 Tabs[]=ezfind
 
 [Topmenu_ezfind]
+# Icon - (optional) the name of an icon admin4 draws before the tab's name: a name of design.ini
+#        [AdminDesignSettings] IconList[] (Bootstrap Icons); a name it does not know draws no icon.
+Icon=search
 NavigationPartIdentifier=ezfindnavigationpart
 Name=eZ Find
 Tooltip=eZ Find dashboard
