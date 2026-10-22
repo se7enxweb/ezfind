@@ -1,20 +1,43 @@
 {
     "name": "se7enxweb/ezfind",
-    "description": "eZ Find is a search extension for eZ Publish legacy, providing more functionality and better results than the default search in eZ Publish.",
+    "description": "eZ Find LS: Apache Solr search for Exponential, with relevance ranking, highlighting, facets, spell checking, search suggestions, elevation and more-like-this.",
     "type": "ezpublish-legacy-extension",
+    "keywords": [
+        "exponential",
+        "ezpublish-legacy",
+        "extension",
+        "search",
+        "solr",
+        "facets",
+        "full-text"
+    ],
+    "homepage": "https://github.com/se7enxweb/ezfind",
     "license": "GPL-2.0-or-later",
     "authors": [
+        {
+            "name": "7x",
+            "email": "info@se7enx.com",
+            "homepage": "https://se7enx.com",
+            "role": "Maintainer"
+        },
         {
             "name": "eZ Publish dev-team & eZ Community",
             "homepage": "https://github.com/ezsystems/ezfind/contributors"
         }
     ],
+    "support": {
+        "issues": "https://github.com/se7enxweb/ezfind/issues",
+        "source": "https://github.com/se7enxweb/ezfind"
+    },
     "minimum-stability": "dev",
     "require": {
+        "php": ">=8.0",
+        "ext-curl": "*",
         "se7enxweb/ezpublish-legacy-installer": "*",
         "se7enxweb/ezpublish": ">=v6.0.0"
     },
     "extra": {
-        "ezpublish-legacy-extension-name": "ezfind"
+        "ezpublish-legacy-extension-name": "ezfind",
+        "installer-name": "ezfind"
     }
 }
