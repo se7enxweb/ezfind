@@ -1,0 +1,15 @@
+Changes from 3.0.9 to 3.0.10
+============================
+
+*Updated:
+- The eZ Find tab of the administration shows an icon: [Topmenu_ezfind] in settings/menu.ini.append.php
+  sets Icon=search, which the admin4 design draws before the tab's name (a name of design.ini
+  [AdminDesignSettings] IconList[]). Designs that draw no icons ignore it.
+- README.md is a complete guide: what the extension does, requirements (Exponential 6.x, PHP 8.0 or
+  later with curl, Java for the bundled Solr), installation with Composer and by hand, every section of
+  ezfind.ini and solr.ini, the admin tab and elevation, fetch( ezfind, ... ) and the template operators
+  with examples, the elevate policy, the cron parts and scripts, upgrading, known limits and
+  troubleshooting.
+- composer.json has keywords, the homepage, issue and source links, requires PHP 8.0 or later and the
+  curl extension, names 7x as maintainer and sets installer-name. extension.xml states the same
+  copyright holders as ezinfo.php, and both state version 3.0.10.
