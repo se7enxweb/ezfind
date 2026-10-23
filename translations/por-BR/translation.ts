@@ -338,7 +338,7 @@
     </message>
     <message>
         <source>Class</source>
-        <translation>Tipo</translation>
+        <translation>Classe</translation>
     </message>
     <message>
         <source>Any class</source>
