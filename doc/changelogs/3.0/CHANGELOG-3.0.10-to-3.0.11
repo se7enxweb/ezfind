@@ -1,0 +1,13 @@
+Changes from 3.0.10 to 3.0.11
+============================
+
+*Updated:
+- composer.json requires se7enxweb/exponential (>=6.0.0 || dev-main) instead of se7enxweb/ezpublish, the
+  kernel's old package name, which is abandoned on Packagist. The old requirement made Composer install the old
+  kernel package next to se7enxweb/exponential, and composer audit failed on it. dev-main admits a project whose
+  root package is the kernel on its main branch without a branch alias.
+- composer.json replaces se7enxweb/ezfind-ls, this extension's old package name (abandoned on Packagist), so a
+  project that still requires the old name resolves to this package alone.
+- ezinfo.php and extension.xml state version 3.0.11.
+
+Upgrading: nothing to do beyond composer update; no code, setting or database change.
