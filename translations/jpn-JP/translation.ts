@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="ja_JP">
 <context>
     <name>design/admin/content/search</name>
     <message>
@@ -18,61 +18,61 @@
     <message>
         <source>For more options try the %1Advanced search%2.</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation>詳細検索オプションには%1詳細検索%2を使ってください。</translation>
+        <translation>その他のオプションについては、%1詳細検索%2をお試しください。</translation>
     </message>
     <message>
         <source>The following words were excluded from the search</source>
-        <translation>次の言葉は検索から除かれました</translation>
+        <translation>次の語句は検索から除外されました</translation>
     </message>
     <message>
         <source>No results were found while searching for &lt;%1&gt;</source>
-        <translation>&lt;%1&gt;の検索結果はありません</translation>
+        <translation>&lt;%1&gt; の検索結果はありませんでした</translation>
     </message>
     <message>
         <source>Search tips</source>
-        <translation>検索ティプス</translation>
+        <translation>検索のヒント</translation>
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation>キーワードのスペルチェック。</translation>
+        <translation>キーワードのスペルを確認してください。</translation>
     </message>
     <message>
         <source>Try changing some keywords e.g. &amp;quot;car&amp;quot; instead of &amp;quot;cars&amp;quot;.</source>
-        <translation>キーワードを変えてみてください。</translation>
+        <translation>キーワードを変えてみてください (例: &amp;quot;自動車&amp;quot; の代わりに &amp;quot;車&amp;quot;)。</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
-        <translation>一般なキーワードを試してください。</translation>
+        <translation>より一般的なキーワードで検索してください。</translation>
     </message>
     <message>
         <source>Fewer keywords result in more matches. Try reducing keywords until you get a result.</source>
-        <translation>少ないキーワードで結果が増えます、結果がでるまでキーワードを減らしてみてください。</translation>
+        <translation>キーワードを減らすと、一致する結果が増えます。結果が表示されるまでキーワードを減らしてみてください。</translation>
     </message>
     <message>
         <source>Search for &lt;%1&gt; returned %2 matches</source>
-        <translation>&lt;%1&gt;検索に%2結果を見つけた</translation>
+        <translation>&lt;%1&gt; の検索結果: %2 件</translation>
     </message>
 </context>
 <context>
     <name>design/admin/node/view/full</name>
     <message>
         <source>Show 10 items per page.</source>
-        <translation>1ページに10項目表示。</translation>
+        <translation>1 ページに 10 件のアイテムを表示します。</translation>
     </message>
     <message>
         <source>Show 50 items per page.</source>
-        <translation>1ページに50項目表示。</translation>
+        <translation>1 ページに 50 件のアイテムを表示します。</translation>
     </message>
     <message>
         <source>Show 25 items per page.</source>
-        <translation>1ページに25項目表示。</translation>
+        <translation>1 ページに 25 件のアイテムを表示します。</translation>
     </message>
 </context>
 <context>
     <name>design/admin/pagelayout</name>
     <message>
         <source>Search in all content</source>
-        <translation>すべてのコンテンツに検索</translation>
+        <translation>すべてのコンテンツを検索</translation>
     </message>
     <message>
         <source>Search</source>
@@ -80,11 +80,11 @@
     </message>
     <message>
         <source>Advanced</source>
-        <translation>詳細検索</translation>
+        <translation>詳細</translation>
     </message>
     <message>
         <source>Search in &apos;%node&apos;</source>
-        <translation>&apos;%node&apos;で検索</translation>
+        <translation>&apos;%node&apos; 内を検索</translation>
     </message>
     <message>
         <source>Advanced search.</source>
@@ -92,34 +92,34 @@
     </message>
     <message>
         <source>Search scope</source>
-        <translation type="unfinished"></translation>
+        <translation>検索範囲</translation>
     </message>
     <message>
         <source>Section</source>
-        <translation type="unfinished"></translation>
+        <translation>セクション</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">すべて</translation>
+        <translation>すべて</translation>
     </message>
     <message>
         <source>Search only from the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>現在の配置先からのみ検索</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>現在の配置先</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished">同じ配置先</translation>
+        <translation>同じ配置先</translation>
     </message>
 </context>
 <context>
     <name>design/base</name>
     <message>
         <source>The following words were excluded from the search</source>
-        <translation>次の言葉は検索から除かれました</translation>
+        <translation>次の語句は検索から除外されました</translation>
     </message>
     <message>
         <source>Search</source>
@@ -128,97 +128,97 @@
     <message>
         <source>For more options try the %1Advanced search%2</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation>詳細検索オプションには%1詳細検索%2を使ってください</translation>
+        <translation>その他のオプションについては、%1詳細検索%2をお試しください</translation>
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;</source>
-        <translation>&quot;%1&quot;の検索結果がありませんでした</translation>
+        <translation>「%1」の検索結果はありません</translation>
     </message>
     <message>
         <source>Search tips</source>
-        <translation>検索ティプス</translation>
+        <translation>検索のヒント</translation>
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation>キーワードのスペルチェック。</translation>
+        <translation>キーワードのスペルを確認してください。</translation>
     </message>
     <message>
         <source>Try changing some keywords eg. car instead of cars.</source>
-        <translation>キーワードを変えてみてください。</translation>
+        <translation>キーワードを変えてみてください（例: 「cars」の代わりに「car」）。</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
-        <translation>一般なキーワードを試してください。</translation>
+        <translation>より一般的なキーワードで検索してください。</translation>
     </message>
     <message>
         <source>Fewer keywords gives more results, try reducing keywords until you get a result.</source>
-        <translation>少ないキーワードで結果が増えます、結果がでるまでキーワードを減らしてみてください。</translation>
+        <translation>キーワードが少ないほど結果が増えます。結果が得られるまでキーワードを減らしてみてください。</translation>
     </message>
     <message>
         <source>Search for &quot;%1&quot; returned %2 matches</source>
-        <translation>&quot;%1&quot;の検索は%2結果を戻しました</translation>
+        <translation>「%1」の検索結果: %2 件</translation>
     </message>
 </context>
 <context>
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>こちらもおすすめ:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>この商品を購入した人はこんな商品も購入しています</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>数量</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>買い物かごに追加</translation>
     </message>
 </context>
 <context>
     <name>design/ezfind/search</name>
     <message>
-        <source>Spell check suggestion: did you mean</source>
-        <translation>スペルチェックの提案</translation>
-    </message>
-    <message>
         <source>The search is case insensitive. Upper and lower case characters may be used.</source>
-        <translation>検索は大文字と小文字を区別しません。大文字と小文字を使用できます。</translation>
+        <translation>検索では大文字と小文字は区別されません。大文字と小文字のどちらでも使用できます。</translation>
     </message>
     <message>
         <source>The search result contains all search terms.</source>
-        <translation>検索結果はすべての検索ワードを含めます。</translation>
+        <translation>検索結果には、すべての検索語句が含まれます。</translation>
+    </message>
+    <message>
+        <source>Spell check suggestion: did you mean</source>
+        <translation>スペルチェックの候補: もしかして</translation>
     </message>
     <message>
         <source>Phrase search can be achieved by using quotes, example: &quot;Quick brown fox jumps over the lazy dog&quot;</source>
-        <translation>文書検索は「&quot;」でできます、例えば: &quot;Quick brown fox jumps over the lazy dog&quot;</translation>
+        <translation>引用符を使用すると、フレーズ検索ができます。例: &quot;Quick brown fox jumps over the lazy dog&quot;</translation>
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) character, example: lazy -dog</source>
-        <translation>「-」を使って、言葉を除外できます、例えば: lazy -dog</translation>
+        <translation>マイナス記号（ - ）を使用すると、語句を除外できます。例: lazy -dog</translation>
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) prefix character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>マイナス記号（ - ）を語句の前に付けると、その語句を除外できます。例: lazy -dog</translation>
     </message>
     <message>
         <source>Words may be required by using a plus ( + ) prefix character, example: +yellow coat</source>
-        <translation type="unfinished"></translation>
+        <translation>プラス記号（ + ）を語句の前に付けると、その語句を必須にできます。例: +yellow coat</translation>
     </message>
     <message>
         <source>Wildcard characters * and ? can be used for partial string matching, example: syst* may expand to systems</source>
-        <translation type="unfinished"></translation>
+        <translation>ワイルドカード文字 * と ? を使用すると、部分一致で検索できます。例: syst* は systems に展開される場合があります</translation>
     </message>
     <message>
         <source>Fuzzy searches can also be used appending a ~ character, example: like suster~ may match sister</source>
-        <translation type="unfinished"></translation>
+        <translation>語句の後に ~ を付けると、あいまい検索もできます。例: suster~ は sister に一致する場合があります</translation>
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation type="unfinished"></translation>
+        <translation>二重引用符と ~ の後に最大距離（語数）を指定すると、近接検索ができます。例: &quot;conference publish&quot;~5 は、conference と publish の間が最大 5 語離れているテキストに一致します</translation>
     </message>
 </context>
 <context>
@@ -237,35 +237,35 @@
     <message>
         <source>For more options try the %1Advanced search%2</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation>For more options try the %1Advanced search%2</translation>
+        <translation>その他のオプションについては、%1詳細検索%2をお試しください</translation>
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;.</source>
-        <translation>&quot;%1&quot;の検索結果がありませんでした。</translation>
+        <translation>「%1」の検索結果は見つかりませんでした。</translation>
     </message>
     <message>
         <source>Search tips</source>
-        <translation>検索ティプス</translation>
+        <translation>検索のヒント</translation>
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation>キーワードのスペルチェック。</translation>
+        <translation>キーワードのスペルを確認してください。</translation>
     </message>
     <message>
         <source>Try changing some keywords (eg, &quot;car&quot; instead of &quot;cars&quot;).</source>
-        <translation>キーワードを変えてみてください。</translation>
+        <translation>キーワードを変えてみてください（例: 「cars」の代わりに「car」）。</translation>
     </message>
     <message>
         <source>Try searching with less specific keywords.</source>
-        <translation>一般なキーワードを試してください。</translation>
+        <translation>より一般的なキーワードで検索してみてください。</translation>
     </message>
     <message>
         <source>Reduce number of keywords to get more results.</source>
-        <translation>少ないキーワードで結果が増えます、結果がでるまでキーワードを減らしてみてください。</translation>
+        <translation>キーワードの数を減らすと、より多くの結果が得られます。</translation>
     </message>
     <message>
         <source>Search for &quot;%1&quot; returned %2 matches</source>
-        <translation>&quot;%1&quot;の検索は%2結果を戻しました</translation>
+        <translation>「%1」の検索結果: %2 件</translation>
     </message>
     <message>
         <source>Help</source>
@@ -277,11 +277,11 @@
     </message>
     <message>
         <source>tips</source>
-        <translation type="unfinished"></translation>
+        <translation>ヒント</translation>
     </message>
     <message>
         <source>Remove filter on </source>
-        <translation type="unfinished"></translation>
+        <translation>次のフィルターを解除: </translation>
     </message>
 </context>
 <context>
@@ -292,15 +292,15 @@
     </message>
     <message>
         <source>New comment</source>
-        <translation>新コメント</translation>
+        <translation>新規コメント</translation>
     </message>
     <message>
         <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</source>
-        <translation>コメントを書く様に、%login_link_startログイン%login_link_endか%create_link_startユーザアカウントを作成%create_link_endしてください。</translation>
+        <translation>コメントするには、%login_link_startログイン%login_link_end するか、%create_link_startユーザーアカウントを作成%create_link_end してください。</translation>
     </message>
     <message>
         <source>Tip a friend</source>
-        <translation>友達に教える</translation>
+        <translation>友達に知らせる</translation>
     </message>
     <message>
         <source>Related content</source>
@@ -326,15 +326,15 @@
     </message>
     <message>
         <source>Search all the words</source>
-        <translation>すべてのキーワードを検索</translation>
+        <translation>すべての語を含む</translation>
     </message>
     <message>
         <source>Search the exact phrase</source>
-        <translation>文章を検索</translation>
+        <translation>完全に一致する語句</translation>
     </message>
     <message>
         <source>Search with at least one of the words</source>
-        <translation>一つのキーワード以上を含めた結果を検索</translation>
+        <translation>いずれかの語を含む</translation>
     </message>
     <message>
         <source>Class</source>
@@ -354,11 +354,11 @@
     </message>
     <message>
         <source>Update attributes</source>
-        <translation>更新属性</translation>
+        <translation>属性の更新</translation>
     </message>
     <message>
         <source>In</source>
-        <translation>の中に</translation>
+        <translation>対象</translation>
     </message>
     <message>
         <source>Any section</source>
@@ -366,55 +366,55 @@
     </message>
     <message>
         <source>Published</source>
-        <translation>公開中</translation>
+        <translation>公開日時</translation>
     </message>
     <message>
         <source>Any time</source>
-        <translation>いつでも</translation>
+        <translation>指定なし</translation>
     </message>
     <message>
         <source>Last day</source>
-        <translation>昨日</translation>
+        <translation>過去 1 日</translation>
     </message>
     <message>
         <source>Last week</source>
-        <translation>先週</translation>
+        <translation>過去 1 週間</translation>
     </message>
     <message>
         <source>Last month</source>
-        <translation>先月</translation>
+        <translation>過去 1 か月</translation>
     </message>
     <message>
         <source>Last three months</source>
-        <translation>最後の3ヶ月</translation>
+        <translation>過去 3 か月</translation>
     </message>
     <message>
         <source>Last year</source>
-        <translation>去年</translation>
+        <translation>過去 1 年</translation>
     </message>
     <message>
         <source>Display per page</source>
-        <translation>一頁の結果数</translation>
+        <translation>1 ページの表示件数</translation>
     </message>
     <message>
         <source>5 items</source>
-        <translation>5アイテム</translation>
+        <translation>5 件</translation>
     </message>
     <message>
         <source>10 items</source>
-        <translation>10アイテム</translation>
+        <translation>10 件</translation>
     </message>
     <message>
         <source>20 items</source>
-        <translation>20アイテム</translation>
+        <translation>20 件</translation>
     </message>
     <message>
         <source>30 items</source>
-        <translation>30アイテム</translation>
+        <translation>30 件</translation>
     </message>
     <message>
         <source>50 items</source>
-        <translation>50アイテム</translation>
+        <translation>50 件</translation>
     </message>
     <message>
         <source>Search</source>
@@ -422,11 +422,11 @@
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;</source>
-        <translation>&quot;%1&quot;の検索結果がありませんでした</translation>
+        <translation>「%1」の検索結果はありません</translation>
     </message>
     <message>
         <source>Search for &quot;%1&quot; returned %2 matches</source>
-        <translation>&quot;%1&quot;の検索は%2結果を戻しました</translation>
+        <translation>「%1」の検索結果: %2 件</translation>
     </message>
     <message>
         <source>Score</source>
@@ -441,15 +441,26 @@
     <name>extension/ezfind</name>
     <message>
         <source>eZFind</source>
-        <translation type="unfinished">eZFind</translation>
+        <translation>eZFind</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished">エレベーション</translation>
+        <translation>優先表示</translation>
     </message>
     <message>
         <source>Remove Elevation</source>
-        <translation type="unfinished">エレベーションの削除</translation>
+        <translation>優先表示の解除</translation>
+    </message>
+</context>
+<context>
+    <name>extension/ezfind/autocomplete</name>
+    <message>
+        <source>%count suggestions</source>
+        <translation>%count 件の候補</translation>
+    </message>
+    <message>
+        <source>No suggestions</source>
+        <translation>候補はありません</translation>
     </message>
 </context>
 <context>
@@ -460,7 +471,7 @@
     </message>
     <message>
         <source>Did you mean</source>
-        <translation>下記を検索したかった？</translation>
+        <translation>もしかして</translation>
     </message>
     <message>
         <source>Refine with facets</source>
@@ -475,7 +486,7 @@
     </message>
     <message>
         <source>Elevation</source>
-        <translation>エレベーション</translation>
+        <translation>優先表示</translation>
     </message>
     <message>
         <source>Boost</source>
@@ -489,28 +500,20 @@
 <context>
     <name>extension/ezfind/elevate</name>
     <message>
-        <source>Error while generating the configuration XML</source>
-        <translation type="unfinished">設定XMLの生成にエラーが発生しました</translation>
-    </message>
-    <message>
-        <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
-        <translation type="unfinished">Solrエレベーション設定更新の際にエラーが発生しました。</translation>
-    </message>
-    <message>
         <source>Hide preview of existing elevate configurations.</source>
-        <translation>既存エレベーション設定のプレビューを隠す。</translation>
+        <translation>既存の優先表示の構成のプレビューを非表示にします。</translation>
     </message>
     <message>
         <source>Preview existing configurations</source>
-        <translation>既存設定をプレビュー</translation>
+        <translation>既存の構成のプレビュー</translation>
     </message>
     <message>
         <source>Show preview of existing elevate configurations.</source>
-        <translation>既存のエレベーション設定のプレビュー。</translation>
+        <translation>既存の優先表示の構成のプレビューを表示します。</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation>エレベーション</translation>
+        <translation>優先表示</translation>
     </message>
     <message>
         <source>Please enter a search query.</source>
@@ -522,11 +525,11 @@
     </message>
     <message>
         <source>Missing language information.</source>
-        <translation>言語情報はありません。</translation>
+        <translation>言語情報がありません。</translation>
     </message>
     <message>
         <source>Successful creation of the following Elevate configuration</source>
-        <translation>下記のエレベーション設定は作られました</translation>
+        <translation>次の優先表示の構成が作成されました</translation>
     </message>
     <message>
         <source>Details</source>
@@ -534,11 +537,11 @@
     </message>
     <message>
         <source>Successful synchronization of the local Elevate configuration with Solr&apos;s.</source>
-        <translation>ローカルエレベーション設定とSolrの同期成功。</translation>
+        <translation>ローカルの優先表示の構成が Solr と同期されました。</translation>
     </message>
     <message>
         <source>Synchronise Elevate configuration with Solr</source>
-        <translation>エレベーション設定をSolrと同期する</translation>
+        <translation>優先表示の構成と Solr の同期</translation>
     </message>
     <message>
         <source>Synchronise</source>
@@ -546,15 +549,15 @@
     </message>
     <message>
         <source>Synchronise the Elevate configuration with Solr.</source>
-        <translation>エレベーション設定をSolrと同期する。</translation>
+        <translation>優先表示の構成を Solr と同期します。</translation>
     </message>
     <message>
         <source>Elevate an object</source>
-        <translation>オブジェクトをエレベーションする</translation>
+        <translation>オブジェクトの優先表示</translation>
     </message>
     <message>
         <source>&quot;Elevating an object&quot; for a given search query means that this object will be returned among the very first search results when a search is triggered using this search query.</source>
-        <translation>検索クエリに「オブジェクトをエレベーションする」の意味は、この検索クエリ結果でエレベーションされたオブジェクトは最初の結果に戻されます。</translation>
+        <translation>検索クエリに対して「オブジェクトを優先表示する」とは、その検索クエリで検索が実行されたときに、そのオブジェクトが検索結果の最上位に返されることを意味します。</translation>
     </message>
     <message>
         <source>Search query</source>
@@ -562,19 +565,19 @@
     </message>
     <message>
         <source>Search query to elevate the object for.</source>
-        <translation>オブジェクトエレベーションの検索クエリ。</translation>
+        <translation>オブジェクトを優先表示する検索クエリ。</translation>
     </message>
     <message>
         <source>Elevate object</source>
-        <translation>オブジェクトをエレベーションする</translation>
+        <translation>オブジェクトの優先表示</translation>
     </message>
     <message>
         <source>Browse for the object to associate elevation to.</source>
-        <translation>エレベーションを付けるオブジェクトをブラウズする。</translation>
+        <translation>優先表示を関連付けるオブジェクトを参照します。</translation>
     </message>
     <message>
         <source>Elevate %objectlink with &amp;nbsp;  %searchquery &amp;nbsp;  for language:</source>
-        <translation>次の言語で%objectlinkを%searchqueryをエレベーションする:</translation>
+        <translation>%objectlink を &amp;nbsp;  %searchquery &amp;nbsp;  で優先表示する言語:</translation>
     </message>
     <message>
         <source>All</source>
@@ -582,11 +585,11 @@
     </message>
     <message>
         <source>Elevate</source>
-        <translation>エレベーションする</translation>
+        <translation>優先表示</translation>
     </message>
     <message>
         <source>Store elevation</source>
-        <translation>エレベーションの保存</translation>
+        <translation>優先表示の保存</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -594,15 +597,15 @@
     </message>
     <message>
         <source>Cancel elevation</source>
-        <translation>エレベーションのキャンセル</translation>
+        <translation>優先表示のキャンセル</translation>
     </message>
     <message>
         <source>Search for elevated objects</source>
-        <translation>エレベーションされたオブジェクト検索</translation>
+        <translation>優先表示されたオブジェクトの検索</translation>
     </message>
     <message>
         <source>By search query</source>
-        <translation>検索クエリで</translation>
+        <translation>検索クエリ別</translation>
     </message>
     <message>
         <source>Language</source>
@@ -610,47 +613,43 @@
     </message>
     <message>
         <source>Select a translation to narrow down the search.</source>
-        <translation>絞り込む翻訳を選択してください。</translation>
+        <translation>検索を絞り込むには、翻訳を選択してください。</translation>
     </message>
     <message>
         <source>Fuzzy match</source>
-        <translation>曖昧マッチ</translation>
+        <translation>あいまい一致</translation>
     </message>
     <message>
         <source>Fuzzy match on the search query.</source>
-        <translation>検索クエリで曖昧マッチ。</translation>
-    </message>
-    <message>
-        <source>Filter</source>
-        <translation>絞り込み</translation>
+        <translation>検索クエリでのあいまい一致。</translation>
     </message>
     <message>
         <source>Find elevate configurations matching the search query entered.</source>
-        <translation>入力した検索クエリを一致するエレベーション設定を検索。</translation>
+        <translation>入力した検索クエリに一致する優先表示の構成を検索します。</translation>
     </message>
     <message>
         <source>By object</source>
-        <translation></translation>
+        <translation>オブジェクト別</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>ブラウズ</translation>
+        <translation>参照</translation>
     </message>
     <message>
         <source>Objects elevated by &quot;%search_query&quot;</source>
-        <translation>&quot;%search_query&quot;でエレベーションされたオブジェクト</translation>
+        <translation>「%search_query」で優先表示されたオブジェクト</translation>
     </message>
     <message>
         <source>fuzzy match</source>
-        <translation>曖昧マッチ</translation>
+        <translation>あいまい一致</translation>
     </message>
     <message>
         <source>Existing configurations</source>
-        <translation>既存設定</translation>
+        <translation>既存の構成</translation>
     </message>
     <message>
         <source>No existing Elevate configuration.</source>
-        <translation>エレベーション設定は存在しません。</translation>
+        <translation>優先表示の構成はありません。</translation>
     </message>
     <message>
         <source>Content object</source>
@@ -658,79 +657,67 @@
     </message>
     <message>
         <source>Actions</source>
-        <translation>アクション</translation>
+        <translation>操作</translation>
     </message>
     <message>
         <source>See elevate configuration details for &apos;%objectName&apos;</source>
-        <translation>&apos;%objectName&apos;のエレベーション設定の詳細をみる</translation>
+        <translation>「%objectName」の優先表示の構成の詳細を表示</translation>
     </message>
     <message>
         <source>Remove elevation by &apos;%searchQuery&apos; for &apos;%objectName&apos;.</source>
-        <translation>&apos;%objectName&apos;の&apos;%searchQuery&apos;エレベーションを削除。</translation>
+        <translation>「%objectName」の「%searchQuery」による優先表示を削除します。</translation>
     </message>
     <message>
         <source>See all objects elevated by &apos;%searchQuery&apos;</source>
-        <translation>&quot;%searchQuery&quot;でエレベーションされたオブジェクト一覧</translation>
-    </message>
-    <message>
-        <source>Edit</source>
-        <translation>編集</translation>
-    </message>
-    <message>
-        <source>Trash</source>
-        <translation>ゴミ箱</translation>
+        <translation>「%searchQuery」で優先表示されたすべてのオブジェクトを表示</translation>
     </message>
     <message>
         <source>Elevation detail for object %objectName</source>
-        <translation>%objectNameの既存設定</translation>
+        <translation>オブジェクト %objectName の優先表示の詳細</translation>
     </message>
     <message>
         <source>Missing content object.</source>
-        <translation>コンテンツオブジェクトはありません。</translation>
+        <translation>コンテンツオブジェクトがありません。</translation>
     </message>
     <message>
         <source>Elevate %objectName</source>
-        <translation>%objectNameをエレベーションする</translation>
-    </message>
-    <message>
-        <source>Elevate %objectlink with:</source>
-        <translation>%objectlinkをエレベーションする:</translation>
-    </message>
-    <message>
-        <source>for language:</source>
-        <translation>言語で:</translation>
+        <translation>%objectName の優先表示</translation>
     </message>
     <message>
         <source>Existing configurations for %objectName</source>
-        <translation>%objectNameの既存設定</translation>
+        <translation>%objectName の既存の構成</translation>
     </message>
     <message>
         <source>in %selectedLanguage</source>
-        <translation>%selectedLanguageで</translation>
+        <translation>言語: %selectedLanguage</translation>
     </message>
     <message>
         <source>containing &apos;%searchQuery&apos;</source>
-        <translation>&apos;%searchQuery&apos;を含める</translation>
+        <translation>「%searchQuery」を含む</translation>
     </message>
     <message>
         <source>Search query to filter the result set on.</source>
-        <translation>結果を絞り込む検索クエリを有効。</translation>
+        <translation>結果を絞り込む検索クエリ。</translation>
+    </message>
+    <message>
+        <source>Filter</source>
+        <translation>フィルター</translation>
     </message>
     <message>
         <source>Filter configurations by language</source>
-        <translation>言語設定で絞り込み</translation>
+        <translation>言語による構成の絞り込み</translation>
     </message>
     <message>
         <source>Removal confirmed ( for %objectName ) :</source>
-        <translation>削除されました（%objectName）:</translation>
+        <translation>削除が確認されました（%objectName）:</translation>
     </message>
     <message>
         <source>Confirm removal of the following Elevate configuration ( for %objectName ) :</source>
-        <translation>次のエレベーション設定の削除を確認(%objectName ):</translation>
+        <translation>次の優先表示の構成の削除を確認してください（%objectName）:</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>前</translation>
+        <translation>戻る</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -738,42 +725,94 @@
     </message>
     <message>
         <source>Confirm removal of the elevate configuration</source>
-        <translation>エレベーション設定の削除を確認</translation>
+        <translation>優先表示の構成の削除の確認</translation>
     </message>
     <message>
         <source>Cancel removal of the elevate configuration</source>
-        <translation>エレベーション設定の削除をキャンセル</translation>
+        <translation>優先表示の構成の削除のキャンセル</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation>編集</translation>
+    </message>
+    <message>
+        <source>Trash</source>
+        <translation>削除</translation>
+    </message>
+    <message>
+        <source>Elevate %objectlink with:</source>
+        <translation>%objectlink を次で優先表示:</translation>
+    </message>
+    <message>
+        <source>for language:</source>
+        <translation>言語:</translation>
+    </message>
+    <message>
+        <source>Error while generating the configuration XML</source>
+        <translation>構成 XML の生成中にエラーが発生しました</translation>
+    </message>
+    <message>
+        <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
+        <translation>Solr の優先表示の構成の更新中に不明なエラーが発生しました。</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>優先表示の構成を保存できませんでした。</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>オブジェクト</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>優先表示の構成を表示するオブジェクトを選択してください。</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>1 ページの表示件数</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>1 ページに %count 件のアイテムを表示します。</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>優先表示の構成が削除されました。</translation>
     </message>
 </context>
 <context>
     <name>extension/ezfind/facets</name>
-    <message>
-        <source>Content type</source>
-        <translation type="unfinished">コンテンツタイプ</translation>
-    </message>
-    <message>
-        <source>Author</source>
-        <translation type="unfinished">作成者</translation>
-    </message>
-    <message>
-        <source>Keywords</source>
-        <translation type="unfinished">キーワード</translation>
-    </message>
     <message>
         <source>Creation time</source>
         <translation>作成日時</translation>
     </message>
     <message>
         <source>Clear all</source>
-        <translation>すべて取り消し</translation>
+        <translation>すべてクリア</translation>
+    </message>
+    <message>
+        <source>Content type</source>
+        <translation>コンテンツの種類</translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation>作成者</translation>
+    </message>
+    <message>
+        <source>Keywords</source>
+        <translation>キーワード</translation>
     </message>
     <message>
         <source>Publication Year</source>
-        <translation type="unfinished"></translation>
+        <translation>公開年</translation>
     </message>
     <message>
         <source>Clear all filters</source>
-        <translation type="unfinished"></translation>
+        <translation>すべてのフィルターのクリア</translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation>最終更新日時</translation>
     </message>
 </context>
 <context>
@@ -784,46 +823,45 @@
     </message>
     <message>
         <source>Elevate</source>
-        <translation>エレベーションする</translation>
+        <translation>優先表示</translation>
     </message>
     <message>
         <source>Elevation detail</source>
-        <translation>エレベーション詳細</translation>
+        <translation>優先表示の詳細</translation>
     </message>
 </context>
 <context>
     <name>ezfind</name>
     <message>
-        <source>Search time: %1 msecs</source>
-        <translation type="obsolete">検索時間：%1ミリ秒</translation>
+        <source>Core search time: %1 msecs</source>
+        <translation>コアの検索時間: %1 ミリ秒</translation>
     </message>
     <message>
-        <source>Core search time: %1 msecs</source>
-        <translation>コア検索時間：%1秒</translation>
+        <source>The search engine could not run this search</source>
+        <translation>検索エンジンでこの検索を実行できませんでした</translation>
     </message>
     <message>
         <source>N/A</source>
-        <translation>該当せず (データがありません)</translation>
-    </message>
-    <message>
-        <source>Server not running</source>
-        <translation type="obsolete">サ－バ－が作動していません</translation>
-    </message>
-    <message>
-        <source>eZ Find search plugin &amp;copy; 2007 eZ Systems AS, eZ Labs</source>
-        <translation type="obsolete">eZ Find search plugin &amp;copy; 2007 eZ Systems AS, eZ Labs</translation>
+        <translation>接続不可</translation>
     </message>
     <message>
         <source>Search took: %1 msecs, using </source>
-        <translation>検索時間: %1ms </translation>
+        <translation>検索時間: %1 ミリ秒、使用: </translation>
     </message>
     <message>
-        <source>eZ Find 2.3 search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 1.5-dev</source>
-        <translation type="obsolete">eZ Find 2.3 検索プラグイン &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 1.5-dev</translation>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
+        <translation>eZ Find %version 検索プラグイン &amp;copy; 1999-2014 eZ Systems AS、Apache Solr 4.7.0 を使用</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
     </message>
     <message>
-        <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
-        <translation type="unfinished"></translation>
+        <source>Elevation</source>
+        <translation>優先表示</translation>
     </message>
 </context>
 </TS>
