@@ -34,7 +34,7 @@
         "php": ">=8.0",
         "ext-curl": "*",
         "se7enxweb/ezpublish-legacy-installer": "*",
-        "se7enxweb/ezpublish": ">=v6.0.0"
+        "se7enxweb/exponential": ">=6.0.0 || dev-main"
     },
     "replace": {
         "se7enxweb/ezfind-ls": "self.version"
