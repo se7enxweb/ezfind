@@ -36,6 +36,9 @@
         "se7enxweb/ezpublish-legacy-installer": "*",
         "se7enxweb/ezpublish": ">=v6.0.0"
     },
+    "replace": {
+        "se7enxweb/ezfind-ls": "self.version"
+    },
     "extra": {
         "ezpublish-legacy-extension-name": "ezfind",
         "installer-name": "ezfind"
