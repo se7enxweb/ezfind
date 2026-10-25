@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
+<TS version="2.0" language="ca_ES">
 <context>
     <name>design/admin/content/search</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Cerca</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <source>All content</source>
-        <translation type="unfinished"></translation>
+        <translation>Tot el contingut</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished"></translation>
+        <translation>La mateixa ubicació</translation>
     </message>
     <message>
         <source>For more options try the %1Advanced search%2.</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation type="unfinished"></translation>
+        <translation>Per tenir més opcions, prova la %1cerca avançada%2.</translation>
     </message>
     <message>
         <source>The following words were excluded from the search</source>
-        <translation type="unfinished"></translation>
+        <translation>Les paraules següents s&apos;han exclòs de la cerca</translation>
     </message>
     <message>
         <source>No results were found while searching for &lt;%1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha trobat cap resultat en cercar &lt;%1&gt;</translation>
     </message>
     <message>
         <source>Search tips</source>
-        <translation type="unfinished">Consells de cerca</translation>
+        <translation>Consells de cerca</translation>
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation type="unfinished">Comprova com has escrit les paraules clau.</translation>
+        <translation>Comprova l&apos;ortografia de les paraules clau.</translation>
     </message>
     <message>
         <source>Try changing some keywords e.g. &amp;quot;car&amp;quot; instead of &amp;quot;cars&amp;quot;.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prova de canviar algunes paraules clau, per exemple &amp;quot;cotxe&amp;quot; en lloc de &amp;quot;cotxes&amp;quot;.</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prova amb paraules clau més generals.</translation>
     </message>
     <message>
         <source>Fewer keywords result in more matches. Try reducing keywords until you get a result.</source>
-        <translation type="unfinished"></translation>
+        <translation>Com menys paraules clau, més coincidències. Prova de reduir les paraules clau fins que obtinguis algun resultat.</translation>
     </message>
     <message>
         <source>Search for &lt;%1&gt; returned %2 matches</source>
-        <translation type="unfinished"></translation>
+        <translation>La cerca de &lt;%1&gt; ha trobat %2 coincidències</translation>
     </message>
 </context>
 <context>
@@ -72,161 +72,153 @@
     <name>design/admin/pagelayout</name>
     <message>
         <source>Search in all content</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca a tot el contingut</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Cerca</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Avançat</translation>
     </message>
     <message>
         <source>Search in &apos;%node&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca a &apos;%node&apos;</translation>
     </message>
     <message>
         <source>Advanced search.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca avançada.</translation>
     </message>
     <message>
         <source>Search scope</source>
-        <translation type="unfinished"></translation>
+        <translation>Àmbit de la cerca</translation>
     </message>
     <message>
         <source>Section</source>
-        <translation type="unfinished"></translation>
+        <translation>Secció</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Tots</translation>
+        <translation>Tots</translation>
     </message>
     <message>
         <source>Search only from the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca només a la ubicació actual</translation>
     </message>
     <message>
         <source>Current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Ubicació actual</translation>
     </message>
     <message>
         <source>The same location</source>
-        <translation type="unfinished"></translation>
+        <translation>La mateixa ubicació</translation>
     </message>
 </context>
 <context>
     <name>design/base</name>
     <message>
         <source>The following words were excluded from the search</source>
-        <translation type="unfinished"></translation>
+        <translation>Les paraules següents s&apos;han exclòs de la cerca</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Cerca</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <source>For more options try the %1Advanced search%2</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation type="unfinished">Per a més opcions fes servir la %1Cerca avançada%2</translation>
+        <translation>Si vols més opcions, prova la %1cerca avançada%2</translation>
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha trobat cap resultat per a la cerca de «%1»</translation>
     </message>
     <message>
         <source>Search tips</source>
-        <translation type="unfinished">Consells de cerca</translation>
+        <translation>Consells de cerca</translation>
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation type="unfinished">Comprova com has escrit les paraules clau.</translation>
+        <translation>Comprova l&apos;ortografia de les paraules clau.</translation>
     </message>
     <message>
         <source>Try changing some keywords eg. car instead of cars.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prova de canviar algunes paraules clau, p. ex. cotxe en lloc de cotxes.</translation>
     </message>
     <message>
         <source>Try more general keywords.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prova amb paraules clau més generals.</translation>
     </message>
     <message>
         <source>Fewer keywords gives more results, try reducing keywords until you get a result.</source>
-        <translation type="unfinished"></translation>
+        <translation>Menys paraules clau donen més resultats; prova de reduir les paraules clau fins que obtinguis algun resultat.</translation>
     </message>
     <message>
         <source>Search for &quot;%1&quot; returned %2 matches</source>
-        <translation type="unfinished">La cerca per &quot;%1&quot; ha retornat %2 coincidències</translation>
+        <translation>La cerca de «%1» ha trobat %2 coincidències</translation>
     </message>
 </context>
 <context>
     <name>design/ezdemo/full/product</name>
     <message>
         <source>You might also be interested in:</source>
-        <translation type="unfinished"></translation>
+        <translation>També et pot interessar:</translation>
     </message>
     <message>
         <source>People who bought this also bought</source>
-        <translation type="unfinished"></translation>
+        <translation>Les persones que han comprat això també han comprat</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation type="unfinished"></translation>
+        <translation>Import</translation>
     </message>
     <message>
         <source>Add to basket</source>
-        <translation type="unfinished"></translation>
+        <translation>Afegeix a la cistella</translation>
     </message>
 </context>
 <context>
     <name>design/ezfind/search</name>
     <message>
         <source>The search is case insensitive. Upper and lower case characters may be used.</source>
-        <translation>La cerca no és sensible a la capitalització. Es poden fer servir majúscules i minúscules.</translation>
+        <translation>La cerca no distingeix entre majúscules i minúscules. Pots utilitzar caràcters en majúscula i en minúscula.</translation>
     </message>
     <message>
         <source>The search result contains all search terms.</source>
-        <translation>Els resultats contenen totes les paraules clau de la cerca.</translation>
-    </message>
-    <message>
-        <source>Phrase search can be achieved by using quotes, example: &quot;No TV and no beer make Homer go something something&quot;</source>
-        <translation type="obsolete">Es pot aconseguir fer una cerca de frase fent servir cometes, exemple: &quot;Prova de cerca&quot;</translation>
-    </message>
-    <message>
-        <source>Words may be excluded by using a minus ( - ) character, example: free -beer</source>
-        <translation type="obsolete">Es poden excloure paraules fent servir el caràcter menys ( - ), exemple: gratis -cervesa</translation>
+        <translation>El resultat de la cerca conté tots els termes de cerca.</translation>
     </message>
     <message>
         <source>Spell check suggestion: did you mean</source>
-        <translation type="unfinished"></translation>
+        <translation>Suggeriment de correcció ortogràfica: volies dir</translation>
     </message>
     <message>
         <source>Phrase search can be achieved by using quotes, example: &quot;Quick brown fox jumps over the lazy dog&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Pots cercar una frase fent servir cometes, per exemple: «Quick brown fox jumps over the lazy dog»</translation>
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Pots excloure paraules fent servir el caràcter menys ( - ), per exemple: lazy -dog</translation>
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) prefix character, example: lazy -dog</source>
-        <translation type="unfinished"></translation>
+        <translation>Pots excloure paraules fent servir el caràcter menys ( - ) com a prefix, per exemple: lazy -dog</translation>
     </message>
     <message>
         <source>Words may be required by using a plus ( + ) prefix character, example: +yellow coat</source>
-        <translation type="unfinished"></translation>
+        <translation>Pots exigir paraules fent servir el caràcter més ( + ) com a prefix, per exemple: +yellow coat</translation>
     </message>
     <message>
         <source>Wildcard characters * and ? can be used for partial string matching, example: syst* may expand to systems</source>
-        <translation type="unfinished"></translation>
+        <translation>Pots utilitzar els caràcters comodí * i ? per a la coincidència parcial de cadenes, per exemple: syst* pot expandir-se a systems</translation>
     </message>
     <message>
         <source>Fuzzy searches can also be used appending a ~ character, example: like suster~ may match sister</source>
-        <translation type="unfinished"></translation>
+        <translation>També pots fer cerques aproximades afegint el caràcter ~, per exemple: suster~ pot coincidir amb sister</translation>
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation type="unfinished"></translation>
+        <translation>Pots establir cerques de proximitat fent servir cometes dobles i una distància màxima (en paraules) després del caràcter ~, per exemple: «conference publish»~5 coincidirà amb el text en què conference i publish estiguin separats per un màxim de 5 paraules</translation>
     </message>
 </context>
 <context>
@@ -245,11 +237,11 @@
     <message>
         <source>For more options try the %1Advanced search%2</source>
         <comment>The parameters are link start and end tags.</comment>
-        <translation>Per a més opcions fes servir la %1Cerca avançada%2</translation>
+        <translation>Si vols més opcions, prova la %1cerca avançada%2</translation>
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;.</source>
-        <translation>No s&apos;han trobat resultats al cercar per &quot;%1&quot;.</translation>
+        <translation>No s&apos;ha trobat cap resultat en cercar «%1».</translation>
     </message>
     <message>
         <source>Search tips</source>
@@ -257,15 +249,15 @@
     </message>
     <message>
         <source>Check spelling of keywords.</source>
-        <translation>Comprova com has escrit les paraules clau.</translation>
+        <translation>Comprova l&apos;ortografia de les paraules clau.</translation>
     </message>
     <message>
         <source>Try changing some keywords (eg, &quot;car&quot; instead of &quot;cars&quot;).</source>
-        <translation>Pots provar canviant algunes paraules clau (per exemple, &quot;cotxe&quot; en comptes de &quot;cotxes&quot;).</translation>
+        <translation>Prova de canviar algunes paraules clau (p. ex., «cotxe» en lloc de «cotxes»).</translation>
     </message>
     <message>
         <source>Try searching with less specific keywords.</source>
-        <translation>Pots provar cercant amb menys paraules clau.</translation>
+        <translation>Prova de cercar amb paraules clau menys específiques.</translation>
     </message>
     <message>
         <source>Reduce number of keywords to get more results.</source>
@@ -273,214 +265,217 @@
     </message>
     <message>
         <source>Search for &quot;%1&quot; returned %2 matches</source>
-        <translation>La cerca per &quot;%1&quot; ha retornat %2 coincidències</translation>
+        <translation>La cerca de «%1» ha trobat %2 coincidències</translation>
     </message>
     <message>
         <source>Help</source>
         <translation>Ajuda</translation>
     </message>
     <message>
-        <source>Refine with facets</source>
-        <translation type="obsolete">Refina amb característiques</translation>
-    </message>
-    <message>
         <source>Refine your search</source>
-        <translation type="unfinished"></translation>
+        <translation>Afina la cerca</translation>
     </message>
     <message>
         <source>tips</source>
-        <translation type="unfinished"></translation>
+        <translation>consells</translation>
     </message>
     <message>
         <source>Remove filter on </source>
-        <translation type="unfinished"></translation>
+        <translation>Treu el filtre de </translation>
     </message>
 </context>
 <context>
     <name>design/ezwebin/full/article</name>
     <message>
         <source>Comments</source>
-        <translation type="unfinished"></translation>
+        <translation>Comentaris</translation>
     </message>
     <message>
         <source>New comment</source>
-        <translation type="unfinished"></translation>
+        <translation>Comentari nou</translation>
     </message>
     <message>
         <source>%login_link_startLog in%login_link_end or %create_link_startcreate a user account%create_link_end to comment.</source>
-        <translation type="unfinished"></translation>
+        <translation>%login_link_startLog Inicia la sessió%login_link_end o %create_link_startcreate crea un compte d&apos;usuari%create_link_end per comentar.</translation>
     </message>
     <message>
         <source>Tip a friend</source>
-        <translation type="unfinished"></translation>
+        <translation>Recomana a un amic</translation>
     </message>
     <message>
         <source>Related content</source>
-        <translation type="unfinished"></translation>
+        <translation>Contingut relacionat</translation>
     </message>
 </context>
 <context>
     <name>design/ezwebin/pagelayout</name>
     <message>
         <source>Search text:</source>
-        <translation type="unfinished"></translation>
+        <translation>Text de cerca:</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Cerca</translation>
+        <translation>Cerca</translation>
     </message>
 </context>
 <context>
     <name>design/standard/content/search</name>
     <message>
         <source>Advanced search</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca avançada</translation>
     </message>
     <message>
         <source>Search all the words</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca totes les paraules</translation>
     </message>
     <message>
         <source>Search the exact phrase</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca la frase exacta</translation>
     </message>
     <message>
         <source>Search with at least one of the words</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca amb almenys una de les paraules</translation>
     </message>
     <message>
         <source>Class</source>
-        <translation type="unfinished"></translation>
+        <translation>Classe</translation>
     </message>
     <message>
         <source>Any class</source>
-        <translation type="unfinished"></translation>
+        <translation>Qualsevol classe</translation>
     </message>
     <message>
         <source>Class attribute</source>
-        <translation type="unfinished"></translation>
+        <translation>Atribut de classe</translation>
     </message>
     <message>
         <source>Any attribute</source>
-        <translation type="unfinished"></translation>
+        <translation>Qualsevol atribut</translation>
     </message>
     <message>
         <source>Update attributes</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualitza els atributs</translation>
     </message>
     <message>
         <source>In</source>
-        <translation type="unfinished"></translation>
+        <translation>A</translation>
     </message>
     <message>
         <source>Any section</source>
-        <translation type="unfinished"></translation>
+        <translation>Qualsevol secció</translation>
     </message>
     <message>
         <source>Published</source>
-        <translation type="unfinished"></translation>
+        <translation>Publicat</translation>
     </message>
     <message>
         <source>Any time</source>
-        <translation type="unfinished"></translation>
+        <translation>Qualsevol data</translation>
     </message>
     <message>
         <source>Last day</source>
-        <translation type="unfinished"></translation>
+        <translation>Darrer dia</translation>
     </message>
     <message>
         <source>Last week</source>
-        <translation type="unfinished"></translation>
+        <translation>Darrera setmana</translation>
     </message>
     <message>
         <source>Last month</source>
-        <translation type="unfinished"></translation>
+        <translation>Darrer mes</translation>
     </message>
     <message>
         <source>Last three months</source>
-        <translation type="unfinished"></translation>
+        <translation>Darrers tres mesos</translation>
     </message>
     <message>
         <source>Last year</source>
-        <translation type="unfinished"></translation>
+        <translation>Darrer any</translation>
     </message>
     <message>
         <source>Display per page</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra per pàgina</translation>
     </message>
     <message>
         <source>5 items</source>
-        <translation type="unfinished"></translation>
+        <translation>5 elements</translation>
     </message>
     <message>
         <source>10 items</source>
-        <translation type="unfinished"></translation>
+        <translation>10 elements</translation>
     </message>
     <message>
         <source>20 items</source>
-        <translation type="unfinished"></translation>
+        <translation>20 elements</translation>
     </message>
     <message>
         <source>30 items</source>
-        <translation type="unfinished"></translation>
+        <translation>30 elements</translation>
     </message>
     <message>
         <source>50 items</source>
-        <translation type="unfinished"></translation>
+        <translation>50 elements</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Cerca</translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <source>No results were found when searching for &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha trobat cap resultat per a la cerca de «%1»</translation>
     </message>
     <message>
         <source>Search for &quot;%1&quot; returned %2 matches</source>
-        <translation type="unfinished">La cerca per &quot;%1&quot; ha retornat %2 coincidències</translation>
+        <translation>La cerca de «%1» ha trobat %2 coincidències</translation>
     </message>
     <message>
         <source>Score</source>
-        <translation type="unfinished"></translation>
+        <translation>Rellevància</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom</translation>
     </message>
 </context>
 <context>
     <name>extension/ezfind</name>
     <message>
         <source>eZFind</source>
-        <translation type="unfinished">eZFind</translation>
+        <translation>eZFind</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished">Elevació</translation>
-    </message>
-    <message>
-        <source>Elevation detail</source>
-        <translation type="obsolete">Detalls de l&apos;elevació</translation>
+        <translation>Elevació</translation>
     </message>
     <message>
         <source>Remove Elevation</source>
-        <translation type="unfinished">Esborra Elevació</translation>
+        <translation>Treu l&apos;elevació</translation>
+    </message>
+</context>
+<context>
+    <name>extension/ezfind/autocomplete</name>
+    <message>
+        <source>%count suggestions</source>
+        <translation>%count suggeriments</translation>
+    </message>
+    <message>
+        <source>No suggestions</source>
+        <translation>Cap suggeriment</translation>
     </message>
 </context>
 <context>
     <name>extension/ezfind/ajax-search</name>
+    <message>
+        <source>No search results...</source>
+        <translation>No hi ha resultats de cerca...</translation>
+    </message>
     <message>
         <source>Did you mean</source>
         <translation>Volies dir</translation>
     </message>
     <message>
         <source>Refine with facets</source>
-        <translation>Refina amb característiques</translation>
-    </message>
-    <message>
-        <source>No search results...</source>
-        <translation type="unfinished"></translation>
+        <translation>Afina amb facetes</translation>
     </message>
 </context>
 <context>
@@ -495,30 +490,18 @@
     </message>
     <message>
         <source>Boost</source>
-        <translation>Potenciar</translation>
+        <translation>Impuls</translation>
     </message>
     <message>
         <source>Facets</source>
-        <translation>Característiques</translation>
+        <translation>Facetes</translation>
     </message>
 </context>
 <context>
     <name>extension/ezfind/elevate</name>
     <message>
-        <source>Error while generating the configuration XML</source>
-        <translation type="unfinished">S&apos;ha produït un error al generar la configuració XML</translation>
-    </message>
-    <message>
-        <source>Unable to open &apos;%1&apos;. Write access is required on this file in order to flush Solr&apos;s elevate configuration.</source>
-        <translation type="obsolete">No s&apos;ha pogut obrir &apos;%1&apos;. Es requereix accés d&apos;escriptura sobre aquest arxiu per netejar la configuració d&apos;elevació del Solr.</translation>
-    </message>
-    <message>
-        <source>Unable to write Solr&apos;s elevate configuration in &apos;%1&apos;, although the file could be properly opened.</source>
-        <translation type="obsolete">No s&apos;ha pogut escriure la configuració d&apos;elevació del Solr a &apos;%1&apos;, encara que l&apos;arxiu s&apos;ha pogut obrir correctament.</translation>
-    </message>
-    <message>
         <source>Hide preview of existing elevate configurations.</source>
-        <translation>Oculta la previsualització de les configuracions d&apos;elevació existents.</translation>
+        <translation>Amaga la previsualització de les configuracions d&apos;elevació existents.</translation>
     </message>
     <message>
         <source>Preview existing configurations</source>
@@ -534,11 +517,11 @@
     </message>
     <message>
         <source>Please enter a search query.</source>
-        <translation>Si us plau, escriu una petició de cerca.</translation>
+        <translation>Introdueix una consulta de cerca.</translation>
     </message>
     <message>
         <source>Please choose a valid object.</source>
-        <translation>Si us plau, tria un objecte vàlid.</translation>
+        <translation>Tria un objecte vàlid.</translation>
     </message>
     <message>
         <source>Missing language information.</source>
@@ -546,7 +529,7 @@
     </message>
     <message>
         <source>Successful creation of the following Elevate configuration</source>
-        <translation>La següent configuració d&apos;elevació s&apos;ha creat correctament</translation>
+        <translation>S&apos;ha creat correctament la configuració d&apos;Elevate següent</translation>
     </message>
     <message>
         <source>Details</source>
@@ -554,11 +537,11 @@
     </message>
     <message>
         <source>Successful synchronization of the local Elevate configuration with Solr&apos;s.</source>
-        <translation>La configuració local d&apos;elevació amb Solr s&apos;ha sincronitzat correctament.</translation>
+        <translation>S&apos;ha sincronitzat correctament la configuració local d&apos;Elevate amb la de Solr.</translation>
     </message>
     <message>
         <source>Synchronise Elevate configuration with Solr</source>
-        <translation>Sincronitza la configuració d&apos;elevació amb Solr</translation>
+        <translation>Sincronitza la configuració d&apos;Elevate amb Solr</translation>
     </message>
     <message>
         <source>Synchronise</source>
@@ -566,35 +549,35 @@
     </message>
     <message>
         <source>Synchronise the Elevate configuration with Solr.</source>
-        <translation>Sincronitza la configuració d&apos;elevació amb Solr.</translation>
+        <translation>Sincronitza la configuració d&apos;Elevate amb Solr.</translation>
     </message>
     <message>
         <source>Elevate an object</source>
-        <translation>Eleva un objecte</translation>
+        <translation>Destaca un objecte</translation>
     </message>
     <message>
         <source>&quot;Elevating an object&quot; for a given search query means that this object will be returned among the very first search results when a search is triggered using this search query.</source>
-        <translation>&quot;Elevar un objecte&quot; per a una petició de cerca específica vol dir que es retornarà aquest objecte com a un dels primers resultats quan es performi una cerca fent servir aquesta petició.</translation>
+        <translation>«Destacar un objecte» per a una consulta de cerca determinada vol dir que aquest objecte es retornarà entre els primers resultats quan es faci una cerca amb aquesta consulta.</translation>
     </message>
     <message>
         <source>Search query</source>
-        <translation>Petició de cerca</translation>
+        <translation>Terme de cerca</translation>
     </message>
     <message>
         <source>Search query to elevate the object for.</source>
-        <translation>Petició de cerca per a elevar l&apos;objecte.</translation>
+        <translation>Consulta de cerca per a la qual es destaca l&apos;objecte.</translation>
     </message>
     <message>
         <source>Elevate object</source>
-        <translation>Eleva objecte</translation>
+        <translation>Destaca l&apos;objecte</translation>
     </message>
     <message>
         <source>Browse for the object to associate elevation to.</source>
-        <translation>Navega per triar l&apos;objecte a associar amb l&apos;elevació.</translation>
+        <translation>Explora per trobar l&apos;objecte al qual associar el destacat.</translation>
     </message>
     <message>
         <source>Elevate %objectlink with &amp;nbsp;  %searchquery &amp;nbsp;  for language:</source>
-        <translation>Eleva %objectlink amb &amp;nbsp;(sp)(sp)%searchquery &amp;nbsp;(sp)(sp)a l&apos;idioma:</translation>
+        <translation>Destaca %objectlink amb &amp;nbsp;  %searchquery &amp;nbsp;  per a l&apos;idioma:</translation>
     </message>
     <message>
         <source>All</source>
@@ -602,27 +585,27 @@
     </message>
     <message>
         <source>Elevate</source>
-        <translation>Eleva</translation>
+        <translation>Destaca</translation>
     </message>
     <message>
         <source>Store elevation</source>
-        <translation>Emmagatzema elevació</translation>
+        <translation>Desa el destacat</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancel.la</translation>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <source>Cancel elevation</source>
-        <translation>Cancel.la elevació</translation>
+        <translation>Cancel·la el destacat</translation>
     </message>
     <message>
         <source>Search for elevated objects</source>
-        <translation>Cerca objectes elevats</translation>
+        <translation>Cerca objectes destacats</translation>
     </message>
     <message>
         <source>By search query</source>
-        <translation>Per petició de cerca</translation>
+        <translation>Per consulta de cerca</translation>
     </message>
     <message>
         <source>Language</source>
@@ -630,23 +613,19 @@
     </message>
     <message>
         <source>Select a translation to narrow down the search.</source>
-        <translation>Tria un idioma per reduir la cerca.</translation>
+        <translation>Selecciona una traducció per afinar la cerca.</translation>
     </message>
     <message>
         <source>Fuzzy match</source>
-        <translation>Coincidència borrosa</translation>
+        <translation>Coincidència aproximada</translation>
     </message>
     <message>
         <source>Fuzzy match on the search query.</source>
-        <translation>Coincidència borrosa a la petició de cerca.</translation>
-    </message>
-    <message>
-        <source>Find matching elevate configurations</source>
-        <translation type="obsolete">Troba configuracions d&apos;elevació coincidents</translation>
+        <translation>Coincidència aproximada amb la consulta de cerca.</translation>
     </message>
     <message>
         <source>Find elevate configurations matching the search query entered.</source>
-        <translation>Troba configuracions d&apos;elevació que coincideixin amb la petició de cerca indicada.</translation>
+        <translation>Troba les configuracions d&apos;elevació que coincideixen amb la consulta de cerca introduïda.</translation>
     </message>
     <message>
         <source>By object</source>
@@ -654,15 +633,15 @@
     </message>
     <message>
         <source>Browse</source>
-        <translation>Navega</translation>
+        <translation>Selecciona</translation>
     </message>
     <message>
         <source>Objects elevated by &quot;%search_query&quot;</source>
-        <translation>Objectes elevats per &quot;%search_query&quot;</translation>
+        <translation>Objectes elevats per «%search_query»</translation>
     </message>
     <message>
         <source>fuzzy match</source>
-        <translation>coincidència borrosa</translation>
+        <translation>coincidència aproximada</translation>
     </message>
     <message>
         <source>Existing configurations</source>
@@ -670,7 +649,7 @@
     </message>
     <message>
         <source>No existing Elevate configuration.</source>
-        <translation>No existeix cap configuració d&apos;elevació.</translation>
+        <translation>No hi ha cap configuració d&apos;elevació.</translation>
     </message>
     <message>
         <source>Content object</source>
@@ -682,19 +661,19 @@
     </message>
     <message>
         <source>See elevate configuration details for &apos;%objectName&apos;</source>
-        <translation>Veure els detalls de configuració d&apos;elevació de &apos;%objectName&apos;</translation>
+        <translation>Mostra els detalls de la configuració d&apos;elevació de «%objectName»</translation>
     </message>
     <message>
         <source>Remove elevation by &apos;%searchQuery&apos; for &apos;%objectName&apos;.</source>
-        <translation>Esborra elevació per &apos;%searchQuery&apos; de &apos;%objectName&apos;.</translation>
+        <translation>Treu l&apos;elevació per «%searchQuery» de «%objectName».</translation>
     </message>
     <message>
         <source>See all objects elevated by &apos;%searchQuery&apos;</source>
-        <translation>Veure tots els objectes elevats per &apos;%searchQuery&apos;</translation>
+        <translation>Mostra tots els objectes elevats per «%searchQuery»</translation>
     </message>
     <message>
         <source>Elevation detail for object %objectName</source>
-        <translation>Detalls d&apos;elevació per l&apos;objecte %objectName</translation>
+        <translation>Detall de l&apos;elevació de l&apos;objecte %objectName</translation>
     </message>
     <message>
         <source>Missing content object.</source>
@@ -706,7 +685,7 @@
     </message>
     <message>
         <source>Existing configurations for %objectName</source>
-        <translation>Configuracions existents de %objectName</translation>
+        <translation>Configuracions existents per a %objectName</translation>
     </message>
     <message>
         <source>in %selectedLanguage</source>
@@ -714,11 +693,11 @@
     </message>
     <message>
         <source>containing &apos;%searchQuery&apos;</source>
-        <translation>que contenen &apos;%searchQuery&apos;</translation>
+        <translation>que conté «%searchQuery»</translation>
     </message>
     <message>
         <source>Search query to filter the result set on.</source>
-        <translation>Petició de cerca per filtrar els resultats.</translation>
+        <translation>Consulta de cerca per filtrar el conjunt de resultats.</translation>
     </message>
     <message>
         <source>Filter</source>
@@ -726,128 +705,167 @@
     </message>
     <message>
         <source>Filter configurations by language</source>
-        <translation>Filtra configuracions per idioma</translation>
+        <translation>Filtra les configuracions per idioma</translation>
     </message>
     <message>
         <source>Removal confirmed ( for %objectName ) :</source>
-        <translation>Esborrament confirmat ( de %objectName ) :</translation>
+        <translation>Eliminació confirmada ( per a %objectName ) :</translation>
     </message>
     <message>
         <source>Confirm removal of the following Elevate configuration ( for %objectName ) :</source>
-        <translation>Confirma l&apos;esborrament de la següent configuració d&apos;elevació ( de %objectName ) :</translation>
+        <translation>Confirma l&apos;eliminació de la configuració d&apos;Elevate següent ( per a %objectName ) :</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Torna</translation>
+        <translation>Enrere</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Esborra</translation>
+        <translation>Treu</translation>
     </message>
     <message>
         <source>Confirm removal of the elevate configuration</source>
-        <translation>Confirma l&apos;esborrament de la configuració d&apos;elevació</translation>
+        <translation>Confirma l&apos;eliminació de la configuració d&apos;elevate</translation>
     </message>
     <message>
         <source>Cancel removal of the elevate configuration</source>
-        <translation>Cancel.la l&apos;esborrament de la configuració d&apos;elevació</translation>
-    </message>
-    <message>
-        <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
-        <translation type="unfinished">S&apos;ha produit un error al actualitzar la configuració d&apos;elevació del Solr.</translation>
+        <translation>Cancel·la l&apos;eliminació de la configuració d&apos;elevate</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Edita</translation>
     </message>
     <message>
         <source>Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Elimina</translation>
     </message>
     <message>
         <source>Elevate %objectlink with:</source>
-        <translation type="unfinished"></translation>
+        <translation>Eleva %objectlink amb:</translation>
     </message>
     <message>
         <source>for language:</source>
-        <translation type="unfinished"></translation>
+        <translation>per a l&apos;idioma:</translation>
+    </message>
+    <message>
+        <source>Error while generating the configuration XML</source>
+        <translation>Error en generar l&apos;XML de configuració</translation>
+    </message>
+    <message>
+        <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
+        <translation>S&apos;ha produït un error desconegut en actualitzar la configuració d&apos;elevate de Solr.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration could not be stored.</source>
+        <translation>No s&apos;ha pogut desar la configuració d&apos;Elevate.</translation>
+    </message>
+    <message>
+        <source>Object</source>
+        <translation>Objecte</translation>
+    </message>
+    <message>
+        <source>Choose an object to see its elevate configurations.</source>
+        <translation>Tria un objecte per veure&apos;n les configuracions d&apos;elevate.</translation>
+    </message>
+    <message>
+        <source>Per page</source>
+        <translation>Per pàgina</translation>
+    </message>
+    <message>
+        <source>Show %count items per page.</source>
+        <translation>Mostra %count elements per pàgina.</translation>
+    </message>
+    <message>
+        <source>The Elevate configuration was removed.</source>
+        <translation>S&apos;ha eliminat la configuració d&apos;Elevate.</translation>
     </message>
 </context>
 <context>
     <name>extension/ezfind/facets</name>
     <message>
-        <source>Content type</source>
-        <translation type="unfinished">Tipus de contingut</translation>
-    </message>
-    <message>
-        <source>Author</source>
-        <translation type="unfinished">Autor</translation>
-    </message>
-    <message>
-        <source>Keywords</source>
-        <translation type="unfinished">Paraules clau</translation>
-    </message>
-    <message>
         <source>Creation time</source>
-        <translation>Hora de creació</translation>
+        <translation>Data de creació</translation>
     </message>
     <message>
         <source>Clear all</source>
-        <translation>Neteja tot</translation>
+        <translation>Neteja-ho tot</translation>
+    </message>
+    <message>
+        <source>Content type</source>
+        <translation>Tipus de contingut</translation>
+    </message>
+    <message>
+        <source>Author</source>
+        <translation>Autor</translation>
+    </message>
+    <message>
+        <source>Keywords</source>
+        <translation>Paraules clau</translation>
     </message>
     <message>
         <source>Publication Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Any de publicació</translation>
     </message>
     <message>
         <source>Clear all filters</source>
-        <translation type="unfinished"></translation>
+        <translation>Neteja tots els filtres</translation>
+    </message>
+    <message>
+        <source>Last modified</source>
+        <translation>Última modificació</translation>
     </message>
 </context>
 <context>
     <name>extension/ezfind/popupmenu</name>
     <message>
         <source>eZ Find</source>
-        <translation>eZFind</translation>
+        <translation>eZ Find</translation>
     </message>
     <message>
         <source>Elevate</source>
-        <translation>Eleva</translation>
+        <translation>Destaca</translation>
     </message>
     <message>
         <source>Elevation detail</source>
-        <translation>Detalls de l&apos;elevació</translation>
+        <translation>Detall de l&apos;elevació</translation>
     </message>
 </context>
 <context>
     <name>ezfind</name>
     <message>
-        <source>Search time: %1 msecs</source>
-        <translation type="obsolete">Temps de cerca: %1 ms</translation>
+        <source>Core search time: %1 msecs</source>
+        <translation>Temps de cerca bàsic: %1 ms</translation>
     </message>
     <message>
-        <source>Core search time: %1 msecs</source>
-        <translation>Temps de cerca al nucli: %1 ms</translation>
+        <source>The search engine could not run this search</source>
+        <translation>El motor de cerca no ha pogut executar aquesta cerca</translation>
     </message>
     <message>
         <source>N/A</source>
         <translation>N/D</translation>
     </message>
     <message>
-        <source>eZ Find 2.0 search plugin &amp;copy; 2009 eZ Systems AS, powered by Apache Solr 1.4</source>
-        <translation type="obsolete">Extensió de cerca eZ Find 2.0 &amp;copy; 2009 eZ Systems AS, powered by Apache Solr 1.4</translation>
-    </message>
-    <message>
         <source>Search took: %1 msecs, using </source>
-        <translation>La cerca ha trigat: %1 msecs, emprant </translation>
+        <translation>La cerca ha trigat: %1 ms, amb </translation>
     </message>
     <message>
-        <source>eZ Find 2.2 search plugin &amp;copy; 2009 eZ Systems AS, powered by Apache Solr 1.4</source>
-        <translation type="obsolete">Extensió de cerca eZ Find 2.2 &amp;copy; 2009 eZ Systems AS, powered by Apache Solr 1.4</translation>
+        <source>eZ Find %version search plugin &amp;copy; 1999-2014 eZ Systems AS, powered by Apache Solr 4.7.0</source>
+        <translation>eZ Find %version connector de cerca &amp;copy; 1999-2014 eZ Systems AS, amb tecnologia Apache Solr 4.7.0</translation>
     </message>
     <message>
         <source>eZ Find %version search plugin &amp;copy; 1999-2013 eZ Systems AS, powered by Apache Solr 3.6.1</source>
-        <translation type="unfinished"></translation>
+        <translation>Connector de cerca eZ Find %version &amp;copy; 1999-2013 eZ Systems AS, amb tecnologia Apache Solr 3.6.1</translation>
+    </message>
+</context>
+<context>
+    <name>design/admin/parts/ezfind/menu</name>
+    <message>
+        <source>eZ Find</source>
+        <translation>eZ Find</translation>
+    </message>
+    <message>
+        <source>Elevation</source>
+        <translation>Elevació</translation>
     </message>
 </context>
 </TS>
