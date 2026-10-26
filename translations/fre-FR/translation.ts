@@ -198,7 +198,7 @@
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) character, example: lazy -dog</source>
-        <translation>Des mots peuvent être exclus en utilisant le caractère &quot;moins&quot; ( - ), par exemple: paresseux -chien</translation>
+        <translation>Des mots peuvent être exclus en utilisant le caractère &quot;moins&quot; ( - ), par exemple : paresseux -chien</translation>
     </message>
     <message>
         <source>Words may be excluded by using a minus ( - ) prefix character, example: lazy -dog</source>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation>Les recherches de proximité peuvent être effectuées en utilisant des guillemets et une distance maximale (en mots) après le caractère ~, par exemple: &quot;conférence publier&quot;~5 correspondra aux textes où conférence et publier sont séparés par un maximum de 5 mots</translation>
+        <translation>Les recherches de proximité peuvent être effectuées en utilisant des guillemets et une distance maximale (en mots) après le caractère ~, par exemple : &quot;conférence publier&quot;~5 correspondra aux textes où conférence et publier sont séparés par un maximum de 5 mots</translation>
     </message>
 </context>
 <context>
@@ -311,7 +311,7 @@
     <name>design/ezwebin/pagelayout</name>
     <message>
         <source>Search text:</source>
-        <translation>Rechercher le texte:</translation>
+        <translation>Rechercher le texte :</translation>
     </message>
     <message>
         <source>Search</source>
@@ -690,7 +690,7 @@
     </message>
     <message>
         <source>for language:</source>
-        <translation>pour le langage:</translation>
+        <translation>pour la langue :</translation>
     </message>
     <message>
         <source>Existing configurations for %objectName</source>
@@ -827,7 +827,7 @@
     </message>
     <message>
         <source>Core search time: %1 msecs</source>
-        <translation>Temps de recherche solr: %1 msecs</translation>
+        <translation>Temps de recherche solr : %1 msecs</translation>
     </message>
     <message>
         <source>N/A</source>

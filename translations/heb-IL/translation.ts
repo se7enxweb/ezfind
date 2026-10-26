@@ -84,7 +84,7 @@
     </message>
     <message>
         <source>Search in &apos;%node&apos;</source>
-        <translation>חיפוש ב-&apos;%node&apos;</translation>
+        <translation>חיפוש ב־&apos;%node&apos;</translation>
     </message>
     <message>
         <source>Advanced search.</source>
@@ -210,15 +210,15 @@
     </message>
     <message>
         <source>Wildcard characters * and ? can be used for partial string matching, example: syst* may expand to systems</source>
-        <translation>ניתן להשתמש בתווים כלליים * ו-? להתאמה חלקית של מחרוזות, לדוגמה: syst* עשוי להתרחב ל-systems</translation>
+        <translation>ניתן להשתמש בתווים כלליים * ו־? להתאמה חלקית של מחרוזות, לדוגמה: syst* עשוי להתרחב ל־systems</translation>
     </message>
     <message>
         <source>Fuzzy searches can also be used appending a ~ character, example: like suster~ may match sister</source>
-        <translation>ניתן להשתמש גם בחיפוש מקורב על ידי הוספת התו ~, לדוגמה: suster~ עשוי להתאים ל-sister</translation>
+        <translation>ניתן להשתמש גם בחיפוש מקורב על ידי הוספת התו ~, לדוגמה: suster~ עשוי להתאים ל־sister</translation>
     </message>
     <message>
         <source>Proximity searches can be established using double quotes and a maximum distance (in words) after a ~ character, example: &quot;conference publish&quot;~5 will match text where conference and publish are separated by a maximum of 5 words</source>
-        <translation>ניתן לבצע חיפוש קרבה באמצעות מירכאות כפולות ומרחק מרבי (במילים) אחרי התו ~, לדוגמה: &quot;conference publish&quot;~5 יתאים לטקסט שבו conference ו-publish מופרדות ב-5 מילים לכל היותר</translation>
+        <translation>ניתן לבצע חיפוש קרבה באמצעות מירכאות כפולות ומרחק מרבי (במילים) אחרי התו ~, לדוגמה: &quot;conference publish&quot;~5 יתאים לטקסט שבו conference ו־publish מופרדות ב־5 מילים לכל היותר</translation>
     </message>
 </context>
 <context>
@@ -633,7 +633,7 @@
     </message>
     <message>
         <source>Browse</source>
-        <translation>עיון</translation>
+        <translation>דפדוף</translation>
     </message>
     <message>
         <source>Objects elevated by &quot;%search_query&quot;</source>
@@ -689,7 +689,7 @@
     </message>
     <message>
         <source>in %selectedLanguage</source>
-        <translation>ב-%selectedLanguage</translation>
+        <translation>ב־%selectedLanguage</translation>
     </message>
     <message>
         <source>containing &apos;%searchQuery&apos;</source>
@@ -749,7 +749,7 @@
     </message>
     <message>
         <source>Error while generating the configuration XML</source>
-        <translation>שגיאה ביצירת קובץ ה-XML של התצורה</translation>
+        <translation>שגיאה ביצירת קובץ ה־XML של התצורה</translation>
     </message>
     <message>
         <source>An unknown error occured in updating Solr&apos;s elevate configuration.</source>
