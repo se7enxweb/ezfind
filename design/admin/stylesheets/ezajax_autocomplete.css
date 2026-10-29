@@ -53,7 +53,7 @@
 .ezfind-ac-match {
     background: none;
     color: inherit;
-    font-weight: 700;
+    font-weight: var(--a4-weight-bold, 700);
 }
 
 .ezfind-ac-status {
