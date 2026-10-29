@@ -24,7 +24,7 @@
  *          credit line has the source ezsolr.php translates
  *  A4-10 - A confirmed removal needs its search query and its language, and matches the stored encoded query
  *
- * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
+ * @copyright Copyright (C) 1998 - 2026 Exponential Foundation and 7x. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @package tests
  */

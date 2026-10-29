@@ -17,7 +17,7 @@
  *  PL-04 - A kernel without ezpContentLimitation::solrFilter() (or without the class): the limitation is left out,
  *          as before; and whatever is no filter from the kernel gives no access
  *
- * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
+ * @copyright Copyright (C) 1998 - 2026 Exponential Foundation and 7x. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @package tests
  */

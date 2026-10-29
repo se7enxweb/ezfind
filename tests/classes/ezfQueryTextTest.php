@@ -21,7 +21,7 @@
  *  QT-06 - fetch( 'ezfind', 'search' ) takes class_attribute_id and hands it to the query builder
  *  QT-07 - A Solr answer without 'response' is described by its error; SearchExtras.text_shortened
  *
- * @copyright Copyright (C) 1998 - 2026 7x & Exponential Foundation. All rights reserved.
+ * @copyright Copyright (C) 1998 - 2026 Exponential Foundation and 7x. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @package tests
  */
