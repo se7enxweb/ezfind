@@ -1,0 +1,6 @@
+Changes from 3.0.13 to 3.0.14 (2026-10-29)
+============================
+
+- Updated: The admin stylesheets use the shared admin tokens for weights, durations, radii, table headers and muted text, with the old values as fallbacks where a design has no tokens.
+
+Upgrading: composer update; clear the caches.
