@@ -1,3 +1,10 @@
+{* Exponential 6.0.15 and later (admininterface.ini [SearchSuggestSettings]): the design admin's own header search
+   suggests content, users, classes and administration pages while the user types, with eZ Find as the search engine.
+   This template hands over to it (the kernel's file, as this one has the same name); older versions keep eZ Find's
+   field and its word suggestions below. *}
+{if ezini_hasvariable( 'SearchSuggestSettings', 'Enabled', 'admininterface.ini' )}
+{include uri='file:design/admin/templates/page_search.tpl'}
+{else}
 {def $search_node_id = first_set( $search_subtree_array[0], $module_result.path[0].node_id, 1 )
      $search_title = "Search in all content"|i18n( 'design/admin/pagelayout' )
      $section_id = -1}
@@ -93,3 +100,4 @@
    head is already out when the page layout includes this template; each file sets itself up once. *}
 {ezscript( array( 'ezajax_autocomplete.js', 'ezfind_search.js' ) )}
 {undef $search_node_id $section_id}
+{/if}
