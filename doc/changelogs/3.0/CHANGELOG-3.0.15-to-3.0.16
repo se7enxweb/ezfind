@@ -1,0 +1,15 @@
+Changes from 3.0.15 to 3.0.16 (2026-11-14)
+============================
+
+- Updated: With Exponential 6.0.15 or later (admininterface.ini [SearchSuggestSettings]) eZ Find's design/admin
+  templates hand over to the kernel's: page_search.tpl to the kernel's header search with suggestions, content/search.tpl
+  to design:content/search_page.tpl with eZ Find's facets, sorting and the former advanced search. Older versions keep
+  eZ Find's field, word suggestions and page. This covers admin and admin2; admin3, admin4 and admin4l never read
+  eZ Find's templates (pull request #17 by Ekkehard Dörre).
+- Added: SS-05 in tests/classes/ezfSearchScriptsTest.php checks the handover of both templates and, inside an
+  installation, that the kernel files they hand over to exist.
+- Updated: The README explains which admin search each Exponential version shows (section The admin search).
+- Updated: eZFSolrDocumentFieldObjectRelation::getPlainTextRepresentation() and its test double declare their optional
+  attribute parameter as ?eZContentObjectAttribute, as PHP 8.4 deprecates an implicitly nullable parameter.
+
+Upgrading: composer update and clear the caches (template, template-override).
