@@ -42,6 +42,9 @@ and the extension adds a richer `fetch( ezfind, search )` for templates.
 - **Suggestions while typing** in the admin search box, the site's search box and
   search page (ezwebin, ezdemo) and the ezflow search block. The list is an
   accessible combobox (keyboard and screen readers), in plain JavaScript.
+  With Exponential 6.0.15 or later the administration's header search and search
+  page are the kernel's, with eZ Find as their engine (see
+  [The admin search](#the-admin-search)).
 - **Elevation**: an admin tab, *eZ Find*, where an editor pins an object to the
   top of the results for a search phrase, per language.
 - **More like this**: content similar to a node, an object, a URL or a text.
@@ -225,6 +228,34 @@ admin4 design it shows a search icon (`Icon=search` in `[Topmenu_ezfind]` of
 The page also lists the existing elevations and filters them by phrase and
 language. `ezfind/elevation_detail/<object id>` lists every phrase an object is
 elevated for, and `ezfind/remove_elevation` removes one.
+
+### The admin search
+
+Which header search and search page the administration shows depends on the
+Exponential version:
+
+| Exponential | Header search | Search page (`content/search`) |
+| --- | --- | --- |
+| 6.0.15 or later | The kernel's: suggestions for content, PDF pages, users, classes and administration pages while typing | The kernel's `content/search_page.tpl`: a filter bar with eZ Find's facets, sorting and the former advanced search, searching with `fetch( ezfind, search )` |
+| Earlier versions | eZ Find's: word suggestions from Solr (`ezfind::autocomplete`) | eZ Find's page with facets |
+
+eZ Find recognises the newer kernel by `[SearchSuggestSettings]` in
+`admininterface.ini`. Its two templates for the design admin,
+`design/admin/templates/page_search.tpl` and `design/admin/templates/content/search.tpl`,
+are read before the kernel's of the same name, so each one hands over to the
+kernel's file when that section exists and keeps eZ Find's own markup otherwise.
+This covers every administration design built on the design admin:
+
+- **admin and admin2**: eZ Find's templates are read, and hand over.
+- **admin3, admin4, admin4l and the designs built on them**: the kernel's
+  `page_search.tpl` and `content/search.tpl` of those designs are read before
+  design admin's, so eZ Find's templates are not used at all.
+
+Turning the suggestions off (`[SearchSuggestSettings] Enabled=false`) leaves the
+kernel's plain search field; it does not bring eZ Find's back. eZ Find stays the
+search engine either way (`site.ini [SearchSettings] SearchEngine=ezsolr`), and
+the site's search box and search page (ezwebin, ezdemo, ezflow) keep eZ Find's
+suggestions on every version.
 
 ### Searching from a template
 
