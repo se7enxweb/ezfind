@@ -176,7 +176,7 @@ class ezfSolrDocumentFieldObjectRelation extends ezfSolrDocumentFieldBase
      * @param eZContentObjectAttribute $contentObjectAttribute The ezobjectrelation/ezobjectrelationlist
      *                                                         textual representation shall be extracted from.
      */
-    protected function getPlainTextRepresentation( eZContentObjectAttribute $contentObjectAttribute = null )
+    protected function getPlainTextRepresentation( ?eZContentObjectAttribute $contentObjectAttribute = null )
     {
         if ( $contentObjectAttribute === null )
         {

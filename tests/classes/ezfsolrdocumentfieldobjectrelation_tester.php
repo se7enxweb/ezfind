@@ -4,7 +4,7 @@
  **/
 class ezfSolrDocumentFieldObjectRelationTester extends ezfSolrDocumentFieldObjectRelation
 {
-    public function getPlainTextRepresentation( eZContentObjectAttribute $contentObjectAttribute = null )
+    public function getPlainTextRepresentation( ?eZContentObjectAttribute $contentObjectAttribute = null )
     {
         return parent::getPlainTextRepresentation( $contentObjectAttribute );
     }
