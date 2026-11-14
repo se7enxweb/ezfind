@@ -12,6 +12,9 @@
  *  SS-03 - Nothing in the extension refers to YUI any more (the changelogs of earlier versions aside)
  *  SS-04 - Every search field with suggestions has an id, loads ezajax_autocomplete.js and its stylesheet's classes
  *          exist, and the templates carry no inline script or style
+ *  SS-05 - With Exponential 6.0.15 or later (admininterface.ini [SearchSuggestSettings]) both design/admin templates
+ *          hand over to the kernel's header search and search page, and keep eZ Find's own for older versions; when
+ *          the extension sits in an installation, the kernel files they hand over to exist there
  *
  * @copyright Copyright (C) 1998 - 2026 Exponential Foundation and 7x. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
@@ -107,5 +110,39 @@ class ezfSearchScriptsTest extends TestCase
             $this->assertDoesNotMatchRegularExpression( '/\sstyle\s*=/i', $source, $name );
             $this->assertDoesNotMatchRegularExpression( '/\son[a-z]+\s*=/i', $source, $name );
         }
+    }
+
+    /** SS-05 */
+    public function testAdminTemplatesHandOverToTheKernel()
+    {
+        $handover = array(
+            'design/admin/templates/page_search.tpl' => "{include uri='file:design/admin/templates/page_search.tpl'}",
+            'design/admin/templates/content/search.tpl' => "{include uri='design:content/search_page.tpl'}",
+        );
+        $guard = "{if ezini_hasvariable( 'SearchSuggestSettings', 'Enabled', 'admininterface.ini' )}";
+        foreach ( $handover as $name => $include )
+        {
+            $source = (string)preg_replace( '/\{\*.*?\*\}/s', '', (string)file_get_contents( self::root() . '/' . $name ) );
+            $lines = array_values( array_filter( array_map( 'trim', explode( "\n", $source ) ), 'strlen' ) );
+            // the guard and the handover come first, eZ Find's own template follows in the {else} branch and the
+            // closing {/if} is the last line, so nothing of eZ Find's runs next to the kernel's
+            $this->assertSame( $guard, $lines[0], $name );
+            $this->assertSame( $include, $lines[1], $name );
+            $this->assertSame( '{else}', $lines[2], $name );
+            $this->assertSame( '{/if}', $lines[count( $lines ) - 1], $name );
+            $this->assertSame( 1, substr_count( $source, $guard ), $name );
+            $this->assertSame( substr_count( $source, '{if ' ), substr_count( $source, '{/if}' ), $name );
+        }
+
+        // installed in an Exponential root (extension/ezfind): with [SearchSuggestSettings] the files exist
+        $kernel = dirname( self::root(), 2 );
+        $ini = $kernel . '/settings/admininterface.ini';
+        if ( !is_file( $ini ) || strpos( (string)file_get_contents( $ini ), '[SearchSuggestSettings]' ) === false )
+        {
+            $this->markTestSkipped( 'not inside an Exponential 6.0.15 or later installation' );
+        }
+        $this->assertFileExists( $kernel . '/design/admin/templates/page_search.tpl' );
+        $this->assertFileExists( $kernel . '/design/standard/templates/content/search_page.tpl' );
+        $this->assertStringNotContainsString( 'ezfind_search.js', (string)file_get_contents( $kernel . '/design/admin/templates/page_search.tpl' ) );
     }
 }
