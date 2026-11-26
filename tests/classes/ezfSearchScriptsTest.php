@@ -16,7 +16,7 @@
  *          hand over to the kernel's header search and search page, and keep eZ Find's own for older versions; when
  *          the extension sits in an installation, the kernel files they hand over to exist there
  *
- * @copyright Copyright (C) 1998 - 2026 Exponential Foundation and 7x. All rights reserved.
+ * @copyright Copyright (C) 1998 - 2026 Exponential Foundation and 7x; All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  * @package tests
  */
